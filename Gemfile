@@ -22,6 +22,7 @@ gem 'fog'
 gem 'faker', '~> 1.7', '>= 1.7.3'
 gem 'will_paginate', '~> 3.1.0'
 gem 'bootstrap-will_paginate'
+gem 'devise'
 
 
 # Use SCSS for stylesheets
