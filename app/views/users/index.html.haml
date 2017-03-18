@@ -1,0 +1,7 @@
+%h1.center Users
+- @users.each do |user|
+  .row
+    .col-md-6
+      = show_avatar(user)
+      = "Name " + user.name
+      = "Id: " + user.id.to_s
