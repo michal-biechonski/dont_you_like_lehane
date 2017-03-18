@@ -21,10 +21,14 @@
   color: #3c763d;  
 }
 
-#error_explanation {
+#error_explanation, .alert-alert {
   background-color: #f2dede;
   border-color: #ebccd1;
   color: #a94442;
+}
+
+.btn-wide {
+  width: 100%;
 }
 
 
