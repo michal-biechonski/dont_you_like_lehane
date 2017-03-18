@@ -12,25 +12,34 @@
     #bs-example-navbar-collapse-1.collapse.navbar-collapse
       %ul.nav.navbar-nav
         %li
-          = link_to "Log out", destroy_user_session_path, method: :delete
-        %li
-          = link_to "Log in", new_user_session_path
-        %li
-          = link_to "Sign up", new_user_registration_path
-      %ul.nav.navbar-nav.navbar-right
+          %a{:href => "#"} Link
         %li
           %a{:href => "#"} Link
-        %li.dropdown
-          %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
-            Dropdown
-            %span.caret
-          %ul.dropdown-menu
-            %li
-              %a{:href => "#"} Action
-            %li
-              %a{:href => "#"} Another action
-            %li
-              %a{:href => "#"} Something else here
-            %li.divider{:role => "separator"}
-            %li
-              %a{:href => "#"} Separated link
+        %li
+          %a{:href => "#"} Link
+      %ul.nav.navbar-nav.navbar-right
+        - if user_signed_in?
+          %li
+            = link_to "Log out", destroy_user_session_path, method: :delete
+          %li.dropdown
+            %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+              Signed in as #{current_user.name}
+              -if current_user.admin?
+                (Admin)
+              %span= fa_icon "chevron-down"
+            %ul.dropdown-menu
+              %li
+                %a{:href => "#"} Action
+              %li
+                %a{:href => "#"} Another action
+              %li
+                %a{:href => "#"} Something else here
+              %li.divider{:role => "separator"}
+              %li
+                %a{:href => "#"} Separated link
+        - else
+          %li
+            = link_to "Log in", new_user_session_path
+          %li
+            = link_to "Sign up", new_user_registration_path      
+
