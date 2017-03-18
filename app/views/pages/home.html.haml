@@ -1,3 +1,4 @@
 .jumbotron.center
   %h1 Don't you like Dennis Lehane???
-  %p I thought so. Everybody likes Lehane!
+  %p I thought so. Everybody likes Lehane and his books!
+  = link_to "Sign up", new_user_registration_path, class: "btn btn-primary btn-lg" unless user_signed_in?

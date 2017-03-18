@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  resources :books
+  get 'books/index'
+
+  get 'books/new'
+
+  get 'books/create'
+
   devise_for :users, 
   controllers: {
     sessions: "users/sessions",

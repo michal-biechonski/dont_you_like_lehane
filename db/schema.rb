@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170318103350) do
+ActiveRecord::Schema.define(version: 20170318205555) do
+
+  create_table "books", force: :cascade do |t|
+    t.string   "author",       default: "Dennis Lehane"
+    t.string   "title"
+    t.text     "description"
+    t.string   "picture"
+    t.datetime "published_at"
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.datetime "created_at",                             null: false
