@@ -1,3 +1,21 @@
+@import url('https://fonts.googleapis.com/css?family=Clicker+Script|Jim+Nightshade|Gloria+Hallelujah|Architects+Daughter|Chewy|Nothing+You+Could+Do|Caveat+Brush');
+body {
+  // font-family: 'Jim Nightshade', cursive;
+  // font-family: 'Gloria Hallelujah', cursive;
+  font-family: 'Architects Daughter', cursive;
+  // font-family: 'Nothing You Could Do', cursive;
+  // font-family: 'Caveat Brush', cursive;
+  // font-family: 'Chewy', cursive;
+  // font-family: 'Clicker Script', cursive;
+  // text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 16px;
+  // font-size: 30px;
+  // line-height: 1em;
+  // background-color: #222222;
+  // color: #f9f9f9
+}
+
 .center {
   text-align: center;
 }
@@ -15,13 +33,13 @@
   border: none;
 }
 
-.alert-notice {
+.message-notice {
   background-color: #dff0d8;
   border-color: #d6e9c6;
   color: #3c763d;  
 }
 
-#error_explanation, .alert-alert {
+#error_explanation, .message-alert {
   background-color: #f2dede;
   border-color: #ebccd1;
   color: #a94442;
@@ -30,5 +48,30 @@
 .btn-wide {
   width: 100%;
 }
+
+textarea {
+  resize: none;
+}
+
+.bookImage {
+  text-align: center;
+}
+
+.bookContent {
+  margin: 1.2em 0;
+  font-size: 1.2em;
+  // word-break: break-all;
+  word-wrap: break-word;
+}
+
+.flexColumn {
+  img {
+    margin-top: 1.6em;
+  }
+}
+
+// .well {
+//     background-color: #222222;
+// }
 
 

@@ -16,8 +16,13 @@
 </p>
 
 <p>
+  <strong>Published at:</strong>
+  <%= @book.published_at.strftime("%B, %Y") %>
+</p>
+
+<p>
   <strong>Picture:</strong>
-  <%= @book.picture %>
+  <%= image_tag @book.picture.url(:medium) %>
 </p>
 
 <%= link_to 'Edit', edit_book_path(@book) %> |
