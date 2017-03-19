@@ -1,19 +1,24 @@
-@import url('https://fonts.googleapis.com/css?family=Clicker+Script|Jim+Nightshade|Gloria+Hallelujah|Architects+Daughter|Chewy|Nothing+You+Could+Do|Caveat+Brush');
+$navy_blue: #161220;
+$gun_metal: #233237;
+$rusty_red: #984B43;
+$warm_yellow: #EAC67A;
+
+@mixin shadow-color {
+-webkit-box-shadow: 1px 2px 5px 1px rgba(152,75,67,1);
+-moz-box-shadow: 1px 2px 5px 1px rgba(152,75,67,1);
+box-shadow: 1px 2px 5px 1px rgba(152,75,67,1);
+}
+
+@import url('https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Architects+Daughter');
+
 body {
-  // font-family: 'Jim Nightshade', cursive;
-  // font-family: 'Gloria Hallelujah', cursive;
   font-family: 'Architects Daughter', cursive;
-  // font-family: 'Nothing You Could Do', cursive;
-  // font-family: 'Caveat Brush', cursive;
-  // font-family: 'Chewy', cursive;
-  // font-family: 'Clicker Script', cursive;
-  // text-transform: uppercase;
+  // font-family: 'Gloria Hallelujah', cursive;
   letter-spacing: 1px;
   font-size: 16px;
-  // font-size: 30px;
-  // line-height: 1em;
-  // background-color: #222222;
-  // color: #f9f9f9
+  color: $navy_blue;
+  background-color: $warm_yellow;
+  padding-top: 70px;
 }
 
 .center {
@@ -21,16 +26,26 @@ body {
 }
 
 .jumbotron {
-  // background-color: #B2B4FB
+  color: white;
+  background-color: $gun_metal;
+  .btn-primary {
+    background-color: $navy_blue;
+    &:hover {
+      background-color: darken($navy_blue, 5%);
+    }
+  }
 }
-
-// .container-fluid {
-//   padding: 0;
-// }
 
 .navbar {
   margin-bottom: 0;
   border: none;
+  background-color: $rusty_red;
+  .navbar-brand, .nav li a {
+    color: white;
+    &:hover {
+      color: $navy_blue;
+    }
+  }
 }
 
 .message-notice {
@@ -70,8 +85,32 @@ textarea {
   }
 }
 
-// .well {
-//     background-color: #222222;
-// }
+.well {
+    background-color: darken($warm_yellow, 0%);
+    @include shadow-color;
+    border-color: $rusty_red;
+}
 
+.btn-primary {
+  background-color: $gun_metal;
+  border: none;
+  &:hover {
+    background-color: darken($gun_metal, 10%);
+  }
+}
 
+input.form-control, textarea.form-control {
+  outline-color: $rusty_red;
+  &:focus {
+    border-color: $rusty_red;
+    box-shadow: none;
+  }
+}
+
+a {
+  color: $gun_metal;
+  &:hover {
+    text-decoration: none;
+    color: lighten($gun_metal, 10%);
+  }
+}
