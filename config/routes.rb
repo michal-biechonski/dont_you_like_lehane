@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'comments/new'
+
+  get 'comments/create'
+
+  get 'comments/destroy'
+
   resources :books
   get 'books/index'
 

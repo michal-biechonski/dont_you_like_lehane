@@ -16,6 +16,6 @@
           = @book.published_at.strftime("%B, %Y")
         -if user_signed_in?
           .bookButtons
-            = link_to "Comment", "#", class: "btn btn-primary"
+            = link_to "Comment", comments_new_path, class: "btn btn-primary"
             = link_to "Add to wishlist", "#", class: "btn btn-primary"
             = link_to "Already read it!", "#", class: "btn btn-primary"
