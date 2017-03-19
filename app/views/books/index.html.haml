@@ -2,19 +2,20 @@
 - @books.each do |book|
   .row
     .col-md-8.col-md-offset-2
-      .row.well
-        .col-md-6.flexColumn.center
-          = image_tag book.picture.url(:medium), class: "bookImage"
-        .col-md-6
-          .bookContent
-            %strong Title:
-            = book.title
-          .bookContent  
-            %strong Author:
-            = book.author
-          .bookContent
-            %strong Description:
-            = book.description
-          .bookContent
-            %strong Published at:
-            = book.published_at.strftime("%B, %Y")
+      %a{href:"books/#{book.id}"}
+        .row.well
+          .col-md-6.flexColumn.center
+            = image_tag book.picture.url(:medium), class: "bookImage"
+          .col-md-6
+            .bookContent
+              %strong Title:
+              = book.title
+            .bookContent  
+              %strong Author:
+              = book.author
+            .bookContent
+              %strong Description:
+              = book.description
+            .bookContent
+              %strong Published at:
+              = book.published_at.strftime("%B, %Y")

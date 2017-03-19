@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# lehaneBooks = [
+# lehaneBooks = {
 
 # {
 # title: "A Drink Before the War",
@@ -30,7 +30,7 @@
 # description: "Boston-based lovers and private investigators Patrick Kenzie and Angie Gennaro are hired by a woman to look into the case of her niece, Amanda McCready, whose disappearance has become an important local news story. They take the case despite the seeming reluctance of the girl's uncle, Lionel. During the investigation they quickly come to the conclusion that Amanda's mother, Helene, who has been prominently featured in the news stories about the case, is a degenerate and neglectful parent. At the time of Amanda's disappearance, Helene had left her alone for several hours while she partied at a local dive bar. ",
 # published_at: 19.years.ago
 # }
-# ] 
+# }
 
 # lehaneBooks.each do |book|
 #   Book.create(book)

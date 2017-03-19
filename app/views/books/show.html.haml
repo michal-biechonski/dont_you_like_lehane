@@ -1,0 +1,21 @@
+%h1.center= @book.title
+.row
+  .col-md-8.col-md-offset-2
+    .row.well
+      .col-md-6.flexColumn.center
+        = image_tag @book.picture.url(:medium), class: "bookImage"
+      .col-md-6
+        .bookContent  
+          %strong Author:
+          = @book.author
+        .bookContent
+          %strong Description:
+          = @book.description
+        .bookContent
+          %strong Published at:
+          = @book.published_at.strftime("%B, %Y")
+        -if user_signed_in?
+          .bookButtons
+            = link_to "Comment", "#", class: "btn btn-primary"
+            = link_to "Add to wishlist", "#", class: "btn btn-primary"
+            = link_to "Already read it!", "#", class: "btn btn-primary"

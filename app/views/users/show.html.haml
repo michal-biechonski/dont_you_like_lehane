@@ -1,3 +1,13 @@
-.center
-  %h1 Show
-  = show_avatar(@user)
+.row
+  .col-md-3.center
+    %h1= @user.name
+    = show_avatar(@user, 200)
+    .userDate
+      = "Registered " + time_ago_in_words(@user.created_at) + " ago."
+    .userBooks
+      = "Read " + "7 Lehane's books."
+  .col-md-9.center
+    .col-md-6
+      %h1= "Comments added by " + @user.name 
+    .col-md-6
+      %h1= "Books read by " + @user.name

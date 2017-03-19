@@ -7,6 +7,7 @@ class PagesController < ApplicationController
   end
 
   def home
+    @books = Book.first(3)
   end
 
 end

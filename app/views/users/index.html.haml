@@ -1,7 +1,10 @@
 %h1.center Users
-- @users.each do |user|
-  .row
-    .col-md-6
-      = show_avatar(user)
-      = "Name " + user.name
-      = "Id: " + user.id.to_s
+.row.center
+  - @users.each do |user|
+    .col-md-3.well.usersWell
+      %a{href:"users/#{user.id}"}
+        .row.center
+          .col-md-4
+            = show_avatar(user, 100)
+          .col-md-8
+            = user.name

@@ -14,9 +14,10 @@ box-shadow: 1px 2px 5px 1px rgba(152,75,67,1);
 body {
   font-family: 'Architects Daughter', cursive;
   // font-family: 'Gloria Hallelujah', cursive;
-  letter-spacing: 1px;
+  letter-spacing: 1px; 
   font-size: 16px;
   color: $navy_blue;
+  // color: $gun_metal;
   background-color: $warm_yellow;
   padding-top: 70px;
 }
@@ -26,8 +27,16 @@ body {
 }
 
 .jumbotron {
+  & + h1 {
+    margin: 1em;
+  }
+  padding: 7.5em 0;
+  margin: 0 0 1em;
   color: white;
   background-color: $gun_metal;
+  p {
+    margin: 1.2em 0 1.8em;
+  }
   .btn-primary {
     background-color: $navy_blue;
     &:hover {
@@ -36,22 +45,45 @@ body {
   }
 }
 
+h1.center {
+  margin: 1em;
+}
+
 .navbar {
   margin-bottom: 0;
   border: none;
   background-color: $rusty_red;
   .navbar-brand, .nav li a {
+    background-color: $rusty_red;
     color: white;
-    &:hover {
+    &:hover, &:focus {
       color: $navy_blue;
     }
   }
+  .navbar-toggle {
+    .icon-bar {
+      background-color: white;      
+    }
+    &:hover, &:focus {
+      background-color: darken($rusty_red,10%);
+    }
+  }
+  ul.dropdown-menu {
+    background-color: $rusty_red;
+    border-color: white;
+    border-top: none;
+    border-right: none;
+  }
 }
+  .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:hover, .navbar-default .navbar-nav>.open>a:focus {
+    background-color: $rusty_red;
+    color: white; 
+  }
 
 .message-notice {
   background-color: #dff0d8;
   border-color: #d6e9c6;
-  color: #3c763d;  
+  color: #3c763d;
 }
 
 #error_explanation, .message-alert {
@@ -59,6 +91,16 @@ body {
   border-color: #ebccd1;
   color: #a94442;
 }
+
+// .message-notice {
+//   background-color: #A4D555;
+//   color: $navy_blue;  
+// }
+
+// #error_explanation, .message-alert {
+//   background-color: $rusty_red;
+//   color: white;
+// }
 
 .btn-wide {
   width: 100%;
@@ -86,9 +128,14 @@ textarea {
 }
 
 .well {
-    background-color: darken($warm_yellow, 0%);
+    background-color: darken($warm_yellow, 5%);
     @include shadow-color;
     border-color: $rusty_red;
+    border: none;
+    margin: 1em;
+    &.usersWell {
+      margin: 0.1em;
+    }
 }
 
 .btn-primary {
@@ -97,6 +144,15 @@ textarea {
   &:hover {
     background-color: darken($gun_metal, 10%);
   }
+}
+
+.btn-danger {
+  background-color: $rusty_red;
+  border: none;
+  &:hover {
+    background-color: darken($rusty_red, 10%);
+  }
+  margin-bottom: 1em;
 }
 
 input.form-control, textarea.form-control {
@@ -108,9 +164,25 @@ input.form-control, textarea.form-control {
 }
 
 a {
-  color: $gun_metal;
+  color: $navy_blue;
   &:hover {
     text-decoration: none;
-    color: lighten($gun_metal, 10%);
+    color: lighten($navy_blue, 10%);
   }
 }
+
+input[type=password] {
+  font-family: "Arial Black";
+  font-size: 1.2em; 
+}
+
+input[type=email], input[type=text], input[type=date], textarea.form-control {
+  font-size: 1.2em;
+  // padding-top: 1em;
+  // padding-bottom: 1em;
+}
+
+.bookButtons a {
+  margin-top: 0.3em;
+}
+

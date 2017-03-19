@@ -16,11 +16,9 @@
         %li
           = link_to "Add book", new_book_path
         %li
-          %a{:href => "#"} Link
+          = link_to "Users", users_path
       %ul.nav.navbar-nav.navbar-right
         - if user_signed_in?
-          %li
-            = link_to "Log out", destroy_user_session_path, method: :delete
           %li.dropdown
             %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
               Signed in as #{current_user.name}
@@ -36,7 +34,7 @@
                 %a{:href => "#"} Something else here
               %li.divider{:role => "separator"}
               %li
-                %a{:href => "#"} Separated link
+                = link_to "Log out", destroy_user_session_path, method: :delete
         - else
           %li
             = link_to "Log in", new_user_session_path
