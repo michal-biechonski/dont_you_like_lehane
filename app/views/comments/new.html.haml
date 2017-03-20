@@ -5,6 +5,7 @@
       = render "shared/errors", obj: @comment
 
       .form-group
+        = hidden_field_tag("book_id", params[:book_id])
         = f.label :content, class: "control-label"
         = f.text_area :content, class: "form-control", rows: 6
 

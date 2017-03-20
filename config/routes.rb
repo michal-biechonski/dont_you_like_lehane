@@ -1,16 +1,8 @@
 Rails.application.routes.draw do
-  get 'comments/new'
 
-  get 'comments/create'
-
-  get 'comments/destroy'
+  resources :comments, only: [:new, :create, :destroy]
 
   resources :books
-  get 'books/index'
-
-  get 'books/new'
-
-  get 'books/create'
 
   devise_for :users, 
   controllers: {
