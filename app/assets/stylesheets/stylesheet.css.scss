@@ -19,37 +19,71 @@ body {
   color: $navy_blue;
   // color: $gun_metal;
   background-color: $warm_yellow;
-  padding-top: 70px;
+  // padding-top: 70px;
+  padding: 50px 0 0;
 }
 
 .center {
   text-align: center;
 }
 
+.flashDiv{
+  background-color: $gun_metal;
+  // padding: 10px 0;
+}
+
 .jumbotron {
+  margin-bottom: 0;
+  padding: 7.5em 0;
+  // margin: 0 0 1em;
+  color: white;
+  background-color: $gun_metal;
+  height: 93vh;
   & + h1 {
     margin: 1em;
   }
-  padding: 7.5em 0;
-  margin: 0 0 1em;
-  color: white;
-  background-color: $gun_metal;
+  &.landingJumbo {
+    height: 93vh;
+    h1 {
+      margin-top: 0;
+    }
+    div, span {
+      font-size: 2.1em;
+    }
+  }  
   p {
     margin: 1.2em 0 1.8em;
   }
   .btn-primary {
     background-color: $navy_blue;
-    &:hover {
+    &:hover, &:active, &:focus, &:disabled {
       background-color: darken($navy_blue, 5%);
     }
   }
+  &.utilityJumbo {
+    background-color: $navy_blue;
+    h1 {
+      margin-top: 0.8em;
+      margin-bottom: 0.8em;
+    }
+    p {
+      margin-top: 1.5em;
+    }
+  }
 }
+
 
 h1.center {
   margin: 1em;
 }
 
+.row {
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
 .navbar {
+  padding: 0 15px;
   margin-bottom: 0;
   border: none;
   background-color: $rusty_red;
@@ -84,6 +118,10 @@ h1.center {
   background-color: #dff0d8;
   border-color: #d6e9c6;
   color: #3c763d;
+}
+
+.alert {
+  margin: 10px 0;
 }
 
 #error_explanation, .message-alert {
@@ -134,14 +172,14 @@ textarea {
     border: none;
     margin: 1em 0;
     &.usersWell {
-      margin: 0.5em;
+      // margin: 0.5em;
     }
 }
 
 .btn-primary {
   background-color: $gun_metal;
   border: none;
-  &:hover {
+  &:hover, &:active, &:focus, &:disabled {
     background-color: darken($gun_metal, 10%);
   }
 }
@@ -149,7 +187,7 @@ textarea {
 .btn-danger {
   background-color: $rusty_red;
   border: none;
-  &:hover {
+  &:hover, &:active, &:focus, &:disabled {
     background-color: darken($rusty_red, 10%);
   }
   margin-bottom: 1em;
@@ -168,6 +206,13 @@ a {
   &:hover {
     text-decoration: none;
     color: lighten($navy_blue, 10%);
+  }
+  &.booksLinks:hover {
+    text-decoration: none;
+    color: $navy_blue
+  }
+  .well:hover{
+    background-color: darken($warm_yellow, 10%);
   }
 }
 

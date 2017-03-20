@@ -1,12 +1,17 @@
-.jumbotron.center
-  %h1 Don't you like Dennis Lehane???
+.flashDiv
+  .container
+    = render "shared/flash"
+.jumbotron.center.landingJumbo
+  %h1 
+    Don't you like
+    %span Dennis Lehane???
   %p I thought so. Everybody likes Lehane and his books!
   = link_to "Sign up to start the fun!", new_user_registration_path, class: "btn btn-primary btn-lg" unless user_signed_in?
 %h1.center Discover some of his best work!
 - @books.each do |book|
   .row
     .col-md-8.col-md-offset-2
-      %a{href:"books/#{book.id}"}
+      %a.booksLinks{href:"books/#{book.id}"}
         .row.well
           .col-md-6.flexColumn.center
             = image_tag book.picture.url(:medium), class: "bookImage"
@@ -23,3 +28,19 @@
             .bookContent
               %strong Published at:
               = book.published_at.strftime("%B, %Y")
+.jumbotron.center.utilityJumbo
+  .container-fluid
+    %h1 Share your opinions about his books!              
+    .row
+      .col-md-4
+        %div
+          = fa_icon "comments 5x"
+        %p Leave a comment about your favourite books. Exchange opinions and theories about author's work.
+      .col-md-4
+        %div
+          =fa_icon "check-square-o 5x"
+        %p Select the books you've already read and add the ones you plan to read.
+      .col-md-4
+        %div
+          =fa_icon "lightbulb-o 5x"
+        %p Post a rumours and your ideas for authors future work. No matter how unbelievable they are.  
