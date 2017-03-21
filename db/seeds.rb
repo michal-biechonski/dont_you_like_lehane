@@ -35,3 +35,26 @@
 # lehaneBooks.each do |book|
 #   Book.create(book)
 # end
+
+# 30.times do
+#   name = Faker::Name.first_name
+#   email = name + "@example.com"
+#   password = "password"
+#   password_confirmation = "password"
+#   User.create(name: name, email: email, password: password, password_confirmation: password_confirmation)
+# end
+
+# Book.first(8).each do |book|
+#   10.times do
+#     user = User.all.sample
+#     content = Faker::Hipster.paragraph(2)
+#     @comment = book.comments.build(content: content)
+#     @comment.user_id = user.id
+#     @comment.save
+#   end
+# end
+
+# Comment.all.each do |comment|
+#   comment.destroy
+# end
+
