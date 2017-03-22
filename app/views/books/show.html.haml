@@ -18,7 +18,9 @@
           .bookButtons
             = link_to("Comment", { controller: "comments", action: "new", book_id: @book.id }, { class: "btn btn-primary" })
             = link_to "Add to wishlist", "#", class: "btn btn-primary"
-            = link_to "Already read it!", "#", class: "btn btn-primary"
+            = link_to "Already read it!", {controller: "readers", action: "create",  book_id: @book.id}, {method: :post, class: "btn btn-primary" }
+
+
       .commentContent.center
         %strong Comments:
         - @comments.each do |comment|

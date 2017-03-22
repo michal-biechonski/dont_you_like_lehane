@@ -4,8 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   validates :name, presence: true, length: { minimum: 3 }, allow_nil: false
-  has_many :comments
-  has_many :readers
-  has_many :future_readers
+  has_many :comments, dependent: :destroy
+  has_many :readers, dependent: :destroy
+  has_many :future_readers, dependent: :destroy
 
 end
