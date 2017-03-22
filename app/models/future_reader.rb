@@ -1,0 +1,2 @@
+class FutureReader < ApplicationRecord
+end

@@ -1,0 +1,2 @@
+class FutureReadersController < ApplicationController
+end

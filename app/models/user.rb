@@ -5,5 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   validates :name, presence: true, length: { minimum: 3 }, allow_nil: false
   has_many :comments
+  has_many :readers
+  has_many :future_readers
 
 end
