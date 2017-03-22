@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show, :destroy]
 
   resources :readers, only: [:create, :destroy]
+  resources :future_readers, only: [:create, :destroy]
 
   root "pages#home"
   get "pages/about"

@@ -17,7 +17,7 @@
         -if user_signed_in?
           .bookButtons
             = link_to("Comment", { controller: "comments", action: "new", book_id: @book.id }, { class: "btn btn-primary" })
-            = link_to "Add to wishlist", "#", class: "btn btn-primary"
+            = link_to "Add to wishlist", {controller: "future_readers", action: "create",  book_id: @book.id}, {method: :post, class: "btn btn-primary" }
             = link_to "Already read it!", {controller: "readers", action: "create",  book_id: @book.id}, {method: :post, class: "btn btn-primary" }
 
 
