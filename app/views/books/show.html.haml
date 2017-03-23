@@ -1,4 +1,3 @@
-=already_read_this?
 %h1.center= @book.title
 .row
   .col-md-8.col-md-offset-2
@@ -15,14 +14,18 @@
         .bookContent
           %strong Published at:
           = @book.published_at.strftime("%B, %Y")
-        -if user_signed_in?
-          .bookButtons
-            = link_to("Comment", { controller: "comments", action: "new", book_id: @book.id }, { class: "btn btn-primary" })
+      .clear
+      -if user_signed_in?
+        .bookButtons.center
+          = link_to("Comment", { controller: "comments", action: "new", book_id: @book.id }, { class: "btn btn-primary" })
+          - unless wants_to_read_this?
             = link_to "Add to wishlist", {controller: "future_readers", action: "create",  book_id: @book.id}, {method: :post, class: "btn btn-primary" }
-            - unless already_read_this?
-              = link_to "Already read it!", {controller: "readers", action: "create",  book_id: @book.id}, {method: :post, class: "btn btn-primary" }
-
-
+          - unless already_read_this?
+            = link_to "Already read it", {controller: "readers", action: "create",  book_id: @book.id}, {method: :post, class: "btn btn-primary" }
+          - if @fut_reader
+            = link_to("Remove from wishlist", {controller: "future_readers", action: "destroy", id: @fut_reader.id,  book_id: @book.id}, {method: :delete, class: "btn btn-primary"})
+          - if @exist_reader
+            = link_to("Didn't read it", {controller: "readers", action: "destroy", id: @exist_reader.id,  book_id: @book.id}, {method: :delete, class: "btn btn-primary"})
       .commentContent.center
         %strong Comments:
         - @comments.each do |comment|

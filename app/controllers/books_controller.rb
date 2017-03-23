@@ -1,4 +1,6 @@
 class BooksController < ApplicationController
+  before_action :set_reader, only: [:show]
+  before_action :set_future_reader, only: [:show]
   before_action :set_book, only: [:show, :edit, :update, :destroy]
 
   # GET /books
@@ -71,4 +73,5 @@ class BooksController < ApplicationController
     def book_params
       params.require(:book).permit(:title, :description, :picture, :published_at)
     end
+
 end

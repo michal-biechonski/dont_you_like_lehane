@@ -165,6 +165,10 @@ textarea {
   }
 }
 
+.clear {
+  clear: both;
+}
+
 .well {
     background-color: darken($warm_yellow, 5%);
     @include shadow-color;
@@ -227,7 +231,10 @@ input[type=email], input[type=text], input[type=date], textarea.form-control {
   // padding-bottom: 1em;
 }
 
-.bookButtons a {
-  margin-top: 0.3em;
+.bookButtons {
+  margin-bottom: 1em;
+  a {
+    margin-top: 0.3em;
+  }
 }
 
