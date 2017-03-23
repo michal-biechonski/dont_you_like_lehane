@@ -5,8 +5,18 @@ class ReadersController < ApplicationController
   def create
     @reader = current_user.readers.build()
     @reader.book_id = @book.id
-    @reader.save
-    flash[:notice] = "Great"
+    if @reader.save
+      flash[:notice] = "You've read this book!"
+      redirect_to @book
+    else
+      flash[:alert] = "You've already selected that book"
+      redirect_to @book
+    end
+  end
+
+  def destroy
+    @reader = Reader.find_by(user_id: current_user.id).where(book_id: @book.id)
+    flash[:notice] = "So you haven't read it yet??"
     redirect_to @book
   end
 

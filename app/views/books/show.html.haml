@@ -1,3 +1,4 @@
+=already_read_this?
 %h1.center= @book.title
 .row
   .col-md-8.col-md-offset-2
@@ -18,7 +19,8 @@
           .bookButtons
             = link_to("Comment", { controller: "comments", action: "new", book_id: @book.id }, { class: "btn btn-primary" })
             = link_to "Add to wishlist", {controller: "future_readers", action: "create",  book_id: @book.id}, {method: :post, class: "btn btn-primary" }
-            = link_to "Already read it!", {controller: "readers", action: "create",  book_id: @book.id}, {method: :post, class: "btn btn-primary" }
+            - unless already_read_this?
+              = link_to "Already read it!", {controller: "readers", action: "create",  book_id: @book.id}, {method: :post, class: "btn btn-primary" }
 
 
       .commentContent.center

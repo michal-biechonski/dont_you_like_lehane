@@ -5,11 +5,20 @@ class FutureReadersController < ApplicationController
   def create
     @future_reader = current_user.future_readers.build()
     @future_reader.book_id = @book.id
-    @future_reader.save
-    flash[:notice] = "Done"
-    redirect_to @book
+    if @future_reader.save
+      flash[:notice] = "You've added this book to your wishlist!"
+      redirect_to @book
+    else
+      flash[:alert] = "You can only add this book once."
+      redirect_to @book
+    end
   end
 
+  def destroy
+    @future_reader = FutureReader.find_by(user_id: current_user.id).where(book_id: @book.id)
+    flash[:notice] = "So you don't wanna read it??"
+    redirect_to @book
+  end
 
 
 
