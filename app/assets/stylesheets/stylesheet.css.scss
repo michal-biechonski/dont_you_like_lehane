@@ -209,7 +209,7 @@ a {
   color: $navy_blue;
   &:hover {
     text-decoration: none;
-    color: lighten($navy_blue, 10%);
+    color: white;
   }
   &.booksLinks:hover {
     text-decoration: none;

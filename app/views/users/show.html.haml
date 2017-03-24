@@ -2,14 +2,19 @@
   .col-md-3.center
     %h1= @user.name
     = show_avatar(@user, 200)
-    .userDate
+    %p.userDate
       = "Registered " + time_ago_in_words(@user.created_at) + " ago."
-    .userBooks
-      = "Read"
-      = @user.readers.count
-      = "books:"
-      - @user.readers.each do |reader|
-        %div= "-" + Reader.find_by('book_id', reader.book_id).to_s
+    - if @user.readers.count > 0
+      %p.userBooks
+        = "Read"
+        = @user.readers.count
+        = "books:"
+        .readBooks
+          - @user.readers.each do |reader|
+            %p= link_to Book.find(reader.book_id).title, book_path(reader.book_id)
+    - else
+      %p Hasn't read any books yet.
+
 
   .col-md-9.center
     .col-md-6
