@@ -2,7 +2,8 @@ class CommentsController < ApplicationController
   
   before_action :user_signed_in?
   before_action :set_book, only: [:new, :create]
-  before_action :same_user, only: [:delete]
+  before_action :set_comment, only: [:destroy]
+  before_action :same_user, only: [:destroy]
 
   def new
     @comment = @book.comments.new
@@ -17,10 +18,9 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    @comment = Comment.find(params[:id])
     @comment.destroy
     flash[:notice] = "Comment was deleted"
-    redirect_to @book
+    redirect_to(:back)
   end
 
   private
@@ -29,11 +29,18 @@ class CommentsController < ApplicationController
       @book = Book.find(params[:book_id])
     end
 
+    def set_comment
+      @comment = Comment.find(params[:id])
+    end
+
     def comment_params
       params.require(:comment).permit(:content)
     end
 
     def same_user
+      unless current_user.id == @comment.user_id
+        return false
+      end
       return false unless current_user.id == @comment.user_id
     end
 end
