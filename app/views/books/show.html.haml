@@ -30,5 +30,9 @@
         %strong Comments:
         - @comments.each do |comment|
           .row
-            .col-md-6.col-md-offset-3
-              = comment.content
+            .col-md-6.col-md-offset-3.thumbnail
+              %p= comment.content
+              %p
+                = "Added by " 
+                = link_to User.find(comment.user_id).name, user_path(User.find(comment.user_id))
+                =", #{time_ago_in_words(comment.created_at)} ago."
