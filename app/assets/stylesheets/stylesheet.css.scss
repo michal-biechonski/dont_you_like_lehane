@@ -17,9 +17,7 @@ body {
   letter-spacing: 1px; 
   font-size: 16px;
   color: $navy_blue;
-  // color: $gun_metal;
   background-color: $warm_yellow;
-  // padding-top: 70px;
   padding: 50px 0 0;
 }
 
@@ -37,7 +35,6 @@ body {
     margin-top: 0.5em;
     margin-bottom: 0.5em;
     background-color: darken($warm_yellow, 10%);
-    // color: white;
     @include shadow-color;
     border: none;
     p:nth-child(3) {
@@ -123,7 +120,7 @@ h1.center {
     background-color: $rusty_red;
     border-color: white;
     border-top: none;
-    border-right: none;
+    // border-right: none;
   }
 }
   .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:hover, .navbar-default .navbar-nav>.open>a:focus {
@@ -170,7 +167,7 @@ textarea {
 // }
 
 .bookContent {
-  margin: 1.2em 0;
+  // margin: 1.2em 0;
   font-size: 1.2em;
   // word-break: break-all;
   word-wrap: break-word;
@@ -178,12 +175,16 @@ textarea {
 
 .flexColumn {
   img {
-    margin-top: 0.7em;
+    // margin-top: 1.6em;
   }
 }
 
 .clear {
   clear: both;
+}
+
+p.userDate {
+  margin: 10px 0;
 }
 
 .well {

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170323184906) do
+ActiveRecord::Schema.define(version: 20170326093455) do
 
   create_table "books", force: :cascade do |t|
     t.string   "author",               default: "Dennis Lehane"
@@ -42,6 +42,15 @@ ActiveRecord::Schema.define(version: 20170323184906) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id", "book_id"], name: "index_future_readers_on_user_id_and_book_id", unique: true
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.string   "title"
+    t.text     "content"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
   create_table "readers", force: :cascade do |t|

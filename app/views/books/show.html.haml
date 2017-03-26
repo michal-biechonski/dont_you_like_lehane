@@ -27,7 +27,7 @@
           - if @exist_reader
             = link_to("Didn't read it", {controller: "readers", action: "destroy", id: @exist_reader.id,  book_id: @book.id}, {method: :delete, class: "btn btn-primary"})
       .commentContent.center
-        %strong Comments:
+        %h1 Comments:
         - @comments.each do |comment|
           .row
             .col-md-6.col-md-offset-3.thumbnail
