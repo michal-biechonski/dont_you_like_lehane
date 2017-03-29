@@ -168,6 +168,15 @@ textarea {
   resize: none;
 }
 
+img {
+  border-radius: 3%;
+  @include shadow-color; 
+}
+
+.readBooks {
+  // text-align: left;
+}
+
 // .bookImage {
 //   text-align: center;
 // }
@@ -201,6 +210,9 @@ p.userDate {
     margin: 1em 0;
     &.usersWell {
       // margin: 0.5em;
+      .userName {
+        margin-bottom: 1em;
+      }
     }
     h3 {
       margin: 0 0 0.2em;

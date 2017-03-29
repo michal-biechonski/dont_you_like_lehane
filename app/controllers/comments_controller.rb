@@ -41,6 +41,5 @@ class CommentsController < ApplicationController
       unless current_user.id == @comment.user_id
         return false
       end
-      return false unless current_user.id == @comment.user_id
     end
 end

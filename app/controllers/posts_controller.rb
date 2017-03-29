@@ -48,15 +48,6 @@ class PostsController < ApplicationController
       @post = Post.find(params[:id])
     end
 
-    def set_user
-      if current_user
-        @user = current_user
-      else
-        flash[:alert] = "You have to be logged in to do that!"
-        redirect_to new_user_session_path
-      end
-    end
-
     def post_params
       params.require(:post).permit(:title, :content)
     end

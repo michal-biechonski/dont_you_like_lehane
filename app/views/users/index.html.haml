@@ -2,12 +2,11 @@
 .row.center.usersRow
   - @users.each do |user|
     .col-lg-3.col-md-4.col-sm-6
-      %a.booksLinks{href:"users/#{user.id}"}
-        .well.usersWell
-          .row.center
-            .col-md-4
-              = show_avatar(user, 70)
-            .col-md-8
-              = user.name
-      - if user_signed_in? && current_user.admin?
-        = link_to "Delete", user_path(user), method: :delete, class: "btn btn-danger",data: { confirm: "Are you sure?"}
+      .well.usersWell
+        .row.center
+          .col-md-4
+            = link_to show_avatar(user, 70), user_path(user)
+          .col-md-8
+            .userName= link_to user.name, user_path(user)
+          - if user_signed_in? && current_user.admin?
+            = link_to "Delete", user_path(user), method: :delete, class: "btn btn-danger btn-sm",data: { confirm: "Are you sure?"}

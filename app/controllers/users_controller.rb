@@ -26,7 +26,7 @@ class UsersController < ApplicationController
 
     def require_logged_in
       unless signed_in?
-        flash[:alert] = "You have to be logged in to do that."
+        flash[:alert] = "You must be logged in to do that."
         redirect_to new_user_session_path        
       end
     end
