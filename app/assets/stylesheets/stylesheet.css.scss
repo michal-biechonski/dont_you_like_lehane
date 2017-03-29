@@ -92,6 +92,12 @@ h1.center {
 }
 
 .row {
+  h1.showUserHeader {
+    min-height: 2.2em;
+  }
+}
+
+.row {
   margin-left: 15px;
   margin-right: 15px;
 }
@@ -184,7 +190,7 @@ textarea {
 }
 
 p.userDate {
-  margin: 10px 0;
+  margin: 10px   0;
 }
 
 .well {
@@ -195,6 +201,9 @@ p.userDate {
     margin: 1em 0;
     &.usersWell {
       // margin: 0.5em;
+    }
+    h3 {
+      margin: 0 0 0.2em;
     }
 }
 

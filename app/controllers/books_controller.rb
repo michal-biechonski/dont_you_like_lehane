@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+  before_action :require_user, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_reader, only: [:show]
   before_action :set_future_reader, only: [:show]
   before_action :set_book, only: [:show, :edit, :update, :destroy]
@@ -72,6 +73,13 @@ class BooksController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def book_params
       params.require(:book).permit(:title, :description, :picture, :published_at)
+    end
+
+    def require_user
+      unless user_signed_in?
+        flash[:alert] = "You must be logged in to do that."
+        redirect_to new_user_session_path
+      end
     end
 
 end

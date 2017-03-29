@@ -1,6 +1,6 @@
 .row
   .col-md-3.center
-    %h1= @user.name
+    %h1.showUserHeader= @user.name
     = show_avatar(@user, 200)
     %p.userDate
       = "Registered " + time_ago_in_words(@user.created_at) + " ago."
@@ -18,10 +18,15 @@
 
   .col-md-9.center
     .col-md-6
-      %h1= "Comments added by " + @user.name
+      %h1.showUserHeader= "Comments added by " + @user.name
       -@user.comments.each do |comment|
         .well
           = comment.content
           .commentDate= "Added " + time_ago_in_words(comment.updated_at).to_s + " ago"  
     .col-md-6
-      %h1= "Posts written by " + @user.name
+      %h1.showUserHeader= "Posts written by " + @user.name
+      -@user.posts.each do |post|
+        .well
+          %h3= post.title
+          %p= post.content
+          .commentDate= "Added " + time_ago_in_words(post.updated_at).to_s + " ago"
