@@ -1,0 +1,8 @@
+%h1.center All posts
+- @posts.each do |post|
+  .row
+    .col-md-8.col-md-offset-2
+      .well
+        %h2.center= post.title
+        %p= post.content
+        %p.commentDate= "Posted by: " + User.find(post.user_id).name + ", " + time_ago_in_words(post.updated_at).to_s + " ago." 

@@ -30,3 +30,5 @@
           %h3= post.title
           %p= post.content
           .commentDate= "Added " + time_ago_in_words(post.updated_at).to_s + " ago"
+          - if current_user.id == post.user_id
+            = link_to "Edit", edit_post_path(post), class: "btn btn-primary"

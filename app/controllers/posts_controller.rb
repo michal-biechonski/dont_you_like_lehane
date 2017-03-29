@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   
-  before_action :set_user, only: [:new, :create]
+  before_action :set_user, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -28,7 +28,7 @@ class PostsController < ApplicationController
   end
 
   def update
-    if @post.save
+    if @post.update(post_params)
       flash[:notice] = "You've updated your post."
       redirect_to @user
     else

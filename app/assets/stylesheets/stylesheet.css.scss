@@ -190,7 +190,7 @@ textarea {
 }
 
 p.userDate {
-  margin: 10px   0;
+  margin: 10px 0;
 }
 
 .well {
@@ -204,6 +204,13 @@ p.userDate {
     }
     h3 {
       margin: 0 0 0.2em;
+    }
+    .commentDate {
+      font-size: 0.8em;
+      font-style: italic;
+      text-align: right;
+      margin-top: 0.5em;
+      margin-bottom: 0.5em;
     }
 }
 
