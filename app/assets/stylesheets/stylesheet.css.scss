@@ -43,6 +43,9 @@ body {
     p:nth-child(4) {
       margin: 0;
     }
+    .btn-danger {
+      margin-bottom: 1em;
+    }
   }
 }
 
@@ -94,6 +97,9 @@ h1.center {
 .row {
   h1.showUserHeader {
     min-height: 2.2em;
+    & + img {
+      margin-top: 0.25em;
+    }
   }
 }
 
@@ -177,9 +183,9 @@ img {
   // text-align: left;
 }
 
-// .bookImage {
-//   text-align: center;
-// }
+.bookImage {
+  box-shadow: unset;
+}
 
 .bookContent {
   // margin: 1.2em 0;
@@ -240,7 +246,6 @@ p.userDate {
   &:hover, &:active, &:focus, &:disabled {
     background-color: darken($rusty_red, 10%);
   }
-  margin-bottom: 1em;
 }
 
 input.form-control, textarea.form-control {
