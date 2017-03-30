@@ -7,15 +7,19 @@
         = f.label :email, class: "control-label"
         %em (It will not be published)
         = f.email_field :email, autofocus: true, class: "form-control"
+      
       .form-group
         = f.label :password, class: "control-label"
         %em (6 characters minimum)
         = f.password_field :password, autocomplete: "off", class: "form-control"
+      
       - if devise_mapping.rememberable?
         .checkbox
           %label
             = f.check_box :remember_me
             Remember me
+      
       .form-group
         = f.submit "Log in", class: "btn btn-primary btn-wide"
+        
     = render "devise/shared/links"
