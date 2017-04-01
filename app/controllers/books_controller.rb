@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
   before_action :require_user, only: [:new, :create, :edit, :update, :destroy]
+  before_action :require_admin, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_reader, only: [:show]
   before_action :set_future_reader, only: [:show]
   before_action :set_book, only: [:show, :edit, :update, :destroy]
@@ -79,6 +80,13 @@ class BooksController < ApplicationController
       unless user_signed_in?
         flash[:alert] = "You must be logged in to do that."
         redirect_to new_user_session_path
+      end
+    end
+
+    def require_admin
+      unless current_user.admin?
+        flash[:alert] = "Only admins have access to this action."
+        redirect_to users_path
       end
     end
 

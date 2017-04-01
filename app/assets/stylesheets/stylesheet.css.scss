@@ -30,6 +30,10 @@ body {
   // padding: 10px 0;
 }
 
+.field_with_errors {
+  // display: inline-block;
+}
+
 .commentContent {
   .thumbnail {
     margin-top: 0.5em;
@@ -281,8 +285,8 @@ input[type=email], input[type=text], input[type=date], textarea.form-control {
 }
 
 .bookButtons {
-  margin-bottom: 1em;
-  margin-top: 1em;
+  margin-bottom: 2em;
+  margin-top: 2em;
   a {
     margin-top: 0.3em;
   }

@@ -15,8 +15,8 @@
           %strong Published at:
           = @book.published_at.strftime("%B, %Y")
       .clear
-      -if user_signed_in?
-        .bookButtons.center
+      .bookButtons.center
+        -if user_signed_in?
           = link_to("Comment", { controller: "comments", action: "new", book_id: @book.id }, { class: "btn btn-primary" })
           - unless wants_to_read_this?
             = link_to "Add to wishlist", {controller: "future_readers", action: "create",  book_id: @book.id}, {method: :post, class: "btn btn-primary" }
