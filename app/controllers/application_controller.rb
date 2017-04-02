@@ -16,11 +16,18 @@ class ApplicationController < ActionController::Base
   end
 
   def set_user
-    if current_user
+    if user_signed_in?
       @user = current_user
     else
       flash[:alert] = "You must be logged in to do that."
       redirect_to new_user_session_path
+    end
+  end
+
+  def require_admin
+    unless current_user.admin?
+      flash[:alert] = "Only admins have access to this action."
+      redirect_to users_path
     end
   end
 

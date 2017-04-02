@@ -22,12 +22,14 @@ Rails.application.routes.draw do
   # end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :books
-  resources :posts
-  resources :comments, only: [:new, :create, :destroy]
-  resources :users, only: [:index, :show, :destroy]
-  resources :readers, only: [:create, :destroy]
-  resources :future_readers, only: [:create, :destroy]
+  resources :books do
+    resources :comments, only: [:new, :create, :destroy]
+    resources :readers, :future_readers, only: [:create, :destroy]
+  end   
+  resources :users, only: [:index, :show, :destroy] do
+    resources :posts
+  end
+
 
   root "pages#home"
   get "pages/about"

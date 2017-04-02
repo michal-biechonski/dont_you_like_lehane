@@ -17,15 +17,15 @@
       .clear
       .bookButtons.center
         -if user_signed_in?
-          = link_to("Comment", { controller: "comments", action: "new", book_id: @book.id }, { class: "btn btn-primary" })
+          = link_to "Comment", new_book_comment_path(@book, @comment), class: "btn btn-primary"
           - unless wants_to_read_this?
-            = link_to "Add to wishlist", {controller: "future_readers", action: "create",  book_id: @book.id}, {method: :post, class: "btn btn-primary" }
+            = link_to "Add to wishlist", book_future_readers_path(@book), method: :post, class: "btn btn-primary"
           - unless already_read_this?
-            = link_to "Already read it", {controller: "readers", action: "create",  book_id: @book.id}, {method: :post, class: "btn btn-primary" }
+            = link_to "Already read it", book_readers_path(@book), method: :post, class: "btn btn-primary"
           - if @fut_reader
-            = link_to("Remove from wishlist", {controller: "future_readers", action: "destroy", id: @fut_reader.id,  book_id: @book.id}, {method: :delete, class: "btn btn-primary"})
+            = link_to "Remove from wishlist", book_future_reader_path(@book, @fut_reader), method: :delete, class: "btn btn-primary"
           - if @exist_reader
-            = link_to("Didn't read it", {controller: "readers", action: "destroy", id: @exist_reader.id,  book_id: @book.id}, {method: :delete, class: "btn btn-primary"})
+            = link_to "Didn't read it", book_reader_path(@book, @exist_reader), method: :delete, class: "btn btn-primary"
       .commentContent.center
         %h1 Comments:
         - @comments.each do |comment|
@@ -36,4 +36,4 @@
                 = "Added #{time_ago_in_words(comment.created_at)} ago, by" 
                 = link_to User.find(comment.user_id).name, user_path(User.find(comment.user_id))
                 - if user_signed_in? && (comment.user_id == current_user.id || current_user.admin?)
-                  %p= link_to "Delete", comment_path(comment.id), book_id: @book.id, method: :delete, class: "btn btn-xs btn-danger", data: { confirm: "Are you sure?" }
+                  %p= link_to "Delete", book_comment_path(@book, comment.id), book_id: @book.id, method: :delete, class: "btn btn-xs btn-danger", data: { confirm: "Are you sure?" }

@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   
-  before_action :user_signed_in?
+  before_action :set_user
   before_action :set_book, only: [:new, :create]
   before_action :set_comment, only: [:destroy]
   before_action :same_user, only: [:destroy]
@@ -12,9 +12,12 @@ class CommentsController < ApplicationController
   def create
     @comment = @book.comments.build(comment_params)
     @comment.user_id = current_user.id
-    @comment.save
-    flash[:notice] = "Comment was added"
-    redirect_to @book
+    if @comment.save
+      flash[:notice] = "Comment was added"
+      redirect_to @book
+    else
+      render "new"
+    end
   end
 
   def destroy
