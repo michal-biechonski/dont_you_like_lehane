@@ -5,8 +5,11 @@
       .well
         %h2.center= post.title
         %p= post.content
-        %p.commentDate= "Posted by: " + User.find(post.user_id).name + ", " + time_ago_in_words(post.updated_at).to_s + " ago."
+        %p.commentDate
+          = "Posted by: "
+          = link_to User.find(post.user_id).name, user_path(post.user_id) 
+          = ", " + time_ago_in_words(post.updated_at).to_s + " ago."
         -if user_signed_in? && (current_user.id == post.user_id || current_user.admin?)
           .center
-            = link_to "Edit", edit_post_path(post), class: "btn btn-primary"
-            = link_to "Delete", post_path(post), method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure you want to do that?" }
+            = link_to "Edit", edit_user_post_path(current_user, post), class: "btn btn-primary"
+            = link_to "Delete", user_post_path(current_user, post), method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure you want to do that?" }

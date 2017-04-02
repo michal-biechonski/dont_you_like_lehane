@@ -22,7 +22,7 @@
             %li
               = link_to "Add book", new_book_path
           %li
-            = link_to "Add post", new_post_path
+            = link_to "Add post", new_user_post_path(current_user)
       %ul.nav.navbar-nav.navbar-right
         - if user_signed_in?
           %li.dropdown

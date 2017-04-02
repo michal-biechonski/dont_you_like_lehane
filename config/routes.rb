@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-
-
   devise_for :users, 
   controllers: {
     sessions: "users/sessions",
@@ -27,8 +25,9 @@ Rails.application.routes.draw do
     resources :readers, :future_readers, only: [:create, :destroy]
   end   
   resources :users, only: [:index, :show, :destroy] do
-    resources :posts
+    resources :posts, except: [:index]
   end
+  resources :posts, only: [:index]
 
 
   root "pages#home"
