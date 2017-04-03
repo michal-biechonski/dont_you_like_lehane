@@ -6,15 +6,20 @@ class ReadersController < ApplicationController
   def create
     @reader = current_user.readers.build()
     @reader.book_id = @book.id
-    if @reader.save
-      flash[:notice] = "You've read this book!"
+    respond_to do |format|
+      if @reader.save
+        format.js {}
+        format.html {
+        flash[:notice] = "You've read this book!"
+        redirect_to @book
+      }
+      else
+        flash[:alert] = "You've already selected that book"
+        redirect_to @book
+      end
       unless @fut_reader.nil?
         @fut_reader.destroy
       end
-      redirect_to @book
-    else
-      flash[:alert] = "You've already selected that book"
-      redirect_to @book
     end
   end
 
