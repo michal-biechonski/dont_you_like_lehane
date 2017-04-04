@@ -7,8 +7,7 @@
         %p= post.content
         %p.commentDate
           = "Posted by: "
-          = link_to User.find(post.user_id).name, user_path(post.user_id) 
-          = ", " + time_ago_in_words(post.updated_at).to_s + " ago."
+          = link_to(User.find(post.user_id).name, user_path(post.user_id)).to_s + ", " +time_ago_in_words(post.updated_at).to_s + " ago."
         -if user_signed_in? && (current_user.id == post.user_id || current_user.admin?)
           .center
             = link_to "Edit", edit_user_post_path(current_user, post), class: "btn btn-primary"

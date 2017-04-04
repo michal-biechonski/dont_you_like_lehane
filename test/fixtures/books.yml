@@ -1,13 +1,22 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  author: MyString
-  title: MyString
-  description: MyText
-  picture: MyString
+  author: Lehane
+  title: First title
+  description: Can't be too carefull
+  picture_file_name: MyString11
+  published_at: 2010-02-11 11:02:57
 
 two:
-  author: MyString
-  title: MyString
-  description: MyText
-  picture: MyString
+  author: Lehane
+  title: Second Title
+  description: Have to be too carefull
+  picture_file_name: MyString12
+  published_at: 2010-02-11 11:02:57
+
+# three:
+#   author: "Lehane"
+#   title: "Third Title"
+#   description: "Have to be carecarecare"
+#   picture_file_name: "MyString123"
+#   published_at: 2010-02-11 11:02:57
