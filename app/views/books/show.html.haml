@@ -16,16 +16,6 @@
           = @book.published_at.strftime("%B, %Y")
       .clear
       .bookButtons.center
-        / -if user_signed_in? && false
-        /   = link_to "Comment", new_book_comment_path(@book, @comment), class: "btn btn-primary"
-        /   - unless wants_to_read_this?
-        /     %span#addToWish= render "addToWish"
-        /   - unless already_read_this?
-        /     =# render "addToRead"
-        /   - if @fut_reader
-        /     %span#removeFromWish= render "removeFromWish"
-        /   - if @exist_reader
-        /     =# render "removeFromRead"
         -if user_signed_in?
           = link_to "Comment", new_book_comment_path(@book, @comment), class: "btn btn-primary"
           - if wants_to_read_this?
@@ -33,9 +23,9 @@
           - else
             %span#addToWish= render "addToWish"
           - if already_read_this?
-            =# render "removeFromRead"          
+            %span#removeFromRead= render "removeFromRead"          
           - else
-            =# render "addToRead"
+            %span#addToRead= render "addToRead"
       .commentContent.center
         %h1 Comments:
         - @comments.each do |comment|

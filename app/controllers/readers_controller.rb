@@ -13,8 +13,8 @@ class ReadersController < ApplicationController
         end
         format.js
         format.html {
-        flash[:notice] = "You've read this book!"
-        redirect_to @book
+          flash[:notice] = "You've read this book!"
+          redirect_to @book
       }
       else
         format.html {

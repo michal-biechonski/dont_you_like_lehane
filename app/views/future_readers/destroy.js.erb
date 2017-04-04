@@ -1,5 +1,2 @@
 $("#removeFromWish").html("<%= escape_javascript(render('books/addToWish')) %>");
-$("#addToWish").html("<%= escape_javascript(render('books/addToWish')) %>");
-<% if false %>
-$("#addToRead").html("<%#= escape_javascript(render('books/removeFromRead')) %>");
-<% end %>
+$("#removeFromWish").attr("id", "addToWish");
