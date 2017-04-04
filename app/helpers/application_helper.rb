@@ -24,12 +24,4 @@ module ApplicationHelper
     end
   end
 
-  def set_reader
-    @exist_reader = Reader.where("user_id = ? AND book_id = ?", current_user.id, @book.id).take
-  end
-
-  def set_future_reader
-    @fut_reader = FutureReader.where("user_id = ? AND book_id = ?", current_user.id, @book.id).take
-  end
-
 end

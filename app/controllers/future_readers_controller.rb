@@ -6,23 +6,35 @@ class FutureReadersController < ApplicationController
   def create
     @future_reader = current_user.future_readers.build()
     @future_reader.book_id = @book.id
-    if @future_reader.save
-      flash[:notice] = "You've added this book to your wishlist!"
-      unless @exist_reader.nil?
-        @exist_reader.destroy
+    respond_to do |format|
+      if @future_reader.save
+        unless @exist_reader.nil?
+          @exist_reader.destroy
+        end
+        format.js
+        format.html {
+          flash[:notice] = "You've added this book to your wishlist!"
+          redirect_to @book 
+        }
+      else
+        format.html {
+          flash[:alert] = "You can only add this book once."
+          redirect_to @book
+        }
       end
-      redirect_to @book
-    else
-      flash[:alert] = "You can only add this book once."
-      redirect_to @book
     end
   end
 
   def destroy
     @future_reader = FutureReader.where("user_id = ? AND book_id = ?", current_user.id, @book.id).take
-    if @future_reader.destroy
-      flash[:notice] = "So you don't wanna read it??"
-      redirect_to @book
+    respond_to do |format|
+      if @future_reader.destroy
+        format.js
+        format.html {
+          flash[:notice] = "So you don't wanna read it??"
+          redirect_to @book
+        }
+      end
     end
   end
 
