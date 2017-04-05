@@ -136,9 +136,12 @@ h1.center {
     border-color: white;
     border-top: none;
     // border-right: none;
+    .divider {
+      width: 260px;
+    }
   }
 }
-  .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:hover, .navbar-default .navbar-nav>.open>a:focus {
+  .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:hover, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav .open .dropdown-menu > li > a {
     background-color: $rusty_red;
     color: white; 
   }
