@@ -54,6 +54,14 @@
 #   end
 # end
 
+# 100.times do
+#   user = User.all.sample
+#   title = Faker::Hipster.sentence
+#   content = Faker::Hipster.paragraph(2)
+#   @post = user.posts.build(content: content, title: title)
+#   @post.save
+# end
+
 # Comment.all.each do |comment|
 #   comment.destroy
 # end

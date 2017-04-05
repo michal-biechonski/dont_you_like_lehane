@@ -17,11 +17,11 @@ class BooksControllerTest < ActionDispatch::IntegrationTest
     assert_response :redirect
   end
 
-  test "should get new when user admin" do
-    current_user = @admin
-    get new_book_url
-    assert_response :success
-  end
+  # test "should get new when user admin" do
+  #   current_user = @admin
+  #   get new_book_url
+  #   assert_response :success
+  # end
 
   # test "should create book" do
   #   assert_difference('Book.count') do
