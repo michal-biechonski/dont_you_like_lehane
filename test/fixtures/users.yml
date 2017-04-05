@@ -5,12 +5,19 @@
 # below each fixture, per the syntax in the comments below
 #
 one:
+  id: 1
   email: barry@example.com
   name: Barry
+  admin: false
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+  confirmed_at: 2010-02-11 11:02:57
 # column: value
 #
-two:
+admin:
+  id: 2
   email: jerry@example.com
   name: Jerry
   admin: true
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+  confirmed_at: 2010-02-11 11:02:57
 # column: value
