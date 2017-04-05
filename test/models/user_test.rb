@@ -37,7 +37,7 @@ class UserTest < ActiveSupport::TestCase
 
   test "password and password_confirmation have to be the same" do
     @user.password = "randomText"
-    @user.password_confirmation = "textRandom"
+    @user.password_confirmation = "Textrandom"
     assert_not @user.valid?
   end
 
