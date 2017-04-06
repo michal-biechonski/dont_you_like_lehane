@@ -21,3 +21,11 @@ admin:
   encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
   confirmed_at: 2010-02-11 11:02:57
 # column: value
+
+three:
+  id: 3
+  email: huey@example.com
+  name: Huey
+  admin: false
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+  confirmed_at: 2010-02-11 11:02:57
