@@ -51,7 +51,7 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
     assert_no_difference("Comment.count") do
       delete book_comment_url(@book, @third_users_comment)
     end
-    assert_redirected_to @book
+    assert_redirected_to users_url
     sign_out users(:one)
     assert_no_difference("Comment.count") do
       delete book_comment_url(@book, @third_users_comment)

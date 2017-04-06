@@ -3,7 +3,9 @@ class CommentsController < ApplicationController
   before_action :set_user
   before_action :set_book, only: [:new, :create, :destroy]
   before_action :set_comment, only: [:destroy]
-  before_action :same_user, only: [:destroy]
+  before_action only: [:destroy] do
+    same_user(@comment)
+  end
 
   def new
     @comment = @book.comments.new
@@ -40,10 +42,4 @@ class CommentsController < ApplicationController
       params.require(:comment).permit(:content)
     end
 
-    def same_user
-      unless current_user.admin? || (current_user.id == @comment.user_id) 
-        flash[:alert] = "You can only delete your own comments!"
-        redirect_to @book
-      end
-    end
 end

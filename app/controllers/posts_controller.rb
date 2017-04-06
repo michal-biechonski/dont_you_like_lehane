@@ -2,6 +2,9 @@ class PostsController < ApplicationController
   
   before_action :set_user, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action only: [:edit, :update, :destroy] do
+    same_user(@post)
+  end
 
   def index
     @posts = Post.all

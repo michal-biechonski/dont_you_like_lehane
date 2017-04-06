@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_action :set_user, only: [:show, :destroy]
+  before_action :set_user_params, only: [:show, :destroy]
   before_action :require_logged_in, only: [:destroy]
   before_action :require_admin, only: [:destroy]
 
@@ -17,10 +17,9 @@ class UsersController < ApplicationController
     redirect_to users_path
   end
 
+  private
 
-    private
-
-    def set_user
+    def set_user_params
       @user = User.find(params[:id])
     end
 
@@ -28,13 +27,6 @@ class UsersController < ApplicationController
       unless signed_in?
         flash[:alert] = "You must be logged in to do that."
         redirect_to new_user_session_path        
-      end
-    end
-
-    def require_admin
-      unless signed_in? && current_user.admin?
-        flash[:alert] = "Only administrator have access to do this task."
-        redirect_to users_path
       end
     end
 
