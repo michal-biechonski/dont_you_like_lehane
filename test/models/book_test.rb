@@ -1,9 +1,6 @@
 require 'test_helper'
 
 class BookTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
 
   setup do
     @book = books(:one)

@@ -2,6 +2,7 @@ class ReadersController < ApplicationController
   
   before_action :set_book, only: [:create, :destroy]
   before_action :set_future_reader, only: [:create, :destroy]
+  before_action :set_user, only: [:create, :destroy]
 
   def create
     @reader = current_user.readers.build()

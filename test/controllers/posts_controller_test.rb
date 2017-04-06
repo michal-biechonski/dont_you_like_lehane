@@ -77,7 +77,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     patch user_post_url(@user, @first), params: { post: { title: "changed title", content: "changed content" } }
     assert_redirected_to new_user_session_url
     follow_redirect!
-    assert_not_empty "flash#alert" 
+    assert_not_empty "flash#alert"
   end
 
   test "should delete post" do

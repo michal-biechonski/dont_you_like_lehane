@@ -2,6 +2,7 @@ class FutureReadersController < ApplicationController
 
   before_action :set_book, only: [:create, :destroy]
   before_action :set_reader, only: [:create, :destroy]
+  before_action :set_user, only: [:create, :destroy]
 
   def create
     @future_reader = current_user.future_readers.build()
@@ -28,10 +29,15 @@ class FutureReadersController < ApplicationController
   def destroy
     @future_reader = FutureReader.where("user_id = ? AND book_id = ?", current_user.id, @book.id).take
     respond_to do |format|
-      if @future_reader.destroy
+      if !@future_reader.nil? && @future_reader.destroy
         format.js
         format.html {
           flash[:notice] = "So you don't wanna read it??"
+          redirect_to @book
+        }
+      else
+        format.html {
+          flash[:notice] = "You haven't added it to the wishlist"
           redirect_to @book
         }
       end
