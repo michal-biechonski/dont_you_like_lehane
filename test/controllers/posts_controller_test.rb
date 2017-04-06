@@ -59,4 +59,63 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to new_user_session_url
   end
 
+  test "should update post if post is valid" do
+    patch user_post_url(@user, @first), params: { post: { title: "Some changed title", content: "Some changed content" } }
+    assert_redirected_to user_url(@user)
+
+    patch user_post_url(@user, @first), params: { post: { title: "", content: "" } }
+    assert_not_empty "div#error_explanation"
+  end
+
+  test "should not update post if not logged in or not user's post" do
+    patch user_post_url(@user, @third), params: { post: { title: "changed title", content: "changed content" } }
+    assert_redirected_to users_url
+    follow_redirect!
+    assert_not_empty "flash#alert"
+
+    sign_out @user
+    patch user_post_url(@user, @first), params: { post: { title: "changed title", content: "changed content" } }
+    assert_redirected_to new_user_session_url
+    follow_redirect!
+    assert_not_empty "flash#alert" 
+  end
+
+  test "should delete post" do
+    assert_difference("Post.count", -1) do
+      delete user_post_url(@user, @first)
+    end
+    assert_redirected_to user_url(@user)
+  end
+
+  test "should not delete post if user not logged in" do
+    sign_out @user
+    assert_no_difference("Post.count") do
+      delete user_post_url(@user, @first)
+    end
+    assert_redirected_to new_user_session_url
+    follow_redirect!
+    assert_not_empty "flash#alert"
+  end
+
+  test "should not delete if not user's post and user not admin" do
+    assert_no_difference("Post.count") do
+      delete user_post_url(users(:three), @third)
+    end
+    assert_redirected_to users_url
+    follow_redirect!
+    assert_not_empty "flash#alert"
+  end
+
+  test "should delete any posts if user admin" do
+    sign_out @user
+    sign_in users(:admin)
+    assert_difference("Post.count", -1) do
+      delete user_post_url(users(:three), @third)
+    end
+    assert_redirected_to user_url(users(:admin))
+    follow_redirect!
+    assert_not_empty "flash#notice"
+  end
+
+
 end
