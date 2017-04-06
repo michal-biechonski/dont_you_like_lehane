@@ -54,6 +54,9 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
   test "should not get edit if not logged in or not user's comment" do
     get edit_user_post_url(users(:three), @third)
     assert_redirected_to users_url
+    sign_out @user
+    get edit_user_post_url(users(:three), @third)
+    assert_redirected_to new_user_session_url
   end
 
 end
