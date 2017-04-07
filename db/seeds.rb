@@ -62,7 +62,7 @@ end
   @post.save
 end
 
-Comment.all.each do |comment|
-  comment.destroy
-end
+# Comment.all.each do |comment|
+#   comment.destroy
+# end
 
