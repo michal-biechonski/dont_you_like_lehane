@@ -20,4 +20,11 @@ class FutureReaderTest < ActiveSupport::TestCase
     assert_not @fut_read.valid?
   end
 
+  test "should be unique" do
+    sign_in users(:three)
+    @fut_read2 = User.find(users(:three).id).future_readers.build()
+    @fut_read2.book_id = @fut_read.book_id
+    assert_not @fut_read2.valid?
+  end
+
 end

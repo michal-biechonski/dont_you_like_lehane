@@ -37,7 +37,7 @@ class FutureReadersController < ApplicationController
         }
       else
         format.html {
-          flash[:notice] = "You haven't added it to the wishlist"
+          flash[:notice] = "You haven't added it to the wishlist!"
           redirect_to @book
         }
       end

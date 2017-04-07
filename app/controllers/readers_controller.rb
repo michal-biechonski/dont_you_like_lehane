@@ -29,11 +29,16 @@ class ReadersController < ApplicationController
   def destroy
     @reader = Reader.where("user_id = ? AND book_id = ?", current_user.id, @book.id).take
     respond_to do |format|
-      if @reader.destroy
+      if !@reader.nil? && @reader.destroy
         format.js
         format.html {
           flash[:notice] = "So you haven't read it yet??"
           redirect_to @book         
+        }
+      else
+        format.html {
+          flash[:alert] = "You haven't read that book!"
+          redirect_to @book
         }
       end
     end
