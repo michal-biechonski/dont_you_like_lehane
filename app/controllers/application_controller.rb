@@ -26,7 +26,7 @@ class ApplicationController < ActionController::Base
 
   def require_admin
     unless current_user.admin?
-      flash[:alert] = "Only administrator have access to do this task."
+      flash[:alert] = "Only administrators have access to do this task."
       redirect_to users_path
     end
   end

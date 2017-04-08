@@ -11,29 +11,29 @@ class BooksTest < ActionDispatch::IntegrationTest
     get new_book_url
     assert_redirected_to new_user_session_url
     follow_redirect!
-    assert_not_empty "flash#alert"
+    assert_select "div#flash_alert", "You must be logged in to do that."
     assert_not logged_in?
     
     post user_session_url, params: { user: { email: @user.email, password: "password" } }
     assert_redirected_to root_url
     follow_redirect!
-    assert_not_empty "flash#notice"
+    assert_select "div#flash_notice", "Signed in successfully."
     assert logged_in?
     get new_book_url
     assert_redirected_to users_url
     follow_redirect!
-    assert_not_empty "flash#alert"
+    assert_select "div#flash_alert", "Only administrators have access to do this task."
     delete destroy_user_session_url
     assert_redirected_to root_url
     follow_redirect!
-    assert_not_empty "flash#notice"
+    assert_select "div#flash_notice", "Signed out successfully."
     assert_not logged_in?
     
     get new_user_session_url
     post user_session_url, params: { user: { email: @admin.email, password: "password" } }
     assert_redirected_to root_url
     follow_redirect!
-    assert_not_empty "flash#notice"
+    assert_select "div#flash_notice", "Signed in successfully."
     assert logged_in?
     get new_book_url
     assert_template "books/new"
@@ -43,7 +43,7 @@ class BooksTest < ActionDispatch::IntegrationTest
     @book = assigns(:book)
     assert_redirected_to @book
     follow_redirect!
-    assert_not_empty "flash#notice"
+    assert_select "div#flash_notice", "Book was successfully created."
     assert_equal @book.title, "some random book title"
     assert_equal @book.description, "some random book description"
     assert_equal @book.published_at, "2017-01-01 00:00:00"
@@ -53,7 +53,7 @@ class BooksTest < ActionDispatch::IntegrationTest
     patch book_url(@book), params: { book: { title: "changed book title", description: "changed book description", published_at: "2000-01-01 00:00:00" } }
     assert_redirected_to @book
     follow_redirect!
-    assert_not_empty "flash#notice"
+    assert_select "div#flash_notice", "Book was successfully updated."
     @book.reload
     assert_equal @book.title, "changed book title"
     assert_equal @book.description, "changed book description"
@@ -64,7 +64,7 @@ class BooksTest < ActionDispatch::IntegrationTest
     end
     assert_redirected_to books_url
     follow_redirect!
-    assert_not_empty "flash#notice"
+    assert_select "div#flash_notice", "Book was successfully deleted."
   end
 
 

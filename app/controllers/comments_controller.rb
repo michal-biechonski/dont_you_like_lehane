@@ -15,7 +15,7 @@ class CommentsController < ApplicationController
     @comment = @book.comments.build(comment_params)
     @comment.user_id = current_user.id
     if @comment.save
-      flash[:notice] = "Comment was added"
+      flash[:notice] = "Comment was successfully added."
       redirect_to @book
     else
       render "new"
@@ -24,7 +24,7 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment.destroy
-    flash[:notice] = "Comment was deleted"
+    flash[:notice] = "Comment was successfully deleted."
     redirect_to @book
   end
 
