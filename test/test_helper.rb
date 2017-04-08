@@ -8,7 +8,7 @@ class ActiveSupport::TestCase
   fixtures :all
 
   def logged_in?
-    !session[:session_id].nil?
+    !session["warden.user.user.key"].nil?
   end
 
   # Add more helper methods to be used by all tests here...
