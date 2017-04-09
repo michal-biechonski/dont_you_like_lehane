@@ -6,6 +6,7 @@ class CommentsTest < ActionDispatch::IntegrationTest
     @user = users(:one)
     @admin = users(:admin)
     @book = books(:one)
+    @comment2 = comments(:two)
   end
 
   test "add and delete comments" do
@@ -57,7 +58,7 @@ class CommentsTest < ActionDispatch::IntegrationTest
     assert_template "books/show"
     assert_select "a[href=?]", book_comment_path(@book, @comment), count: 0
     assert_no_difference("Comment.count") do
-      delete book_comment_path(@book, @comment)
+      delete book_comment_url(@book, @comment)
     end
     assert_redirected_to new_user_session_url
     follow_redirect!
@@ -69,9 +70,33 @@ class CommentsTest < ActionDispatch::IntegrationTest
     assert_template "books/show"
     assert_select "a[href=?]", book_comment_path(@book, @comment)
     assert_difference("Comment.count", -1) do
-      delete book_comment_path(@book, @comment)
+      delete book_comment_url(@book, @comment)
     end
     assert_redirected_to @book
+    follow_redirect!
+    assert_select "div#flash_notice", "Comment was successfully deleted."
+
+    get book_url(books(:two))
+    assert_template "books/show"
+    assert_select "a[href=?]", book_comment_path(books(:two), @comment2), count: 0
+    assert_no_difference("Comment.count") do
+      delete book_comment_url(books(:two), @comment2)
+    end
+    assert_redirected_to users_url
+    follow_redirect!
+    assert_select "div#flash_alert", "You can only do this task on your own content!"
+
+    delete destroy_user_session_url
+    assert_not logged_in?
+    post user_session_url, params: { user: { email: @admin.email, password: "password" } }
+    assert logged_in?
+    get book_url(books(:two))
+    assert_template "books/show"
+    assert_select "a[href=?]", book_comment_path(books(:two), @comment2)
+    assert_difference("Comment.count", -1) do
+      delete book_comment_url(books(:two), @comment2)
+    end
+    assert_redirected_to books(:two)
     follow_redirect!
     assert_select "div#flash_notice", "Comment was successfully deleted."
   end

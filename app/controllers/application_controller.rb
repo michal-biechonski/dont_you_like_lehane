@@ -33,7 +33,7 @@ class ApplicationController < ActionController::Base
 
   def same_user(resource)
     unless current_user.admin? || (current_user.id == resource.user_id) 
-      flash[:alert] = "You can only do this task to your own content!"
+      flash[:alert] = "You can only do this task on your own content!"
       redirect_to users_path
     end
   end
