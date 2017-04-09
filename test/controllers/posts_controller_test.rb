@@ -35,7 +35,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     assert_no_difference("Post.count") do
       post user_posts_url(@user), params: { post: { title: "", content: "" } }
     end
-    assert_not_empty "div#error_explanation"
+    assert_select "div#error_explanation", "Title can't be blank\nContent can't be blank"
   end
 
   test "should not create post if not logged in" do
@@ -64,20 +64,20 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to user_url(@user)
 
     patch user_post_url(@user, @first), params: { post: { title: "", content: "" } }
-    assert_not_empty "div#error_explanation"
+    assert_select "div#error_explanation", "Title can't be blank\nContent can't be blank"
   end
 
   test "should not update post if not logged in or not user's post" do
     patch user_post_url(@user, @third), params: { post: { title: "changed title", content: "changed content" } }
     assert_redirected_to users_url
     follow_redirect!
-    assert_not_empty "flash#alert"
+    assert_select "div#flash_alert", "You can only do this to your own posts!"
 
     sign_out @user
     patch user_post_url(@user, @first), params: { post: { title: "changed title", content: "changed content" } }
     assert_redirected_to new_user_session_url
     follow_redirect!
-    assert_not_empty "flash#alert"
+    assert_select "div#flash_alert", "You must be logged in to do that."
   end
 
   test "should delete post" do
@@ -94,7 +94,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     end
     assert_redirected_to new_user_session_url
     follow_redirect!
-    assert_not_empty "flash#alert"
+    assert_select "div#flash_alert", "You must be logged in to do that."
   end
 
   test "should not delete if not user's post and user not admin" do
@@ -103,7 +103,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     end
     assert_redirected_to users_url
     follow_redirect!
-    assert_not_empty "flash#alert"
+    assert_select "div#flash_alert", "You can only do this to your own posts!"
   end
 
   test "should delete any posts if user admin" do
@@ -114,7 +114,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     end
     assert_redirected_to user_url(users(:admin))
     follow_redirect!
-    assert_not_empty "flash#notice"
+    assert_select "div#flash_notice", "You've deleted that post."
   end
 
 

@@ -9,14 +9,21 @@ one:
 
 two:
   id: 2
-  title: Second Title
+  title: Second title
   description: Have to be too carefull
   picture_file_name: MyString12.jpg
   published_at: 2010-02-11 11:02:57
 
 three:
   id: 3
-  title: "Third Title"
-  description: "Have to be carecarecare"
+  title: Third title
+  description: Have to be carecarecare
   picture_file_name: MyString123.jpg
   published_at: 2010-02-11 11:02:57
+
+four:
+  id: 4
+  title: Fourth title
+  description: Fourth book ain't too shabby
+  picture_file_name: MyBook.jpg
+  published_at: 2000-01-01 01:00:00 

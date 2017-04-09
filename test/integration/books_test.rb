@@ -67,6 +67,41 @@ class BooksTest < ActionDispatch::IntegrationTest
     assert_select "div#flash_notice", "Book was successfully deleted."
   end
 
+  test "add and delete readers and future readers" do
+    get new_user_session_url
+    post user_session_url, params: { user: { email: @user.email, password: "password" } }
+    assert logged_in?
+    get book_url(books(:four))
+    assert_template "books/show"
+    assert_select "a[href=?]", book_readers_path(books(:four))
+    assert_select "a[href=?]", book_future_readers_path(books(:four))
+    assert_difference("Reader.count", 1) do
+      post book_readers_path(books(:four))
+    end
+    get book_url(books(:four))
+    assert_select "a[href=?]", book_reader_path(books(:four), @user)
+    assert_select "a[href=?]", book_future_readers_path(books(:four))
+    assert_difference("FutureReader.count", 1) do
+      assert_difference("Reader.count", -1) do
+        post book_future_readers_path(books(:four))
+      end
+    end
+    get book_url(books(:four))
+    assert_select "a[href=?]", book_readers_path(books(:four))
+    assert_select "a[href=?]", book_future_reader_path(books(:four), @user)
+    assert_difference("Reader.count", 1) do
+      assert_difference("FutureReader.count", -1) do
+        post book_readers_path(books(:four))
+      end
+    end
+    assert_difference("Reader.count", -1) do
+      delete book_reader_path(books(:four), @user)
+    end
+    get book_url(books(:four))
+    assert_select "a[href=?]", book_readers_path(books(:four))
+    assert_select "a[href=?]", book_future_readers_path(books(:four))
+  end
+
 
 
 end

@@ -35,7 +35,7 @@ class ReadersControllerTest < ActionDispatch::IntegrationTest
     end
     assert_redirected_to new_user_session_url
     follow_redirect!
-    assert_not_empty "flash#alert"
+    assert_select "div#flash_alert", "You must be logged in to do that."
   end
 
   test "should not create reader if it already exists" do
@@ -45,7 +45,7 @@ class ReadersControllerTest < ActionDispatch::IntegrationTest
     end
     assert_redirected_to books(:one)
     follow_redirect!
-    assert_not_empty "flash#alert"
+    assert_select "div#flash_alert", "You've already selected that book"
   end
 
   test "should delete reader" do
@@ -71,7 +71,7 @@ class ReadersControllerTest < ActionDispatch::IntegrationTest
     end
     assert_redirected_to books(:two)
     follow_redirect!
-    assert_not_empty "flash#alert"
+    assert_select "div#flash_alert", "You haven't read that book!"
   end
 
   test "should not delete reader if not logged in" do
@@ -80,7 +80,7 @@ class ReadersControllerTest < ActionDispatch::IntegrationTest
     end
     assert_redirected_to new_user_session_url
     follow_redirect!
-    assert_not_empty "flash#alert"
+    assert_select "div#flash_alert", "You must be logged in to do that."
   end
 
 

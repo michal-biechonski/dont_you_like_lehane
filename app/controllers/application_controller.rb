@@ -32,8 +32,9 @@ class ApplicationController < ActionController::Base
   end
 
   def same_user(resource)
-    unless current_user.admin? || (current_user.id == resource.user_id) 
-      flash[:alert] = "You can only do this task on your own content!"
+    unless current_user.admin? || (current_user.id == resource.user_id)
+      resource == @comment ? type = "comments" : type = "posts"
+      flash[:alert] = "You can only do this to your own #{type}!"
       redirect_to users_path
     end
   end

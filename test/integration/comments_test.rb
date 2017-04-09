@@ -84,7 +84,7 @@ class CommentsTest < ActionDispatch::IntegrationTest
     end
     assert_redirected_to users_url
     follow_redirect!
-    assert_select "div#flash_alert", "You can only do this task on your own content!"
+    assert_select "div#flash_alert", "You can only do this to your own comments!"
 
     delete destroy_user_session_url
     assert_not logged_in?
