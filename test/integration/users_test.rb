@@ -29,6 +29,7 @@ class UsersTest < ActionDispatch::IntegrationTest
     assert_redirected_to root_url
     follow_redirect!
     assert_select "div#flash_notice", "A message with a confirmation link has been sent to your email address. Please follow the link to activate your account."
+    @new_user.reload
     assert_nil @new_user.confirmed_at
 
     get user_confirmation_url, params: { confirmation_token: @new_user.confirmation_token}
@@ -51,15 +52,45 @@ class UsersTest < ActionDispatch::IntegrationTest
     2.times do
       post user_session_url, params: { user: { email: @new_user.email, password: "wrong_password" } }
     end
+    @new_user.reload
+    assert_equal 2, @new_user.failed_attempts
     assert_select "div#flash_alert", "You have one more attempt before your account is locked."
-    post user_session_url, params: { user: { email: @new_user.email, password: "wrong_password" } }
+    assert_difference("ActionMailer::Base.deliveries.count", 1) do
+      post user_session_url, params: { user: { email: @new_user.email, password: "wrong_password" } }
+    end
     assert_select "div#flash_alert", "Your account is locked."
     assert_not logged_in?
+    @new_user.reload
+    assert_not_nil @new_user.locked_at
+    @mail = ActionMailer::Base.deliveries.last  
+    assert_equal ["do-not-reply@dont_you_like_lehane.com"], @mail.from
+    assert_equal [@new_user.email], @mail.to
+    assert_equal "Unlock instructions", @mail.subject
+    assert_match "unlock_token=", @mail.body.encoded  
+    @email_token = @mail.body.match(/unlock_token=([^"]+)/)[1]
+
+    # TODO - check if token from email is the same as unlock_token in db
 
     get new_user_session_url
     post user_session_url, params: { user: { email: @new_user.email, password: "password" } }
     assert_select "div#flash_alert", "Your account is locked."
     assert_not logged_in?
+    get user_unlock_url, params: { unlock_token: @email_token }
+    assert_redirected_to new_user_session_url
+    follow_redirect!
+    assert_select "div#flash_notice", "Your account has been unlocked successfully. Please sign in to continue."
+    @new_user.reload
+    assert_nil @new_user.locked_at
+    assert_nil @new_user.unlock_token
+    assert_equal @new_user.failed_attempts, 0
+
+    get new_user_session_url
+    post user_session_url, params: { user: { email: @new_user.email, password: "password" } }
+    assert_redirected_to root_url
+    follow_redirect!
+    assert_select "div#flash_notice", "Signed in successfully."
+    assert logged_in?
+
 
   end
 
