@@ -27,7 +27,7 @@
         -@user.comments.each do |comment|
           .well
             = link_to comment.content, book_path(comment.book_id)
-            .commentDate= "Added " + time_ago_in_words(comment.updated_at).to_s + " ago"
+            .commentDate= Book.find(comment.book_id).title + ", added " + time_ago_in_words(comment.updated_at).to_s + " ago"
       - else
         %h1.showUserHeader= @user.name + " hasn't added any comments yet."  
     .col-md-6
