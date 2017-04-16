@@ -135,10 +135,6 @@ class UsersTest < ActionDispatch::IntegrationTest
     assert_redirected_to users_url
     follow_redirect!
     assert_select "div#flash_notice", "User was successfully deleted."
-
   end
-
-
-
 
 end

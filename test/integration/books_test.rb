@@ -48,6 +48,11 @@ class BooksTest < ActionDispatch::IntegrationTest
     assert_equal @book.description, "some random book description"
     assert_equal @book.published_at, "2017-01-01 00:00:00"
 
+    assert_no_difference("Book.count") do
+      post books_url, params: { book: { title: "some random book title", description: "", published_at: "" } }
+    end
+    assert_select "div#error_explanation", count: 1
+
     get edit_book_url(@book)
     assert_template "books/edit"
     patch book_url(@book), params: { book: { title: "changed book title", description: "changed book description", published_at: "2000-01-01 00:00:00" } }
@@ -58,6 +63,9 @@ class BooksTest < ActionDispatch::IntegrationTest
     assert_equal @book.title, "changed book title"
     assert_equal @book.description, "changed book description"
     assert_equal @book.published_at, "2000-01-01 00:00:00"
+
+    patch book_url(@book), params: { book: { title: "", description: "", published_at: "" } }
+    assert_select "div#error_explanation", count: 1
 
     assert_difference("Book.count", -1) do
       delete book_url(@book)
