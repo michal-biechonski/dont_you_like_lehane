@@ -67,6 +67,9 @@ body {
     height: 93vh;
     h1 {
       margin-top: 0;
+      @media (max-width: 768px){
+        word-wrap: break-word;
+      }
     }
     div, span {
       font-size: 2.1em;
@@ -121,6 +124,11 @@ h1.center {
     color: white;
     &:hover, &:focus {
       color: $navy_blue;
+    }
+  }
+  a.navbar-brand {
+    @media (max-width: 340px){
+      font-size: 15px
     }
   }
   .navbar-toggle {
@@ -189,6 +197,7 @@ img {
   // text-align: left;
 }
 
+
 .bookImage {
   box-shadow: unset;
 }
@@ -200,10 +209,13 @@ img {
   word-wrap: break-word;
 }
 
-.flexColumn {
-  img {
-    // margin-top: 1.6em;
-  }
+img.flexColumn {
+  margin-bottom: 1.6em;
+  // border-radius: 3%;
+}
+
+img {
+  // max-width: 50%;
 }
 
 .clear {
