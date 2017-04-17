@@ -13,7 +13,7 @@
     .col-md-8.col-md-offset-2
       %a.booksLinks{href:"books/#{book.id}"}
         .row.well
-          = image_tag book.picture.url(:medium), class: "col-xs-10 col-xs-offset-1 bookImage col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-0 flexColumn center"
+          = image_tag book.picture.url(:medium), class: "bookImage col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-0"
           .col-xs-10.col-xs-offset-1.col-sm-8.col-sm-offset-2.col-md-6.col-md-offset-0
             .bookContent
               %strong Title:

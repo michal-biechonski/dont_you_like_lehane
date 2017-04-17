@@ -7,17 +7,15 @@
     - if @user.readers.count > 0
       %p.userBooks
         %h2= "Read " + pluralize(@user.readers.count, "book") + ":"
-        .readBooks
-          - @user.readers.each do |reader|
-            %p= link_to Book.find(reader.book_id).title, book_path(reader.book_id)
+        - @user.readers.each do |reader|
+          %p= link_to Book.find(reader.book_id).title, book_path(reader.book_id)
     - else
       %h2 Hasn't read any books yet.
     - if @user.future_readers.count > 0
       %p.userBooks
         %h2= "Plans to read " + pluralize(@user.future_readers.count, "book") + ":"
-        .readBooks
-          - @user.future_readers.each do |future|
-            %p= link_to Book.find(future.book_id).title, book_path(future.book_id)
+        - @user.future_readers.each do |future|
+          %p= link_to Book.find(future.book_id).title, book_path(future.book_id)
 
 
   .col-md-9.center

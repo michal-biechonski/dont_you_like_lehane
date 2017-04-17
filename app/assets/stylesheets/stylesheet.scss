@@ -27,7 +27,6 @@ body {
 
 .flashDiv{
   background-color: $gun_metal;
-  // padding: 10px 0;
 }
 
 .commentContent {
@@ -137,15 +136,28 @@ h1.center {
     background-color: $rusty_red;
     border-color: white;
     border-top: none;
-    // border-right: none;
     .divider {
       width: 260px;
     }
   }
 }
-  .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:hover, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav .open .dropdown-menu > li > a {
-    background-color: $rusty_red;
-    color: white; 
+  // .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:hover, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+  //   background-color: $rusty_red;
+  //   color: white; 
+  // }
+
+  .navbar-default {
+    .navbar-nav {
+      .open {
+        a, a:hover, a:focus, .dropdown-menu>li>a {
+          background-color: $rusty_red;
+          color: white; 
+        }
+        .dropdown-menu>li>a:hover {
+          color: $navy_blue
+        }
+      }
+    }
   }
 
 .message-notice {
@@ -164,16 +176,6 @@ h1.center {
   color: #a94442;
 }
 
-// .message-notice {
-//   background-color: #A4D555;
-//   color: $navy_blue;  
-// }
-
-// #error_explanation, .message-alert {
-//   background-color: $rusty_red;
-//   color: white;
-// }
-
 .btn-wide {
   width: 100%;
 }
@@ -187,29 +189,14 @@ img {
   @include shadow-color; 
 }
 
-.readBooks {
-  // text-align: left;
-}
-
-
 .bookImage {
   box-shadow: unset;
+  margin-bottom: 1.6em;
 }
 
 .bookContent {
-  // margin: 1.2em 0;
   font-size: 1.2em;
-  // word-break: break-all;
   word-wrap: break-word;
-}
-
-img.flexColumn {
-  margin-bottom: 1.6em;
-  // border-radius: 3%;
-}
-
-img {
-  // max-width: 50%;
 }
 
 .clear {
@@ -227,7 +214,6 @@ p.userDate {
     border: none;
     margin: 1em 0;
     &.usersWell {
-      // margin: 0.5em;
       .userName {
         margin-bottom: 1em;
       }
@@ -274,7 +260,7 @@ a {
     text-decoration: none;
     color: white;
   }
-  &.booksLinks:hover {
+  &.booksLinks:hover, &.booksLinks:focus {
     text-decoration: none;
     color: $navy_blue
   }

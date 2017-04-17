@@ -24,6 +24,7 @@ class ReadersControllerTest < ActionDispatch::IntegrationTest
       end
     end
     assert_match "Didn&#39;t read it", @response.body
+    # assert_match "Didn't read it", @response.body.
     # TODO change to didn't read it, escape, parse...
     assert_match "Add to wishlist", @response.body
     assert_equal "text/javascript", @response.content_type
