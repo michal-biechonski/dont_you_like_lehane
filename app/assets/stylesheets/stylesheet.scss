@@ -21,12 +21,21 @@ body {
   padding: 50px 0 0;
 }
 
-.center {
-  text-align: center;
+.homePageFlashDiv{
+  background-color: $gun_metal;
 }
 
-.flashDiv{
-  background-color: $gun_metal;
+.center {
+  text-align: center;
+  .bookImage {
+    @media (min-width: $screen-sm-min){
+      margin: 0;
+    }
+  }
+}
+
+h1.center {
+  margin: 1em;
 }
 
 .commentContent {
@@ -51,7 +60,6 @@ body {
 .jumbotron {
   margin-bottom: 0;
   padding: 7.5em 0;
-  // margin: 0 0 1em;
   color: white;
   background-color: $gun_metal;
   min-height: 93vh;
@@ -89,22 +97,15 @@ body {
   }
 }
 
-h1.center {
-  margin: 1em;
-}
-
 .row {
+  margin-left: 15px;
+  margin-right: 15px;
   h1.showUserHeader {
     min-height: 2.2em;
     & + img {
       margin-top: 0.25em;
     }
   }
-}
-
-.row {
-  margin-left: 15px;
-  margin-right: 15px;
 }
 
 .navbar {
@@ -119,9 +120,20 @@ h1.center {
       color: $navy_blue;
     }
   }
-  a.navbar-brand {
+  .navbar-brand {
     @media (max-width: 340px){
       font-size: 15px
+    }
+  }
+  .navbar-nav {
+    .open {
+      a, a:hover, a:focus, .dropdown-menu>li>a {
+        background-color: $rusty_red;
+        color: white; 
+      }
+      .dropdown-menu>li>a:hover {
+        color: $navy_blue
+      }
     }
   }
   .navbar-toggle {
@@ -141,40 +153,22 @@ h1.center {
     }
   }
 }
-  // .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:hover, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav .open .dropdown-menu > li > a {
-  //   background-color: $rusty_red;
-  //   color: white; 
-  // }
 
-  .navbar-default {
-    .navbar-nav {
-      .open {
-        a, a:hover, a:focus, .dropdown-menu>li>a {
-          background-color: $rusty_red;
-          color: white; 
-        }
-        .dropdown-menu>li>a:hover {
-          color: $navy_blue
-        }
-      }
-    }
-  }
-
-.message-notice {
-  background-color: #dff0d8;
-  border-color: #d6e9c6;
-  color: #3c763d;
-}
+// .message-notice {
+//   background-color: #dff0d8;
+//   border-color: #d6e9c6;
+//   color: #3c763d;
+// }
 
 .alert {
   margin: 10px 0;
 }
 
-#error_explanation, .message-alert {
-  background-color: #f2dede;
-  border-color: #ebccd1;
-  color: #a94442;
-}
+  // #error_explanation, .message-alert {
+  //   background-color: #f2dede;
+  //   border-color: #ebccd1;
+  //   color: #a94442;
+  // }
 
 .btn-wide {
   width: 100%;
@@ -191,7 +185,9 @@ img {
 
 .bookImage {
   box-shadow: unset;
-  margin-bottom: 1.6em;
+  @media (max-width: $screen-md-max) {
+    margin-bottom: 1.6em;
+  }
 }
 
 .bookContent {

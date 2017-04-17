@@ -1,4 +1,5 @@
 - flash.each do |name, message|
-  .alert{class: "message-#{name}"}
+  - name == "alert" ? alert_name = "danger" : alert_name = "success"
+  .alert{class: "alert-#{alert_name}"}
     %a.close{ href: "#", data: { dismiss: "alert" } } &times;
     = content_tag :div, message, id: "flash_#{name}" if message.is_a?(String)
