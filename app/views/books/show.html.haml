@@ -17,6 +17,8 @@
       .bookButtons.center
         -if user_signed_in?
           = link_to "Comment", new_book_comment_path(@book, @comment), class: "btn btn-primary"
+          = link_to "Comment", new_book_comment_path(@book, @comment), class: "navy"
+          = link_to "Comment", new_book_comment_path(@book, @comment), class: "rusty"
           - if wants_to_read_this?
             %span#removeFromWish= render "removeFromWish"          
           - else

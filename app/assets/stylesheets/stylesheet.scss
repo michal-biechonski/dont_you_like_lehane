@@ -9,6 +9,12 @@ $warm_yellow: #EAC67A;
 box-shadow: 1px 2px 5px 1px rgba(152,75,67,1);
 }
 
+@mixin regular-button($button-bg-color, $button-text-color: white) {
+  @include button-size($padding-base-vertical, $padding-base-horizontal, $font-size-base, $line-height-base, $border-radius-base);
+  @include button-variant($button-text-color, $button-bg-color, white);
+  border: none;
+}
+
 @import url('https://fonts.googleapis.com/css?family=Architects+Daughter');
 
 body {
@@ -213,7 +219,11 @@ figure {
 }
 
 .navy {
+  @include regular-button($gun_metal);
+}
 
+.rusty {
+  @include regular-button($rusty_red);
 }
 
 .btn-primary {
