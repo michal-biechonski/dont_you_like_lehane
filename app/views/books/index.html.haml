@@ -4,8 +4,8 @@
     .col-sm-8.col-sm-offset-2
       %a.booksLinks{href:"/books/#{book.id}"}
         .row.well
-          .col-sm-3.center
-            = image_tag book.picture.url(:thumb), class: "bookImage"
+          %figure.col-sm-3.center
+            = image_tag book.picture.url(:thumb), class: "book"
           .col-sm-9
             .bookContent
               %strong Title:
