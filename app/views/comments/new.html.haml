@@ -1,6 +1,6 @@
 %h1.center Add comment
-.row
-  .col-xs-8.col-xs-offset-2.col-sm-6.col-sm-offset-3.col-lg-4.col-lg-offset-4
+%main.row
+  %section.col-xs-8.col-xs-offset-2.col-sm-6.col-sm-offset-3.col-lg-4.col-lg-offset-4
     = form_for [@book, @comment] do |f|
 
       = render "shared/errors", obj: @comment

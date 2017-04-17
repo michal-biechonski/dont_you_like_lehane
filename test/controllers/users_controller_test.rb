@@ -65,7 +65,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   test "should not update user if current password not valid" do
     sign_in @user
     patch user_registration_url, params: { user: { current_password: "randomText", name: "someRandomName" } }
-    assert_select "div#error_explanation", "Current password is invalid"
+    assert_select "section#error_explanation", "Current password is invalid"
   end
 
   test "should update user if current_password valid" do

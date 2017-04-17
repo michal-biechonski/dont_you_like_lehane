@@ -51,7 +51,7 @@ class BooksTest < ActionDispatch::IntegrationTest
     assert_no_difference("Book.count") do
       post books_url, params: { book: { title: "some random book title", description: "", published_at: "" } }
     end
-    assert_select "div#error_explanation", count: 1
+    assert_select "section#error_explanation", count: 1
 
     get edit_book_url(@book)
     assert_template "books/edit"
@@ -65,7 +65,7 @@ class BooksTest < ActionDispatch::IntegrationTest
     assert_equal @book.published_at, "2000-01-01 00:00:00"
 
     patch book_url(@book), params: { book: { title: "", description: "", published_at: "" } }
-    assert_select "div#error_explanation", count: 1
+    assert_select "section#error_explanation", count: 1
 
     assert_difference("Book.count", -1) do
       delete book_url(@book)

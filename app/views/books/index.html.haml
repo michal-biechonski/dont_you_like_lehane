@@ -1,12 +1,12 @@
 %h1.center Books
 - @books.each do |book|
-  .row
-    .col-sm-8.col-sm-offset-2
+  %main.row
+    %article.col-sm-8.col-sm-offset-2
       %a.booksLinks{href:"/books/#{book.id}"}
         .row.well
           %figure.col-sm-3.center
             = image_tag book.picture.url(:thumb), class: "book"
-          .col-sm-9
+          %section.col-sm-9
             .bookContent
               %strong Title:
               = book.title
