@@ -1,9 +1,9 @@
 %h1.center Users
-%main.row.center.usersRow
+%section.center.usersRow
   - @users.each do |user|
     .col-lg-3.col-md-4.col-sm-6
-      %section.well.usersWell
-        .row.center
+      %div.well.usersWell
+        %section.center
           %figure.col-md-4
             = link_to show_avatar(user, 70), user_path(user)
           %article.col-md-8

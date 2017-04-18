@@ -1,8 +1,8 @@
 %h1.center All posts
 - @posts.each do |post|
-  %main.row
+  %section
     .col-md-8.col-md-offset-2
-      %section.well
+      %div.well
         %h2.center= post.title
         %p= post.content
         %p.commentDate

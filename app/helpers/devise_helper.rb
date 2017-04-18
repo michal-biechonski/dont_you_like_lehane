@@ -10,9 +10,9 @@ module DeviseHelper
                       resource: resource.class.model_name.human.downcase)
 
     html = <<-HTML
-    <section id="error_explanation" class="alert alert-danger">
+    <div id="error_explanation" class="alert alert-danger">
       <ul>#{messages}</ul>
-    </section>
+    </div>
     HTML
 
     html.html_safe

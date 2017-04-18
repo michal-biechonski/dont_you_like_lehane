@@ -35,7 +35,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     assert_no_difference("Post.count") do
       post user_posts_url(@user), params: { post: { title: "", content: "" } }
     end
-    assert_select "section#error_explanation", "Title can't be blank\nContent can't be blank"
+    assert_select "div#error_explanation", "Title can't be blank\nContent can't be blank"
   end
 
   test "should not create post if not logged in" do
@@ -64,7 +64,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to user_url(@user)
 
     patch user_post_url(@user, @first), params: { post: { title: "", content: "" } }
-    assert_select "section#error_explanation", "Title can't be blank\nContent can't be blank"
+    assert_select "div#error_explanation", "Title can't be blank\nContent can't be blank"
   end
 
   test "should not update post if not logged in or not user's post" do

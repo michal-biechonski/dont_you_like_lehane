@@ -1,43 +1,41 @@
-%main.row
-  %aside.col-md-3.center
-    %h1.showUserHeader= @user.name
+%section.user
+  .user__books
+    %h1= @user.name
     = show_avatar(@user, 200)
-    %p.userDate
+    %p.user__registr-date
       = "Registered " + time_ago_in_words(@user.created_at) + " ago."
     - if @user.readers.count > 0
-      %p.userBooks
+      %p
         %h2= "Read " + pluralize(@user.readers.count, "book") + ":"
         - @user.readers.each do |reader|
           %p= link_to Book.find(reader.book_id).title, book_path(reader.book_id)
     - else
       %h2 Hasn't read any books yet.
     - if @user.future_readers.count > 0
-      %p.userBooks
+      %p
         %h2= "Plans to read " + pluralize(@user.future_readers.count, "book") + ":"
         - @user.future_readers.each do |future|
           %p= link_to Book.find(future.book_id).title, book_path(future.book_id)
-
-
-  %section.col-md-9.center
-    %article.col-md-6
+  .user__thoughts
+    .user__comments
       - if @user.comments.count > 0
-        %h1.showUserHeader= "Comments added by " + @user.name
+        %h1= "Comments added by " + @user.name
         -@user.comments.each do |comment|
-          .well
+          .user__comments-content
             = link_to comment.content, book_path(comment.book_id)
-            .commentDate= Book.find(comment.book_id).title + ", added " + time_ago_in_words(comment.updated_at).to_s + " ago"
+            .user__comments-date= Book.find(comment.book_id).title + ", added " + time_ago_in_words(comment.updated_at).to_s + " ago"
       - else
-        %h1.showUserHeader= @user.name + " hasn't added any comments yet."  
-    %article.col-md-6
+        %h1= @user.name + " hasn't added any comments yet."  
+    .user__posts
       - if @user.posts.count > 0
-        %h1.showUserHeader= "Posts written by " + @user.name
+        %h1= "Posts written by " + @user.name
         -@user.posts.each do |post|
-          .well
+          .user__posts-content
             %h3= post.title
             %p= post.content
-            %footer.commentDate= "Added " + time_ago_in_words(post.updated_at).to_s + " ago"
+            %footer.user__posts-date= "Added " + time_ago_in_words(post.updated_at).to_s + " ago"
             - if user_signed_in? && (current_user.id == post.user_id || current_user.admin?)
               = link_to "Edit", edit_user_post_path(@user, post), class: "btn btn-primary"
               = link_to "Delete", user_post_path(@user, post), method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure?" }
       - else
-        %h1.showUserHeader= @user.name + " hasn't written any posts yet."
+        %h1= @user.name + " hasn't written any posts yet."

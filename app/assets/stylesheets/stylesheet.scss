@@ -34,10 +34,51 @@ body {
   @extend .container;
 }
 
-.my-style  {
-  @include gradient-horizontal-three-colors(black, yellow, 30%, white);
-  // @include skew(10, 100);
+section {
+  @include make-row();
 }
+
+.user {
+  text-align: center;
+  .user__books {
+    @include make-md-column(3);
+    .user__registr-date {
+      margin: 10px 0;
+    }
+  }
+  .user__thoughts {
+    @include make-md-column(9);
+    .user__comments, .user__posts {
+      @include make-md-column(6);
+      &-content {
+        @extend .well;
+      }
+      &-date {
+        font-size: 0.8em;
+        font-style: italic;
+        text-align: right;
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+      }
+    }  
+  }
+  h1 {
+    min-height: 2.2em;
+    & + img {
+      margin-top: 0.25em;
+    }
+  }
+}
+
+// section {
+//   h1.showUserHeader {
+//     min-height: 2.2em;
+//     & + img {
+//       margin-top: 0.25em;
+//     }
+//   }
+// }
+
 
 .homePageFlashDiv{
   background-color: $gun_metal;
@@ -115,15 +156,27 @@ h1.center {
   }
 }
 
-.row {
-  // margin-left: 15px;
-  // margin-right: 15px;
-  h1.showUserHeader {
-    min-height: 2.2em;
-    & + img {
-      margin-top: 0.25em;
+.well {
+  background-color: darken($warm_yellow, 5%);
+  @include shadow-color;
+  border-color: $rusty_red;
+  border: none;
+  margin: 1em 0;
+  &.usersWell{
+    .userName {
+      margin-bottom: 1em;
     }
   }
+  h3 {
+    margin: 0 0 0.2em;
+  }
+  // .commentDate {
+  //   font-size: 0.8em;
+  //   font-style: italic;
+  //   text-align: right;
+  //   margin-top: 0.5em;
+  //   margin-bottom: 0.5em;
+  // }
 }
 
 .confirm-button {
@@ -185,7 +238,7 @@ h1.center {
   }
 }
 
-.alert, p.userDate {
+.alert {
   margin: 10px 0;
 }
 
@@ -220,28 +273,7 @@ figure {
   clear: both;
 }
 
-.well {
-  background-color: darken($warm_yellow, 5%);
-  @include shadow-color;
-  border-color: $rusty_red;
-  border: none;
-  margin: 1em 0;
-  &.usersWell{
-    .userName {
-      margin-bottom: 1em;
-    }
-  }
-  h3 {
-    margin: 0 0 0.2em;
-  }
-  .commentDate {
-    font-size: 0.8em;
-    font-style: italic;
-    text-align: right;
-    margin-top: 0.5em;
-    margin-bottom: 0.5em;
-  }
-}
+
 
 .navy {
   @include regular-button($gun_metal);

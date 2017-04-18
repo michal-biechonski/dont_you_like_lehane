@@ -1,5 +1,5 @@
 %h1.center Forgot your password?
-.row
+%section
   .col-xs-8.col-xs-offset-2.col-sm-6.col-sm-offset-3.col-lg-4.col-lg-offset-4
     = form_for resource, as: resource_name, url: password_path(resource_name) do |f|
       = devise_error_messages!
