@@ -48,24 +48,41 @@ section {
   }
   .user__thoughts {
     @include make-md-column(9);
-    .user__comments, .user__posts {
-      @include make-md-column(6);
-      &-content {
-        @extend .well;
-      }
-      &-date {
-        font-size: 0.8em;
-        font-style: italic;
-        text-align: right;
-        margin-top: 0.5em;
-        margin-bottom: 0.5em;
-      }
-    }  
   }
+  .user__comments, .user__posts {
+    @include make-md-column(6);
+    &-content {
+      @extend .well;
+    }
+    &-date {
+      font-size: 0.8em;
+      font-style: italic;
+      text-align: right;
+      margin-top: 0.5em;
+      margin-bottom: 0.5em;
+    }
+  }  
   h1 {
     min-height: 2.2em;
     & + img {
       margin-top: 0.25em;
+    }
+  }
+  &__card {
+    @include make-sm-column(6);
+    @include make-md-column(4);
+    @include make-lg-column(3);
+    .user__info {
+      @extend .well;
+      .user__details {
+        text-align: center;
+        .user__avatar {
+          @include make-md-column(4);
+        }
+        .user__name {
+          @include make-md-column(8);
+        }
+      }
     }
   }
 }
@@ -179,12 +196,37 @@ h1.center {
   // }
 }
 
+.button {
+  border: none;
+  // @extend .btn;
+  @include button-size($padding-base-vertical, $padding-base-horizontal, $font-size-base, $line-height-base, $border-radius-base);
+  &--confirm {
+    // @extend .btn-primary;
+    @include button-variant(white, $gun_metal, white);
+  }
+  &--deny {
+    // @extend .btn-danger;
+    @include button-variant(white, $rusty_red, white);
+  }
+  &:hover, &:focus {
+    text-decoration: none;
+  }
+}
+
+// .button--confirm {
+//   @include regular-button($gun_metal);
+// }
+
+// .button--deny {
+//   @include regular-button($rusty_red);
+// }
+
 .confirm-button {
-  @include regular-button($gun_metal)
+  @include regular-button($gun_metal);
 }
 
 .deny-button {
-  @include regular-button($rusty_red)
+  @include regular-button($rusty_red);
 }
 
 .submit {
