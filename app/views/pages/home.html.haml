@@ -1,4 +1,3 @@
-
 .homePageFlashDiv
   .container
     = render "shared/flash"
@@ -8,26 +7,27 @@
     %span Dennis Lehane???
   %p I thought so. Everybody likes Lehane and his books!
   = link_to "Sign up to start the fun!", new_user_registration_path, class: "btn btn-primary btn-lg" unless user_signed_in?
-%h1.center Discover some of his best work!
-- @books.each do |book|
-  %main.row
-    %article.col-md-8.col-md-offset-2
-      %a.booksLinks{href:"books/#{book.id}"}
-        %section.row.well
-          %figure= image_tag book.picture.url(:medium), class: "book col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-0"
-          .col-xs-10.col-xs-offset-1.col-sm-8.col-sm-offset-2.col-md-6.col-md-offset-0
-            .bookContent
-              %strong Title:
-              = book.title
-            .bookContent  
-              %strong Author:
-              = book.author
-            .bookContent
-              %strong Description:
-              = book.description
-            .bookContent
-              %strong Published at:
-              = book.published_at.strftime("%B, %Y")
+.container
+  %h1.center Discover some of his best work!
+  - @books.each do |book|
+    %main.row
+      %article.col-md-8.col-md-offset-2
+        %a.booksLinks{href:"books/#{book.id}"}
+          %section.row.well
+            %figure= image_tag book.picture.url(:medium), class: "book col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-0"
+            .col-xs-10.col-xs-offset-1.col-sm-8.col-sm-offset-2.col-md-6.col-md-offset-0
+              .bookContent
+                %strong Title:
+                = book.title
+              .bookContent  
+                %strong Author:
+                = book.author
+              .bookContent
+                %strong Description:
+                = book.description
+              .bookContent
+                %strong Published at:
+                = book.published_at.strftime("%B, %Y")
 %footer.jumbotron.center.utilityJumbo
   .container-fluid
     %h1 Share your opinions about his books!              

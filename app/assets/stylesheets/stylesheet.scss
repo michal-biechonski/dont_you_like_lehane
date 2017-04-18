@@ -13,6 +13,9 @@ box-shadow: 1px 2px 5px 1px rgba(152,75,67,1);
   @include button-size($padding-base-vertical, $padding-base-horizontal, $font-size-base, $line-height-base, $border-radius-base);
   @include button-variant($button-text-color, $button-bg-color, white);
   border: none;
+  &:hover, &:focus {
+    text-decoration: none;
+  }
 }
 
 @import url('https://fonts.googleapis.com/css?family=Architects+Daughter');
@@ -25,6 +28,15 @@ body {
   color: $navy_blue;
   background-color: $warm_yellow;
   padding: 50px 0 0;
+}
+
+.mainContainer, .flashContainer {
+  @extend .container;
+}
+
+.my-style  {
+  @include gradient-horizontal-three-colors(black, yellow, 30%, white);
+  // @include skew(10, 100);
 }
 
 .homePageFlashDiv{
@@ -104,8 +116,8 @@ h1.center {
 }
 
 .row {
-  margin-left: 15px;
-  margin-right: 15px;
+  // margin-left: 15px;
+  // margin-right: 15px;
   h1.showUserHeader {
     min-height: 2.2em;
     & + img {
@@ -113,6 +125,19 @@ h1.center {
     }
   }
 }
+
+.confirm-button {
+  @include regular-button($gun_metal)
+}
+
+.deny-button {
+  @include regular-button($rusty_red)
+}
+
+.submit {
+  width: 100%;
+}
+
 
 .navbar {
   padding: 0 15px;

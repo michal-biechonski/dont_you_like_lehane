@@ -1,5 +1,5 @@
 %h1.center Add comment
-%main.row
+%main.row.my-style
   %section.col-xs-8.col-xs-offset-2.col-sm-6.col-sm-offset-3.col-lg-4.col-lg-offset-4
     = form_for [@book, @comment] do |f|
 
@@ -11,4 +11,4 @@
         = f.text_area :content, class: "form-control", rows: 6
 
       .form-group
-        = f.submit "Add", class: "btn btn-primary wide"
+        = f.submit "Add", class: "confirm-button"
