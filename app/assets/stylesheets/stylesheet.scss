@@ -38,64 +38,116 @@ section {
   @include make-row();
 }
 
+// SHOW USER PAGE
+
 .user {
-  text-align: center;
-  .user__books {
-    @include make-md-column(3);
-    .user__registr-date {
-      margin: 10px 0;
-    }
-  }
-  .user__thoughts {
-    @include make-md-column(9);
-  }
-  .user__comments, .user__posts {
-    @include make-md-column(6);
-    &-content {
-      @extend .well;
-    }
-    &-date {
-      font-size: 0.8em;
-      font-style: italic;
-      text-align: right;
-      margin-top: 0.5em;
-      margin-bottom: 0.5em;
-    }
-  }  
+  text-align: center; 
   h1 {
     min-height: 2.2em;
     & + img {
       margin-top: 0.25em;
     }
   }
-  &__card {
-    @include make-sm-column(6);
-    @include make-md-column(4);
-    @include make-lg-column(3);
-    .user__info {
-      @extend .well;
-      .user__details {
-        text-align: center;
-        .user__avatar {
-          @include make-md-column(4);
-        }
-        .user__name {
-          @include make-md-column(8);
-        }
-      }
-    }
+}
+
+.user__books {
+  @include make-xs-column(10);
+  @include make-xs-column-offset(1);
+  @include make-sm-column-offset(0);
+  @include make-sm-column(3);
+}
+
+.user__input {
+  @include make-xs-column(10);
+  @include make-xs-column-offset(1);
+  @include make-sm-column-offset(0);
+  @include make-sm-column(9);
+}
+
+.user__registr-date {
+  margin: 10px 0;
+}
+
+.user__content{
+  @include make-md-column(6);
+}
+
+.user__content-details, .user__info {
+  @extend .well;
+}
+
+.user__content-date {
+  font-size: 0.8em;
+  font-style: italic;
+  text-align: right;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+// INDEX USERS PAGE
+
+.user__card {
+  @media (max-width: 500px) {
+    @include make-xs-column(8);
+    @include make-xs-column-offset(2);
+  }
+  @include make-xs-column(6);
+  @include make-xs-column-offset(3);
+  @include make-sm-column-offset(0);
+  @include make-md-column(4);
+  @include make-lg-column(3);
+} 
+
+.user__avatar {
+  @include make-xs-column(4);
+}
+
+.user__name {
+  @include make-xs-column(8);
+  a {
+    display: block;
+    margin-bottom: 1em;
   }
 }
 
-// section {
-//   h1.showUserHeader {
-//     min-height: 2.2em;
-//     & + img {
-//       margin-top: 0.25em;
-//     }
-//   }
+.button {
+  border: none;
+  // @extend .btn;
+  @include button-size($padding-base-vertical, $padding-base-horizontal, $font-size-base, $line-height-base, $border-radius-base);
+  &:hover, &:focus {
+    text-decoration: none;
+  }
+}
+
+.button--confirm {
+  // @extend .btn-primary;
+  @include button-variant(white, $gun_metal, white);
+}
+
+.button--deny {
+  // @extend .btn-danger;
+  @include button-variant(white, $rusty_red, white);
+}
+
+// .button--confirm {
+//   @include regular-button($gun_metal);
 // }
 
+// .button--deny {
+//   @include regular-button($rusty_red);
+// }
+
+.confirm-button {
+  @include regular-button($gun_metal);
+}
+
+.deny-button {
+  @include regular-button($rusty_red);
+}
+
+.submit {
+  width: 100%;
+}
 
 .homePageFlashDiv{
   background-color: $gun_metal;
@@ -179,11 +231,6 @@ h1.center {
   border-color: $rusty_red;
   border: none;
   margin: 1em 0;
-  &.usersWell{
-    .userName {
-      margin-bottom: 1em;
-    }
-  }
   h3 {
     margin: 0 0 0.2em;
   }
@@ -196,42 +243,7 @@ h1.center {
   // }
 }
 
-.button {
-  border: none;
-  // @extend .btn;
-  @include button-size($padding-base-vertical, $padding-base-horizontal, $font-size-base, $line-height-base, $border-radius-base);
-  &--confirm {
-    // @extend .btn-primary;
-    @include button-variant(white, $gun_metal, white);
-  }
-  &--deny {
-    // @extend .btn-danger;
-    @include button-variant(white, $rusty_red, white);
-  }
-  &:hover, &:focus {
-    text-decoration: none;
-  }
-}
 
-// .button--confirm {
-//   @include regular-button($gun_metal);
-// }
-
-// .button--deny {
-//   @include regular-button($rusty_red);
-// }
-
-.confirm-button {
-  @include regular-button($gun_metal);
-}
-
-.deny-button {
-  @include regular-button($rusty_red);
-}
-
-.submit {
-  width: 100%;
-}
 
 
 .navbar {

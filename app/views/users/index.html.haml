@@ -1,17 +1,12 @@
 %h1.center Users
 %section.user
   - @users.each do |user|
-    / .col-lg-3.col-md-4.col-sm-6
     .user__card
-      / %div.well.usersWell
       .user__info
-        / %section.center
-        %section.user__details
-          / %figure.col-md-4
+        %section.center
           %figure.user__avatar
             = link_to show_avatar(user, 70), user_path(user)
-          / %article.col-md-8
           .user__name
-            .userName= link_to user.name, user_path(user)
+            = link_to user.name, user_path(user)
           - if user_signed_in? && current_user.admin?
             = link_to "Delete", user_path(user), method: :delete, class: "btn btn-danger btn-sm",data: { confirm: "Are you sure?"}
