@@ -9,6 +9,6 @@
         = f.email_field :email, autofocus: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), class: "form-control"
 
       .form-group
-        = f.submit "Resend confirmation instructions", class: "btn btn-primary wide"
+        = f.submit "Resend confirmation instructions", class: "button button--confirm wide"
 
     = render "devise/shared/links"

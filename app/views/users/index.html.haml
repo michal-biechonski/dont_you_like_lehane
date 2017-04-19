@@ -9,4 +9,4 @@
           .user__name
             = link_to user.name, user_path(user)
           - if user_signed_in? && current_user.admin?
-            = link_to "Delete", user_path(user), method: :delete, class: "btn btn-danger btn-sm",data: { confirm: "Are you sure?"}
+            = link_to "Delete", user_path(user), method: :delete, class: "button button--deny btn-sm",data: { confirm: "Are you sure?"}

@@ -135,22 +135,6 @@ section {
   @include button-variant(white, $rusty_red, white);
 }
 
-// .button--confirm {
-//   @include regular-button($gun_metal);
-// }
-
-// .button--deny {
-//   @include regular-button($rusty_red);
-// }
-
-.confirm-button {
-  @include regular-button($gun_metal);
-}
-
-.deny-button {
-  @include regular-button($rusty_red);
-}
-
 .submit {
   width: 100%;
 }

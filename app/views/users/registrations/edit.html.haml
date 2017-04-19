@@ -34,6 +34,6 @@
         = f.password_field :password_confirmation, autocomplete: "off", class: "form-control"
 
       .form-group
-        = f.submit "Update", class: "btn btn-primary wide"
+        = f.submit "Update", class: "button button--confirm wide"
     %h4 Unhappy?
-    = link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?"}, method: :delete, class: "btn btn-danger" 
+    = link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?"}, method: :delete, class: "button button--deny" 

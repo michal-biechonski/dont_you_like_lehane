@@ -6,7 +6,7 @@
     <%= csrf_meta_tags %>
     <%= favicon_link_tag 'favicon.ico' %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag params[:controller] if params[:controller] == "pages" %>
+    <%= stylesheet_link_tag params[:controller], media: 'all', 'data-turbolinks-track': 'reload' if params[:controller] == "pages" %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
