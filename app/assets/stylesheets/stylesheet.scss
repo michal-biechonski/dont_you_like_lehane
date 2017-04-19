@@ -18,6 +18,71 @@ box-shadow: 1px 2px 5px 1px rgba(152,75,67,1);
   }
 }
 
+@mixin make-well(){
+  min-height: 20px;
+  padding: 19px;
+  margin-bottom: 20px;
+  background-color: $well-bg;
+  border: 1px solid $well-border;
+  border-radius: $border-radius-base;
+  @include box-shadow(inset 0 1px 1px rgba(0,0,0,.05));
+  blockquote {
+    border-color: #ddd;
+    border-color: rgba(0,0,0,.15);
+  }
+}
+
+@mixin make-jumbo(){
+  $jumbotron-padding: 75px;
+  padding-top:    $jumbotron-padding;
+  padding-bottom: $jumbotron-padding;
+  margin-bottom: $jumbotron-padding;
+  color: $jumbotron-color;
+  background-color: $jumbotron-bg;
+
+  h1,
+  .h1 {
+    color: $jumbotron-heading-color;
+  }
+
+  p {
+    margin-bottom: ($jumbotron-padding / 2);
+    font-size: $jumbotron-font-size;
+    font-weight: 200;
+  }
+
+  > hr {
+    border-top-color: darken($jumbotron-bg, 10%);
+  }
+
+  .container &,
+  .container-fluid & {
+    border-radius: $border-radius-large; // Only round corners at higher resolutions if contained in a container
+    padding-left:  ($grid-gutter-width / 2);
+    padding-right: ($grid-gutter-width / 2);
+  }
+
+  .container {
+    max-width: 100%;
+  }
+
+  @media screen and (min-width: $screen-sm-min) {
+    padding-top:    ($jumbotron-padding * 1.6);
+    padding-bottom: ($jumbotron-padding * 1.6);
+
+    .container &,
+    .container-fluid & {
+      padding-left:  ($jumbotron-padding * 2);
+      padding-right: ($jumbotron-padding * 2);
+    }
+
+    h1,
+    .h1 {
+      font-size: $jumbotron-heading-font-size;
+    }
+  }
+}
+
 @import url('https://fonts.googleapis.com/css?family=Architects+Daughter');
 
 body {
@@ -30,8 +95,88 @@ body {
   padding: 50px 0 0;
 }
 
-.mainContainer, .flashContainer {
-  @extend .container;
+.box, .flash__box, .flash__home-box, .books__box, .space__box {
+  @include container-fixed();
+  @media (min-width: $screen-sm-min) {
+    width: $container-sm;
+  }
+  @media (min-width: $screen-md-min) {
+    width: $container-md;
+  }
+  @media (min-width: $screen-lg-min) {
+    width: $container-lg;
+  }
+}
+
+.space {
+  @include make-jumbo();
+  margin-bottom: 0;
+  color: white;
+  background-color: $gun_metal;
+  min-height: 93vh;
+  p {
+    margin: 1.2em 0 1.8em;
+  }
+  .button--confirm {
+    background-color: $navy_blue;
+    &:hover, &:active, &:focus, &:disabled {
+      background-color: darken($navy_blue, 5%);
+    }
+  }
+  i {
+    display: block;
+  }
+}
+
+.space__landing {
+  h1 {
+    margin-top: 0;
+    word-wrap: break-word;
+  }
+  div, span {
+    font-size: 2.1em;
+  }
+}
+
+.space__utilities {
+  background-color: $navy_blue;
+  h1 {
+    margin-top: 0.8em;
+    margin-bottom: 0.8em;
+  }
+  p {
+    margin-top: 1.5em;
+  }
+}
+
+.space__col {
+  @include make-md-column(4)
+}
+
+.books__card {
+  @include make-md-column(8);
+  @include make-md-column-offset(2);
+}
+
+.books__cover, .books__description {
+  @include make-xs-column(10);
+  @include make-xs-column-offset(1);
+  @include make-sm-column(8);
+  @include make-sm-column-offset(2);
+  @include make-md-column(6);
+  @include make-md-column-offset(0);
+}
+
+.books__cover {
+  box-shadow: unset;
+  @media (max-width: $screen-md-max) {
+    margin-bottom: 1.6em;
+  }
+}
+
+.books__content {
+  font-size: 1.2em;
+  word-wrap: break-word;
 }
 
 section {
@@ -78,8 +223,23 @@ section {
   @include make-md-column(6);
 }
 
-.user__content-details, .user__info {
-  @extend .well;
+.user__content-details, .user__info, .books__all-details {
+  @include make-well();
+  background-color: darken($warm_yellow, 5%);
+  @include shadow-color;
+  border-color: $rusty_red;
+  border: none;
+  margin: 1em 0;
+  h3 {
+    margin: 0 0 0.2em;
+  }
+  // .commentDate {
+  //   font-size: 0.8em;
+  //   font-style: italic;
+  //   text-align: right;
+  //   margin-top: 0.5em;
+  //   margin-bottom: 0.5em;
+  // }
   section {
     margin-top: 0.75em;
   }
@@ -153,7 +313,7 @@ section {
   width: 100%;
 }
 
-.homePageFlashDiv{
+.flash__home-outside-box{
   background-color: $gun_metal;
 }
 
@@ -188,67 +348,6 @@ h1.center {
     }
   }
 }
-
-.jumbotron {
-  margin-bottom: 0;
-  padding: 7.5em 0;
-  color: white;
-  background-color: $gun_metal;
-  min-height: 93vh;
-  & + h1 {
-    margin: 1em;
-  }
-  &.landingJumbo {
-    min-height: 93vh;
-    h1 {
-      margin-top: 0;
-      word-wrap: break-word;
-    }
-    div, span {
-      font-size: 2.1em;
-    }
-  }  
-  p {
-    margin: 1.2em 0 1.8em;
-  }
-  .button--confirm {
-    background-color: $navy_blue;
-    &:hover, &:active, &:focus, &:disabled {
-      background-color: darken($navy_blue, 5%);
-    }
-  }
-  &.utilityJumbo {
-    background-color: $navy_blue;
-    h1 {
-      margin-top: 0.8em;
-      margin-bottom: 0.8em;
-    }
-    p {
-      margin-top: 1.5em;
-    }
-  }
-}
-
-.well {
-  background-color: darken($warm_yellow, 5%);
-  @include shadow-color;
-  border-color: $rusty_red;
-  border: none;
-  margin: 1em 0;
-  h3 {
-    margin: 0 0 0.2em;
-  }
-  // .commentDate {
-  //   font-size: 0.8em;
-  //   font-style: italic;
-  //   text-align: right;
-  //   margin-top: 0.5em;
-  //   margin-bottom: 0.5em;
-  // }
-}
-
-
-
 
 .navbar {
   padding: 0 15px;
@@ -315,16 +414,7 @@ img {
 
 figure {
   .book {
-    box-shadow: unset;
-    @media (max-width: $screen-md-max) {
-      margin-bottom: 1.6em;
-    }
   }
-}
-
-.bookContent {
-  font-size: 1.2em;
-  word-wrap: break-word;
 }
 
 .clear {
@@ -371,11 +461,11 @@ a {
     text-decoration: none;
     color: white;
   }
-  &.booksLinks:hover, &.booksLinks:focus {
+  &.books__links:hover, &.books__links:focus {
     text-decoration: none;
     color: $navy_blue
   }
-  .well:hover{
+  .books__all-details:hover{
     background-color: darken($warm_yellow, 10%);
   }
 }
