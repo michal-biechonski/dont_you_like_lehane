@@ -1,4 +1,5 @@
-$("#addToRead").html("<%= escape_javascript(render('books/removeFromRead')) %>");
+// $("#addToRead").html("<%= escape_javascript(render('books/removeFromRead')) %>");
+$("#addToRead").html("<%= j render('books/removeFromRead') %>");
 $("#addToRead").attr("id", "removeFromRead");
-$("#removeFromWish").html("<%= escape_javascript(render('books/addToWish')) %>");
+$("#removeFromWish").html("<%= j render('books/addToWish') %>");
 $("#removeFromWish").attr("id", "addToWish");

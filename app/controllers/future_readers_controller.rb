@@ -1,8 +1,8 @@
 class FutureReadersController < ApplicationController
 
-  before_action :set_book, only: [:create, :destroy]
-  before_action :set_reader, only: [:create, :destroy]
-  before_action :set_user, only: [:create, :destroy]
+  before_action :set_book, only: [:create, :show, :destroy]
+  before_action :set_reader, only: [:create, :show, :destroy]
+  before_action :set_user, only: [:create, :show, :destroy]
 
   def create
     @future_reader = current_user.future_readers.build()
@@ -24,6 +24,10 @@ class FutureReadersController < ApplicationController
         }
       end
     end
+  end
+
+  def show
+    destroy
   end
 
   def destroy

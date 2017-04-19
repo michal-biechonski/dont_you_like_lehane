@@ -1,1 +1,3 @@
-= link_to "Add to wishlist", book_future_readers_path(@book), remote: true, method: :post, class: "btn btn-primary"
+/ = link_to "Add to wishlist", book_future_readers_path(@book), remote: true, method: :post, class: "btn btn-primary"
+= form_for :reader, { url: book_future_readers_path(@book), remote: true } do |f|
+  = f.submit "Add to wishlist", class: "btn btn-primary"

@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :books do
     resources :comments, only: [:new, :create, :destroy]
-    resources :readers, :future_readers, only: [:create, :destroy]
+    resources :readers, :future_readers, only: [:create, :destroy, :show]
   end   
   resources :users, only: [:index, :show, :destroy] do
     resources :posts, except: [:index]

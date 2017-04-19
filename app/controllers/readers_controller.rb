@@ -1,8 +1,8 @@
 class ReadersController < ApplicationController
   
-  before_action :set_book, only: [:create, :destroy]
-  before_action :set_future_reader, only: [:create, :destroy]
-  before_action :set_user, only: [:create, :destroy]
+  before_action :set_book, only: [:create, :show, :destroy]
+  before_action :set_future_reader, only: [:create, :show, :destroy]
+  before_action :set_user, only: [:create, :show, :destroy]
 
   def create
     @reader = current_user.readers.build()
@@ -16,7 +16,7 @@ class ReadersController < ApplicationController
         format.html {
           flash[:notice] = "You've read this book!"
           redirect_to @book
-      }
+        }
       else
         format.html {
           flash[:alert] = "You've already selected that book"
@@ -24,6 +24,10 @@ class ReadersController < ApplicationController
         }
       end
     end
+  end
+
+  def show
+    destroy
   end
 
   def destroy

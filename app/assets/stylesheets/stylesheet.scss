@@ -38,6 +38,12 @@ section {
   @include make-row();
 }
 
+#removeFromWish, #addToWish, #removeFromRead, #addToRead {
+  form {
+    display: inline;
+  }
+}
+
 // SHOW USER PAGE
 
 .user {
