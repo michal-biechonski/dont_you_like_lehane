@@ -6,7 +6,7 @@
     Don't you like
     %span Dennis Lehane???
   %p I thought so. Everybody likes Lehane and his books!
-  = link_to "Sign up to start the fun!", new_user_registration_path, class: "button button--confirm btn-lg" unless user_signed_in?
+  = link_to "Sign up to start the fun!", new_user_registration_path, class: "button button--confirm button--lg" unless user_signed_in?
 .container
   %h1.center Discover some of his best work!
   - @books.each do |book|

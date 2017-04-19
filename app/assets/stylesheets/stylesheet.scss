@@ -80,14 +80,16 @@ section {
 
 .user__content-details, .user__info {
   @extend .well;
+  section {
+    margin-top: 0.75em;
+  }
 }
 
 .user__content-date {
   font-size: 0.8em;
   font-style: italic;
   text-align: right;
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
+  margin-top: 1.5em;
 }
 
 // INDEX USERS PAGE
@@ -135,6 +137,18 @@ section {
   @include button-variant(white, $rusty_red, white);
 }
 
+.button--lg {
+  @include button-size($padding-large-vertical, $padding-large-horizontal, $font-size-large, $line-height-large, $border-radius-large);
+}
+
+.button--sm {
+  @include button-size($padding-small-vertical, $padding-small-horizontal, $font-size-small, $line-height-small, $border-radius-small);
+}
+
+.button--xs {
+  @include button-size($padding-xs-vertical, $padding-xs-horizontal, $font-size-small, $line-height-small, $border-radius-small);
+}
+
 .submit {
   width: 100%;
 }
@@ -169,7 +183,7 @@ h1.center {
     p:nth-child(4) {
       margin: 0;
     }
-    .btn-danger {
+    .button--deny {
       margin-bottom: 1em;
     }
   }
@@ -197,7 +211,7 @@ h1.center {
   p {
     margin: 1.2em 0 1.8em;
   }
-  .btn-primary {
+  .button--confirm {
     background-color: $navy_blue;
     &:hover, &:active, &:focus, &:disabled {
       background-color: darken($navy_blue, 5%);

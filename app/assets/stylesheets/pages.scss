@@ -1,18 +1,16 @@
-.flashContainer {
-  display: none;
-}
-
-.mainContainer {
-  padding-left: 0;
-  padding-right: 0;
-  margin-left: 0;
-  margin-right: 0;
-  width: 100%;
-  .jumbotron {
-    border-radius: 0;
+.body-pages {
+  .flashContainer {
+    display: none;
   }
-}
 
-h1 {
-  color: green;
+  .mainContainer {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+    .jumbotron {
+      border-radius: 0;
+    }
+  }
 }
