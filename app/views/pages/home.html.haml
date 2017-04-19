@@ -11,11 +11,11 @@
   %h1.center Discover some of his best work!
   - @books.each do |book|
     %section
-      / %article.col-md-8.col-md-offset-2
       .books__card
         %a.books__links{href:"books/#{book.id}"}
           %section.books__all-details
             %figure= image_tag book.picture.url(:medium), class: "books__cover"
+            // TODO adjust books__cover - it's too wide!!!
             .books__description
               .books__content
                 %strong Title:

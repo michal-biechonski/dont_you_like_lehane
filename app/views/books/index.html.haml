@@ -1,15 +1,15 @@
 %h1.center Books
 - @books.each do |book|
   %section
-    %article.col-sm-8.col-sm-offset-2
-      %a.booksLinks{href:"/books/#{book.id}"}
-        %section.well
-          %figure.col-sm-3.center
-            = image_tag book.picture.url(:thumb), class: "book"
-          %div.col-sm-9
-            .bookContent
+    %article.books__card
+      %a.books__links{href:"/books/#{book.id}"}
+        %section.books__all-details
+          %figure.center
+            = image_tag book.picture.url(:thumb), class: "books__cover--small"
+          .books__description--small
+            .books__content
               %strong Title:
               = book.title
-            .bookContent
+            .books__content
               %strong Published at:
               = book.published_at.strftime("%B, %Y")

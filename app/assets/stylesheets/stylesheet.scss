@@ -167,7 +167,21 @@ body {
   @include make-md-column-offset(0);
 }
 
-.books__cover {
+.books__cover--small {
+  @include make-sm-column(3);
+}
+
+.books__description--small {
+  @include make-sm-column(9);
+}
+
+.books__cover--small, .books__description--small {
+  @media (max-width: $screen-xs-max) {
+    text-align: center;
+  }
+}
+
+.books__cover, .books__cover--small {
   box-shadow: unset;
   @media (max-width: $screen-md-max) {
     margin-bottom: 1.6em;
