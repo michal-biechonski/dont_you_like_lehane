@@ -1,3 +1,3 @@
-= link_to "Remove from wishlist", book_future_reader_path(@book, current_user), remote: true, method: :delete, class: "button button--confirm"
+= link_to "Remove from wishlist", book_future_reader_path(@book, current_user), remote: true, method: :delete, class: "button button_confirm"
 / = form_for :reader, { url: book_future_reader_path(@book, current_user), remote: true } do |f|
-/   = f.submit "Remove from wishlist", class: "button button--confirm"
+/   = f.submit "Remove from wishlist", class: "button button_confirm"

@@ -83,6 +83,24 @@ box-shadow: 1px 2px 5px 1px rgba(152,75,67,1);
   }
 }
 
+@mixin make-thumbnail(){
+  display: block;
+  padding: $thumbnail-padding;
+  margin-bottom: $line-height-computed;
+  line-height: $line-height-base;
+  background-color: $thumbnail-bg;
+  border: 1px solid $thumbnail-border;
+  border-radius: $thumbnail-border-radius;
+  @include transition(border .2s ease-in-out);
+
+  > img,
+  a > img {
+    @include img-responsive;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
 @import url('https://fonts.googleapis.com/css?family=Architects+Daughter');
 
 body {
@@ -117,7 +135,7 @@ body {
   p {
     margin: 1.2em 0 1.8em;
   }
-  .button--confirm {
+  .button_confirm {
     background-color: $navy_blue;
     &:hover, &:active, &:focus, &:disabled {
       background-color: darken($navy_blue, 5%);
@@ -167,21 +185,21 @@ body {
   @include make-md-column-offset(0);
 }
 
-.books__cover--small {
+.books__cover_small {
   @include make-sm-column(3);
 }
 
-.books__description--small {
+.books__description_small {
   @include make-sm-column(9);
 }
 
-.books__cover--small, .books__description--small {
+.books__cover_small, .books__description_small {
   @media (max-width: $screen-xs-max) {
     text-align: center;
   }
 }
 
-.books__cover, .books__cover--small {
+.books__cover, .books__cover_small {
   box-shadow: unset;
   @media (max-width: $screen-md-max) {
     margin-bottom: 1.6em;
@@ -197,7 +215,7 @@ section {
   @include make-row();
 }
 
-#removeFromWish, #addToWish, #removeFromRead, #addToRead {
+.js-wishlist__remove, .js-wishlist__add, .js-read__remove, .js-read__add {
   form {
     display: inline;
   }
@@ -301,25 +319,25 @@ section {
   }
 }
 
-.button--confirm {
+.button_confirm {
   // @extend .btn-primary;
   @include button-variant(white, $gun_metal, white);
 }
 
-.button--deny {
+.button_deny {
   // @extend .btn-danger;
   @include button-variant(white, $rusty_red, white);
 }
 
-.button--lg {
+.button_lg {
   @include button-size($padding-large-vertical, $padding-large-horizontal, $font-size-large, $line-height-large, $border-radius-large);
 }
 
-.button--sm {
+.button_sm {
   @include button-size($padding-small-vertical, $padding-small-horizontal, $font-size-small, $line-height-small, $border-radius-small);
 }
 
-.button--xs {
+.button_xs {
   @include button-size($padding-xs-vertical, $padding-xs-horizontal, $font-size-small, $line-height-small, $border-radius-small);
 }
 
@@ -357,7 +375,7 @@ h1.center {
     p:nth-child(4) {
       margin: 0;
     }
-    .button--deny {
+    .button_deny {
       margin-bottom: 1em;
     }
   }
@@ -435,8 +453,6 @@ figure {
   clear: both;
 }
 
-
-
 .navy {
   @include regular-button($gun_metal);
 }
@@ -492,7 +508,7 @@ input[type=email], input[type=text], input[type=date], input[type=password], tex
   font-size: 1.2em;
 }
 
-.bookButtons {
+.books__buttons {
   margin-bottom: 2em;
   margin-top: 2em;
   a {

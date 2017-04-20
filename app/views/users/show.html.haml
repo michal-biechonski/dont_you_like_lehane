@@ -36,7 +36,7 @@
             .user__content-date= "Added " + time_ago_in_words(post.updated_at).to_s + " ago"
             %section
               - if user_signed_in? && (current_user.id == post.user_id || current_user.admin?)
-                = link_to "Edit", edit_user_post_path(@user, post), class: "button button--confirm"
-                = link_to "Delete", user_post_path(@user, post), method: :delete, class: "button button--deny", data: { confirm: "Are you sure?" }
+                = link_to "Edit", edit_user_post_path(@user, post), class: "button button_confirm"
+                = link_to "Delete", user_post_path(@user, post), method: :delete, class: "button button_deny", data: { confirm: "Are you sure?" }
       - else
         %h1= @user.name + " hasn't written any posts yet."

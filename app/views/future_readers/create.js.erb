@@ -1,4 +1,4 @@
-$("#addToWish").html("<%= j render('books/removeFromWish') %>");
-$("#addToWish").attr("id", "removeFromWish");
-$("#removeFromRead").html("<%= j render('books/addToRead') %>");
-$("#removeFromRead").attr("id", "addToRead");
+$(".js-wishlist__add").html("<%= j render('books/removeFromWish') %>");
+$(".js-wishlist__add").attr("class", "js-wishlist__remove");
+$(".js-read__remove").html("<%= j render('books/addToRead') %>");
+$(".js-read__remove").attr("class", "js-read__add");

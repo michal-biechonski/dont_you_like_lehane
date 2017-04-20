@@ -5,8 +5,8 @@
       %a.books__links{href:"/books/#{book.id}"}
         %section.books__all-details
           %figure.center
-            = image_tag book.picture.url(:thumb), class: "books__cover--small"
-          .books__description--small
+            = image_tag book.picture.url(:thumb), class: "books__cover_small"
+          .books__description_small
             .books__content
               %strong Title:
               = book.title

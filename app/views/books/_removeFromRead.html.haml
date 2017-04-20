@@ -1,3 +1,3 @@
-= link_to "Didn't read it", book_reader_path(@book, current_user), remote: true, method: :delete, class: "button button--confirm"
+= link_to "Didn't read it", book_reader_path(@book, current_user), remote: true, method: :delete, class: "button button_confirm"
 / = form_for :reader, { url: book_reader_path(@book, current_user), remote: true } do |f|
-/   = f.submit "Didn't read it", class: "button button--confirm"
+/   = f.submit "Didn't read it", class: "button button_confirm"
