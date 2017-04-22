@@ -101,6 +101,51 @@ box-shadow: 1px 2px 5px 1px rgba(152,75,67,1);
   }
 }
 
+@mixin make-form(){
+  display: block;
+  width: 100%;
+  height: $input-height-base; // Make inputs at least the height of their button counterpart (base line-height + padding + border)
+  padding: $padding-base-vertical $padding-base-horizontal;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  color: $input-color;
+  background-color: $input-bg;
+  background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+  border: 1px solid $input-border;
+  border-radius: $input-border-radius; // Note: This has no effect on <select>s in some browsers, due to the limited stylability of <select>s in CSS.
+  @include box-shadow(inset 0 1px 1px rgba(0,0,0,.075));
+  @include transition(border-color ease-in-out .15s, box-shadow ease-in-out .15s);
+
+  // Customize the `:focus` state to imitate native WebKit styles.
+  // @include form-control-focus;
+
+  // Placeholder
+  @include placeholder;
+
+  // Unstyle the caret on `<select>`s in IE10+.
+  &::-ms-expand {
+    border: 0;
+    background-color: transparent;
+  }
+
+  // Disabled and read-only inputs
+  //
+  // HTML5 says that controls under a fieldset > legend:first-child won't be
+  // disabled if the fieldset is disabled. Due to implementation difficulty, we
+  // don't honor that edge case; we style them as disabled anyway.
+  &[disabled],
+  &[readonly],
+  fieldset[disabled] & {
+    background-color: $input-bg-disabled;
+    opacity: 1; // iOS fix for unreadable disabled content; see https://github.com/twbs/bootstrap/issues/11655
+  }
+
+  &[disabled],
+  fieldset[disabled] & {
+    cursor: $cursor-disabled;
+  }
+}
+
 @import url('https://fonts.googleapis.com/css?family=Architects+Daughter');
 
 body {
@@ -298,6 +343,36 @@ section {
   }
 }
 
+.form {
+  @include make-xs-column(8);
+  @include make-xs-column-offset(2);
+  @include make-sm-column(6);
+  @include make-sm-column-offset(3);
+  @include make-lg-column(4);
+  @include make-lg-column-offset(4);
+}
+
+// .form__label {
+//   margin-bottom: 0;
+//   vertical-align: middle;
+//   @media (min-width: $screen-sm-min) {
+//     text-align: right;
+//     margin-bottom: 0;
+//     padding-top: ($padding-base-vertical + 1);
+//   }
+// }
+
+.form__inputs {
+  margin-bottom: $form-group-margin-bottom;
+}
+
+.form__input {
+  // @include make-form();
+  @extend .form-control;
+}
+
+// TODO check this mixin!!!
+
 // INDEX USERS PAGE
 
 .user__card {
@@ -474,7 +549,7 @@ figure {
   }
 }
 
-input.form-control, textarea.form-control {
+input.form__input, textarea.form__input {
   outline-color: $rusty_red;
   &:focus {
     border-color: $rusty_red;
@@ -501,7 +576,7 @@ input[type=password] {
   font-family: "Arial Black";
 }
 
-input[type=email], input[type=text], input[type=date], input[type=password], textarea.form-control {
+input[type=email], input[type=text], input[type=date], input[type=password], textarea.form__input {
   font-size: 1.2em;
 }
 
