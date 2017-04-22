@@ -1,5 +1,7 @@
 - flash.each do |name, message|
-  - name == "alert" ? alert_name = "danger" : alert_name = "success"
-  .alert{class: "alert-#{alert_name}"}
-    %a.close{ href: "#", data: { dismiss: "alert" } } &times;
+  - name == "alert" ? alert_name = "deny" : alert_name = "confirm"
+  %div{class: "message_#{alert_name}"}
+    %a.close{ href: "#", data: { dismiss: "message_#{alert_name}" } } &times;
     = content_tag :div, message, id: "flash_#{name}" if message.is_a?(String)
+
+// TODO change data-dismiss to alert - in order to avoid delay
