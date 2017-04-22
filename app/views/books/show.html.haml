@@ -25,13 +25,13 @@
             %span.js-read__remove= render "removeFromRead"          
           - else
             %span.js-read__add= render "addToRead"
-      %article.commentContent.center
+      %article.center
         %h1 Comments:
         - @comments.each do |comment|
           %section
-            .col-md-6.col-md-offset-3.thumbnail
+            .comments__content
               %p= comment.content
-              %p.commentDate
+              %p.comments__date
                 = "Added by" 
                 = link_to(User.find(comment.user_id).name, user_path(User.find(comment.user_id))).to_s + ", #{time_ago_in_words(comment.created_at)} ago"
                 - if user_signed_in? && (comment.user_id == current_user.id || current_user.admin?)
