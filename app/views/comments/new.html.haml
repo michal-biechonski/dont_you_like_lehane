@@ -1,14 +1,14 @@
 %h1.center Add comment
-%section.my-style
-  %div.col-xs-8.col-xs-offset-2.col-sm-6.col-sm-offset-3.col-lg-4.col-lg-offset-4
+%section
+  .form
     = form_for [@book, @comment] do |f|
 
       = render "shared/errors", obj: @comment
 
-      .form-group
+      .form__inputs
         = hidden_field_tag("book_id", params[:book_id])
-        = f.label :content, class: "control-label"
-        = f.text_area :content, class: "form-control", rows: 6
+        = f.label :content
+        = f.text_area :content, class: "form__input", rows: 6
 
-      .form-group
+      .form__inputs
         = f.submit "Add", class: "button button_confirm submit"
