@@ -231,6 +231,31 @@ body {
   }
 }
 
+.navigation {
+  @extend .navbar;
+}
+
+.navigation_theme_default {
+  @extend .navbar-default;
+}
+
+.navigation_top {
+  @extend .navbar-fixed-top;
+}
+
+.navigation__box {
+  @extend .container-fluid;
+}
+
+.navigation__logo {
+  @extend .navbar-brand;
+}
+
+.navigation__menu {
+  @extend .navbar-header;
+}
+
+
 .space__utilities {
   background-color: $navy_blue;
   h1 {
@@ -309,7 +334,7 @@ section {
   @include make-row();
 }
 
-.js-wishlist__remove, .js-wishlist__add, .js-read__remove, .js-read__add {
+.js-wishlist__add, .js-read__add {
   form {
     display: inline;
   }
