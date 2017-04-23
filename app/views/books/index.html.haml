@@ -1,10 +1,10 @@
-%h1.center Books
+%h1 Books
 - @books.each do |book|
   %section
     %article.books__card
       %a.books__links{href:"/books/#{book.id}"}
         %section.books__all-details
-          %figure.center
+          %figure
             = image_tag book.picture.url(:thumb), class: "books__cover_small"
           .books__description_small
             .books__content

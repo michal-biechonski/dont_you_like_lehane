@@ -1,14 +1,14 @@
 .flash__home-outside-box
   .flash__home-box
     = render "shared/flash"
-.space.space__landing.center
+.space.space__landing
   %h1 
     Don't you like
     %span Dennis Lehane???
   %p I thought so. Everybody likes Lehane and his books!
   = link_to "Sign up to start the fun!", new_user_registration_path, class: "button button_confirm button_lg" unless user_signed_in?
 .books__box
-  %h1.center Discover some of his best work!
+  %h1 Discover some of his best work!
   - @books.each do |book|
     %section
       .books__card
@@ -29,7 +29,7 @@
               .books__content
                 %strong Published at:
                 = book.published_at.strftime("%B, %Y")
-.space.space__utilities.center
+.space.space__utilities
   .space__box
     %h1 Share your opinions about his books!              
     %section

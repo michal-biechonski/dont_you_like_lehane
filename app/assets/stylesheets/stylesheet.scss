@@ -10,14 +10,14 @@ $jumbotron-padding: 75px;
 box-shadow: 1px 2px 5px 1px rgba(152,75,67,1);
 }
 
-@mixin regular-button($button-bg-color, $button-text-color: white) {
-  @include button-size($padding-base-vertical, $padding-base-horizontal, $font-size-base, $line-height-base, $border-radius-base);
-  @include button-variant($button-text-color, $button-bg-color, white);
-  border: none;
-  &:hover, &:focus {
-    text-decoration: none;
-  }
-}
+// @mixin regular-button($button-bg-color, $button-text-color: white) {
+//   @include button-size($padding-base-vertical, $padding-base-horizontal, $font-size-base, $line-height-base, $border-radius-base);
+//   @include button-variant($button-text-color, $button-bg-color, white);
+//   border: none;
+//   &:hover, &:focus {
+//     text-decoration: none;
+//   }
+// }
 
 @mixin make-well(){
   min-height: 20px;
@@ -219,6 +219,7 @@ body {
   i {
     display: block;
   }
+  text-align: center;
 }
 
 .space__landing {
@@ -356,6 +357,7 @@ body {
   background-color: darken($warm_yellow, 10%);
   @include shadow-color;
   border: none;
+  text-align: center;
 }
 
 .comments__date, .posts__date {
@@ -382,11 +384,17 @@ section {
   text-align: center; 
   h1 {
     min-height: 2.2em;
+    margin: $line-height-computed 0 ($line-height-computed / 2);
     & + img {
       margin-top: 0.25em;
     }
   }
+  img {
+    margin-bottom: 0.5em;
+  }
 }
+
+
 
 .user__books {
   @include make-xs-column(10);
@@ -422,6 +430,24 @@ section {
   }
   h2 {
     margin-top: 0.4em;
+  }
+}
+
+h1, .books__all-details figure {
+  text-align: center;
+}
+
+h1 {
+  margin: 1em;
+}
+
+.user h1 {
+  
+}
+
+.posts__all-details {
+  h2, footer {
+    text-align: center;
   }
 }
 
@@ -550,12 +576,6 @@ section {
   }
 }
 
-h1.center {
-  margin: 1em;
-}
-
-
-
 .navbar {
   padding: 0 15px;
   margin-bottom: 0;
@@ -602,10 +622,6 @@ h1.center {
   }
 }
 
-.wide {
-  width: 100%;
-}
-
 textarea {
   resize: none;
 }
@@ -622,30 +638,6 @@ figure {
 
 .clear {
   clear: both;
-}
-
-.navy {
-  @include regular-button($gun_metal);
-}
-
-.rusty {
-  @include regular-button($rusty_red);
-}
-
-.btn-primary {
-  background-color: $gun_metal;
-  border: none;
-  &:hover, &:active, &:focus, &:disabled {
-    background-color: darken($gun_metal, 10%);
-  }
-}
-
-.btn-danger {
-  background-color: $rusty_red;
-  border: none;
-  &:hover, &:active, &:focus, &:disabled {
-    background-color: darken($rusty_red, 10%);
-  }
 }
 
 input.form__input, textarea.form__input {
@@ -680,6 +672,7 @@ input[type=email], input[type=text], input[type=date], input[type=password], tex
 }
 
 .books__buttons {
+  text-align: center;
   margin-bottom: 2em;
   margin-top: 2em;
   a {

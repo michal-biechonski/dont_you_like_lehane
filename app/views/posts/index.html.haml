@@ -1,14 +1,14 @@
-%h1.center All posts
+%h1 All posts
 - @posts.each do |post|
   %section
     .posts__card
       .posts__all-details
-        %h2.center= post.title
+        %h2= post.title
         %p= post.content
         %p.posts__date
           = "Posted by: "
           = link_to(User.find(post.user_id).name, user_path(post.user_id)).to_s + ", " +time_ago_in_words(post.updated_at).to_s + " ago."
         -if user_signed_in? && (current_user.id == post.user_id || current_user.admin?)
-          %footer.center
+          %footer
             = link_to "Edit", edit_user_post_path(current_user, post), class: "button button_confirm"
             = link_to "Delete", user_post_path(current_user, post), method: :delete, class: "button button_deny", data: { confirm: "Are you sure you want to do that?" }

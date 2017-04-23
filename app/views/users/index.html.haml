@@ -1,9 +1,9 @@
-%h1.center Users
+%h1 Users
 %section.user
   - @users.each do |user|
     .user__card
       .user__info
-        %section.center
+        %section
           %figure.user__avatar
             = link_to show_avatar(user, 70), user_path(user)
           .user__name
