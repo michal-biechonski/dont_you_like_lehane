@@ -2,15 +2,14 @@
   .navigation__box
     / Brand and toggle get grouped for better mobile display
     .navigation__menu
-      %button.navbar-toggle.collapsed{"aria-expanded" => "false", "data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
-        %span.sr-only Toggle navigation
-        %span.icon-bar
-        %span.icon-bar
-        %span.icon-bar
+      %button.navigation__toggle.collapsed{"aria-expanded" => "false", "data-target" => "#navigation", "data-toggle" => "collapse", :type => "button"}
+        %span.navigation__screen-reader Toggle navigation
+        %span.navigation__toggle-bar
+        %span.navigation__toggle-bar
+        %span.navigation__toggle-bar
       %a.navigation__logo{:href => "/"} Don't You Like Lehane?
-    / Collect the nav links, forms, and other content for toggling
-    #bs-example-navbar-collapse-1.collapse.navbar-collapse
-      %ul.nav.navbar-nav
+    #navigation.collapse.navigation_collapse
+      %ul.nav.navigation__items
         %li
           = link_to "Books", books_path
         %li
@@ -23,15 +22,15 @@
               = link_to "Add book", new_book_path
           %li
             = link_to "Add post", new_user_post_path(current_user)
-      %ul.nav.navbar-nav.navbar-right
+      %ul.nav.navigation__status
         - if user_signed_in?
-          %li.dropdown
-            %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+          %li.navigation__dropdown
+            %a.navigation__dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
               Signed in as #{current_user.name}
               -if current_user.admin?
                 (Admin)
               %span= fa_icon "chevron-down"
-            %ul.dropdown-menu
+            %ul.navigation__dropdown-menu
               %li
                 = link_to "Edit", edit_user_registration_path
               %li

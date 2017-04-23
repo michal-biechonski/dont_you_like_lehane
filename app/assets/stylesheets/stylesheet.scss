@@ -255,6 +255,42 @@ body {
   @extend .navbar-header;
 }
 
+.navigation__toggle {
+  @extend .navbar-toggle;
+}
+
+.navigation__toggle-bar {
+  @extend .icon-bar;
+}
+
+.navigation__screen-reader {
+  @extend .sr-only;
+}
+
+.navigation_collapse {
+  @extend .navbar-collapse;
+}
+
+.navigation__items, .navigation__status {
+  @extend .navbar-nav;
+}
+
+.navigation__status {
+  @extend .navbar-right;
+}
+
+.navigation__dropdown {
+  @extend .dropdown;
+}
+
+.navigation__dropdown-toggle {
+  @extend .dropdown-toggle;
+}
+
+.navigation__dropdown-menu {
+  @extend .dropdown-menu;
+}
+
 
 .space__utilities {
   background-color: $navy_blue;
