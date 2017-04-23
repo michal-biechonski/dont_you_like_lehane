@@ -1,17 +1,17 @@
 %h1.center Log in
 %section
-  .col-xs-8.col-xs-offset-2.col-sm-6.col-sm-offset-3.col-lg-4.col-lg-offset-4
+  .form
     = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
       
-      .form-group
-        = f.label :email, class: "control-label"
+      .form__inputs
+        = f.label :email
         %em (It will not be published)
-        = f.email_field :email, autofocus: true, class: "form-control"
+        = f.email_field :email, autofocus: true, class: "form__input"
       
-      .form-group
-        = f.label :password, class: "control-label"
+      .form__inputs
+        = f.label :password
         %em (6 characters minimum)
-        = f.password_field :password, autocomplete: "off", class: "form-control"
+        = f.password_field :password, autocomplete: "off", class: "form__input"
       
       - if devise_mapping.rememberable?
         .checkbox
@@ -19,7 +19,7 @@
             = f.check_box :remember_me
             Remember me
       
-      .form-group
-        = f.submit "Log in", class: "button button_confirm wide"
+      .form__inputs
+        = f.submit "Log in", class: "button button_confirm button_submit"
         
     = render "devise/shared/links"
