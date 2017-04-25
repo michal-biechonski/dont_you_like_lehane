@@ -1,8 +1,8 @@
+# HANDLE POSTS CREATED ETC BY USERS
 class PostsController < ApplicationController
-  
-  before_action :set_user, only: [:new, :create, :edit, :update, :destroy]
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
-  before_action only: [:edit, :update, :destroy] do
+  before_action :set_user, only: %i[new create edit update destroy]
+  before_action :set_post, only: %i[show edit update destroy]
+  before_action only: %i[edit update destroy] do
     same_user(@post)
   end
 
@@ -10,49 +10,46 @@ class PostsController < ApplicationController
     @posts = Post.all
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @post = @user.posts.build
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @post = @user.posts.build(post_params)
     if @post.save
-      flash[:notice] = "You've created a post."
+      flash[:notice] = 'You\'ve created a post.'
       redirect_to @user
     else
-      render "new"
+      render 'new'
     end
   end
 
   def update
     if @post.update(post_params)
-      flash[:notice] = "You've updated your post."
+      flash[:notice] = 'You\'ve updated your post.'
       redirect_to @user
     else
-      render "edit"
+      render 'edit'
     end
   end
 
   def destroy
     @post.destroy
-    flash[:notice] = "You've deleted that post."
+    flash[:notice] = 'You\'ve deleted that post.'
     redirect_to @user
   end
 
   private
 
-    def set_post
-      @post = Post.find(params[:id])
-    end
+  def set_post
+    @post = Post.find(params[:id])
+  end
 
-    def post_params
-      params.require(:post).permit(:title, :content)
-    end
-
+  def post_params
+    params.require(:post).permit(:title, :content)
+  end
 end
