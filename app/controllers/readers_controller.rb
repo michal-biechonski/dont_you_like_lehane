@@ -9,9 +9,7 @@ class ReadersController < ApplicationController
     @reader.book_id = @book.id
     respond_to do |format|
       if @reader.save
-        unless @fut_reader.nil?
-          @fut_reader.destroy
-        end
+        @fut_reader.destroy unless @fut_reader.nil?
         format.js
         format.html do
           flash[:notice] = 'You\'ve read this book!'

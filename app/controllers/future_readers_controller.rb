@@ -9,9 +9,7 @@ class FutureReadersController < ApplicationController
     @future_reader.book_id = @book.id
     respond_to do |format|
       if @future_reader.save
-        unless @exist_reader.nil?
-          @exist_reader.destroy
-        end
+        @exist_reader.destroy unless @exist_reader.nil?
         format.js
         format.html do
           flash[:notice] = 'You\'ve added this book to your wishlist!'
