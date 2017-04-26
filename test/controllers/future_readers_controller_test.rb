@@ -1,7 +1,6 @@
-require 'test_helper'
+require "test_helper"
 
 class FutureReadersControllerTest < ActionDispatch::IntegrationTest
-
   setup do
     @user = users(:one)
     @book = books(:one)
@@ -68,5 +67,4 @@ class FutureReadersControllerTest < ActionDispatch::IntegrationTest
       delete book_future_reader_url(@book, @user)
     end
   end
-
 end

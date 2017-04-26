@@ -1,7 +1,6 @@
-require 'test_helper'
+require "test_helper"
 
 class PostsControllerTest < ActionDispatch::IntegrationTest
-
   setup do
     @first = posts(:first_user_post)
     @third = posts(:third_user_post)
@@ -116,6 +115,4 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     follow_redirect!
     assert_select "div#flash_notice", "You've deleted that post."
   end
-
-
 end

@@ -1,13 +1,11 @@
-require 'test_helper'
+require "test_helper"
 
 class CommentsControllerTest < ActionDispatch::IntegrationTest
-  
   setup do
     @book = books(:one)
     @third_users_comment = comments(:one)
     sign_in users(:one)
   end
-
 
   test "should get new" do
     get new_book_comment_url(@book)
@@ -67,6 +65,4 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
     end
     assert_redirected_to @book
   end
-
-
 end

@@ -1,4 +1,4 @@
-require 'test_helper'
+require "test_helper"
 
 class BooksTest < ActionDispatch::IntegrationTest
 
@@ -109,7 +109,4 @@ class BooksTest < ActionDispatch::IntegrationTest
     assert_select "form[action=?]", book_readers_path(books(:four))
     assert_select "form[action=?]", book_future_readers_path(books(:four))
   end
-
-
-
 end
