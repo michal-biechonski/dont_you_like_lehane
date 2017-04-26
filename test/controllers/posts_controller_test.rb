@@ -27,20 +27,32 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create post if post is valid" do
     assert_difference("Post.count", 1) do
-      post user_posts_url(@user), params: { post: { title: "Some random title", content: "Some random content " } }
+      post user_posts_url(
+        @user,
+        params: {
+          post: {
+            title: "Some random title",
+            content: "Some random content "
+          }
+        }
+      )
     end
     assert_redirected_to @user
 
     assert_no_difference("Post.count") do
       post user_posts_url(@user), params: { post: { title: "", content: "" } }
     end
-    assert_select "div#error_explanation", "Title can't be blank\nContent can't be blank"
+    assert_select "div#error_explanation",
+                  "Title can't be blank\nContent can't be blank"
   end
 
   test "should not create post if not logged in" do
     sign_out @user
     assert_no_difference("Post.count") do
-      post user_posts_url(@user), params: { post: { title: "Random title", content: "random content" } }
+      post user_posts_url(
+        @user,
+        params: { post: { title: "Random title", content: "random content" } }
+      )
     end
     assert_redirected_to new_user_session_url
   end

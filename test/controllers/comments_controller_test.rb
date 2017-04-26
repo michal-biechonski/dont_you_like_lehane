@@ -20,7 +20,9 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
 
   test "should get create" do
     assert_difference("Comment.count", 1) do
-      post book_comments_url(@book), params: { comment: { content: "some random text" } }
+      post book_comments_url(
+        @book, params: { comment: { content: "some random text" } }
+      )
     end
     assert_redirected_to @book
   end
@@ -28,14 +30,18 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
   test "should not create if not logged in" do
     sign_out users(:one)
     assert_no_difference("Comment.count") do
-      post book_comments_url(@book), params: { comment: { content: "some random text" } }
+      post book_comments_url(
+        @book, params: { comment: { content: "some random text" } }
+      )
     end
     assert_redirected_to new_user_session_url
   end
 
   test "should get destroy" do
     assert_difference("Comment.count", 1) do
-      post book_comments_url(@book), params: { comment: { content: "some random text" } }
+      post book_comments_url(
+        @book, params: { comment: { content: "some random text" } }
+      )
     end
     @comment = assigns(:comment)
     assert_redirected_to @book
@@ -45,7 +51,7 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to @book
   end
 
-  test "should not destroy if not logged in or if comment created by different user" do
+  test "shouldn't destroy if not logged in or if created by different user" do
     assert_no_difference("Comment.count") do
       delete book_comment_url(@book, @third_users_comment)
     end

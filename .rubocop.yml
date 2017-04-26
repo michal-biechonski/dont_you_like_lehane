@@ -4,3 +4,6 @@ Style/StringLiterals:
   
 Documentation:
   Enabled: false
+
+Metrics/ClassLength:
+  Enabled: false
