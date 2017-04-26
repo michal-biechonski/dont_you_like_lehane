@@ -72,7 +72,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
 
   test "should update post if post is valid" do
     patch user_post_url(
-      [@user, @first],
+      @user, @first,
       params: {
         post: {
           title: "Some changed title",
@@ -83,7 +83,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to user_url(@user)
 
     patch user_post_url(
-      [@user, @first],
+      @user, @first,
       params: { post: { title: "", content: "" } }
     )
     assert_select "div#error_explanation",
@@ -92,7 +92,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
 
   test "should not update post if not logged in or not user's post" do
     patch user_post_url(
-      [@user, @third],
+      @user, @third,
       params: { post: { title: "changed title", content: "changed content" } }
     )
     assert_redirected_to users_url
@@ -101,7 +101,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
 
     sign_out @user
     patch user_post_url(
-      [@user, @first],
+      @user, @first,
       params: { post: { title: "changed title", content: "changed content" } }
     )
     assert_redirected_to new_user_session_url

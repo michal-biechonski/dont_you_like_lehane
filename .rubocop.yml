@@ -7,3 +7,6 @@ Documentation:
 
 Metrics/ClassLength:
   Enabled: false
+
+Metrics/BlockLength:
+  Enabled: false
