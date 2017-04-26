@@ -12,12 +12,12 @@ class FutureReadersController < ApplicationController
         @exist_reader.destroy unless @exist_reader.nil?
         format.js
         format.html do
-          flash[:notice] = 'You\'ve added this book to your wishlist!'
+          flash[:notice] = "You've added this book to your wishlist!"
           redirect_to @book
         end
       else
         format.html do
-          flash[:alert] = 'You can only add this book once.'
+          flash[:alert] = "You can only add this book once."
           redirect_to @book
         end
       end
@@ -29,18 +29,18 @@ class FutureReadersController < ApplicationController
   end
 
   def destroy
-    @future_reader = FutureReader.where('user_id = ? AND book_id = ?',
+    @future_reader = FutureReader.where("user_id = ? AND book_id = ?",
                                         current_user.id, @book.id).take
     respond_to do |format|
       if !@future_reader.nil? && @future_reader.destroy
         format.js
         format.html do
-          flash[:notice] = 'So you don\'t wanna read it??'
+          flash[:notice] = "So you don't wanna read it??"
           redirect_to @book
         end
       else
         format.html do
-          flash[:notice] = 'You haven\'t added it to the wishlist!'
+          flash[:notice] = "You haven't added it to the wishlist!"
           redirect_to @book
         end
       end

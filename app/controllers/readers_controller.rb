@@ -12,12 +12,12 @@ class ReadersController < ApplicationController
         @fut_reader.destroy unless @fut_reader.nil?
         format.js
         format.html do
-          flash[:notice] = 'You\'ve read this book!'
+          flash[:notice] = "You've read this book!"
           redirect_to @book
         end
       else
         format.html do
-          flash[:alert] = 'You\'ve already selected that book'
+          flash[:alert] = "You've already selected that book"
           redirect_to @book
         end
       end
@@ -29,18 +29,18 @@ class ReadersController < ApplicationController
   end
 
   def destroy
-    @reader = Reader.where('user_id = ? AND book_id = ?',
+    @reader = Reader.where("user_id = ? AND book_id = ?",
                            current_user.id, @book.id).take
     respond_to do |format|
       if !@reader.nil? && @reader.destroy
         format.js
         format.html do
-          flash[:notice] = 'So you haven\'t read it yet??'
+          flash[:notice] = "So you haven't read it yet??"
           redirect_to @book
         end
       else
         format.html do
-          flash[:alert] = 'You haven\'t read that book!'
+          flash[:alert] = "You haven't read that book!"
           redirect_to @book
         end
       end

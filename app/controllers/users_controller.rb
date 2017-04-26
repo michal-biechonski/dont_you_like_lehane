@@ -12,7 +12,7 @@ class UsersController < ApplicationController
 
   def destroy
     @user.destroy
-    flash[:notice] = 'User was successfully deleted.'
+    flash[:notice] = "User was successfully deleted."
     redirect_to users_path
   end
 
@@ -24,7 +24,7 @@ class UsersController < ApplicationController
 
   def require_logged_in
     return if signed_in?
-    flash[:alert] = 'You must be logged in to do that.'
+    flash[:alert] = "You must be logged in to do that."
     redirect_to new_user_session_path
   end
 end

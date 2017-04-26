@@ -21,25 +21,25 @@ class PostsController < ApplicationController
   def create
     @post = @user.posts.build(post_params)
     if @post.save
-      flash[:notice] = 'You\'ve created a post.'
+      flash[:notice] = "You've created a post."
       redirect_to @user
     else
-      render 'new'
+      render "new"
     end
   end
 
   def update
     if @post.update(post_params)
-      flash[:notice] = 'You\'ve updated your post.'
+      flash[:notice] = "You've updated your post."
       redirect_to @user
     else
-      render 'edit'
+      render "edit"
     end
   end
 
   def destroy
     @post.destroy
-    flash[:notice] = 'You\'ve deleted that post.'
+    flash[:notice] = "You've deleted that post."
     redirect_to @user
   end
 
