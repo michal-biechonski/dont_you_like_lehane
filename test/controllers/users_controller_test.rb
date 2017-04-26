@@ -1,7 +1,6 @@
 require "test_helper"
 
 class UsersControllerTest < ActionDispatch::IntegrationTest
-
   setup do
     @user = users(:one)
     @admin = users(:admin)
@@ -41,7 +40,17 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
 
   test "should create user" do
     assert_difference("User.count", 1) do
-      post user_registration_url, params: { user: { email: "random@email.com", name: "randomName", password: "password", password_confirmation: "password" } }
+      post(
+        user_registration_url,
+        params: {
+          user: {
+            email: "random@email.com",
+            name: "randomName",
+            password: "password",
+            password_confirmation: "password"
+          }
+        }
+      )
     end
     assert_redirected_to root_url
   end
@@ -58,19 +67,40 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should not update user if not logged in" do
-    patch user_registration_url, params: { user: { current_password: "password", name: "someRandomName" } }
+    patch(
+      user_registration_url,
+      params: { user: { current_password: "password", name: "someRandomName" } }
+    )
     assert_redirected_to new_user_session_url
   end
 
   test "should not update user if current password not valid" do
     sign_in @user
-    patch user_registration_url, params: { user: { current_password: "randomText", name: "someRandomName" } }
+    patch(
+      user_registration_url,
+      params: {
+        user: {
+          current_password: "randomText",
+          name: "someRandomName"
+        }
+      }
+    )
     assert_select "div#error_explanation", "Current password is invalid"
   end
 
   test "should update user if current_password valid" do
     sign_in @user
-    patch user_registration_url, params: { user: { current_password: "password", name: "someRandomName", password: "newpassword", password_confirmation: "newpassword" } }
+    patch(
+      user_registration_url,
+      params: {
+        user: {
+          current_password: "password",
+          name: "someRandomName",
+          password: "newpassword",
+          password_confirmation: "newpassword"
+        }
+      }
+    )
     assert_redirected_to root_url
   end
 
@@ -89,7 +119,8 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to root_url
   end
 
-  test "should not delete other user's account if not logged in or user not admin" do
+  test "should not delete other user's account if not logged in or
+        user not admin" do
     assert_no_difference("User.count") do
       delete user_url(@admin)
     end
@@ -108,6 +139,4 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     end
     assert_redirected_to users_url
   end
-
-
 end

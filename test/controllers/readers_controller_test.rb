@@ -1,7 +1,6 @@
 require "test_helper"
 
 class ReadersControllerTest < ActionDispatch::IntegrationTest
-
   setup do
     @user = users(:three)
     @book = books(:three)
@@ -83,6 +82,4 @@ class ReadersControllerTest < ActionDispatch::IntegrationTest
     follow_redirect!
     assert_select "div#flash_alert", "You must be logged in to do that."
   end
-
-
 end
