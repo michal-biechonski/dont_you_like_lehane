@@ -1,7 +1,6 @@
 require "test_helper"
 
 class BookTest < ActiveSupport::TestCase
-
   setup do
     @book = books(:one)
     @book2 = books(:two)
@@ -32,5 +31,4 @@ class BookTest < ActiveSupport::TestCase
     @book.published_at = ""
     assert_not @book.valid?
   end
-
 end

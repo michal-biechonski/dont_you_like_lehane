@@ -1,7 +1,6 @@
 require "test_helper"
 
 class CommentTest < ActiveSupport::TestCase
-
   setup do
     @comment = comments(:one)
   end
@@ -24,5 +23,4 @@ class CommentTest < ActiveSupport::TestCase
     @comment.book_id = ""
     assert_not @comment.valid?
   end
-
 end

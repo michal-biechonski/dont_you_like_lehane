@@ -124,7 +124,8 @@ class UsersTest < ActionDispatch::IntegrationTest
     assert_redirected_to new_user_session_url
     follow_redirect!
     assert_select "div#flash_notice",
-                  "Your account has been unlocked successfully. Please sign in to continue."
+                  "Your account has been unlocked successfully. "\
+                  "Please sign in to continue."
     @new_user.reload
     assert_nil @new_user.locked_at
     assert_nil @new_user.unlock_token
@@ -160,7 +161,9 @@ class UsersTest < ActionDispatch::IntegrationTest
     assert_redirected_to root_url
     follow_redirect!
     assert_select "div#flash_notice",
-                  "You updated your account successfully, but we need to verify your new email address. Please check your email and follow the confirm link to confirm your new email address."
+                  "You updated your account successfully, but we need to "\
+                  "verify your new email address. Please check your email and"\
+                  " follow the confirm link to confirm your new email address."
     @mail = ActionMailer::Base.deliveries.last
     assert_equal @mail.subject, "Confirmation instructions"
     assert_match @new_user.confirmation_token, @mail.body.encoded

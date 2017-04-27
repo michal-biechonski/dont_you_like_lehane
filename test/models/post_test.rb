@@ -1,7 +1,6 @@
 require "test_helper"
 
 class PostTest < ActiveSupport::TestCase
-
   setup do
     @post = posts(:first_user_post)
   end
@@ -24,5 +23,4 @@ class PostTest < ActiveSupport::TestCase
     @post.user_id = ""
     assert_not @post.valid?
   end
-
 end
