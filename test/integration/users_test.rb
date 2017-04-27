@@ -39,7 +39,9 @@ class UsersTest < ActionDispatch::IntegrationTest
     assert_redirected_to root_url
     follow_redirect!
     assert_select "div#flash_notice",
-                  "A message with a confirmation link has been sent to your email address. Please follow the link to activate your account."
+                  "A message with a confirmation link has been sent to your"\
+                  " email address. Please follow the link to activate your"\
+                  " account."
     @new_user.reload
     assert_nil @new_user.confirmed_at
 

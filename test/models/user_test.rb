@@ -1,7 +1,6 @@
 require "test_helper"
 
 class UserTest < ActiveSupport::TestCase
-
   setup do
     @user = users(:one)
   end
@@ -40,7 +39,4 @@ class UserTest < ActiveSupport::TestCase
     @user.password_confirmation = "Textrandom"
     assert_not @user.valid?
   end
-
-
-
 end
