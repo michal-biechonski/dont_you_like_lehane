@@ -14,12 +14,12 @@ class ReadersController < ApplicationController
         end
         format.js
         format.html do
-          flash[:notice] = 'You\'ve read this book!'
+          flash[:notice] = "You've read this book!"
           redirect_to @book
         end
       else
         format.html do
-          flash[:alert] = 'You\'ve already selected that book'
+          flash[:alert] = "You've already selected that book"
           redirect_to @book
         end
       end
@@ -37,12 +37,12 @@ class ReadersController < ApplicationController
       if !@reader.nil? && @reader.destroy
         format.js
         format.html do
-          flash[:notice] = 'So you haven\'t read it yet??'
+          flash[:notice] = "So you haven't read it yet??"
           redirect_to @book
         end
       else
         format.html do
-          flash[:alert] = 'You haven\'t read that book!'
+          flash[:alert] = "You haven't read that book!"
           redirect_to @book
         end
       end
