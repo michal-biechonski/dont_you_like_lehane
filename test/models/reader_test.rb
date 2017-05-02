@@ -1,7 +1,6 @@
-require 'test_helper'
+require "test_helper"
 
 class ReaderTest < ActiveSupport::TestCase
-
   setup do
     @reader = readers(:one)
   end
@@ -22,9 +21,8 @@ class ReaderTest < ActiveSupport::TestCase
 
   test "should be unique" do
     sign_in users(:one)
-    @reader2 = User.find(users(:one).id).readers.build()
+    @reader2 = User.find(users(:one).id).readers.build
     @reader2.book_id = @reader.book_id
     assert_not @reader2.valid?
   end
-
 end

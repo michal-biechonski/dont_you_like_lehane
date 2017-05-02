@@ -1,6 +1,6 @@
+# USER ACTIONS NOT HANDLED BY DEVISE
 class UsersController < ApplicationController
-
-  before_action :set_user_params, only: [:show, :destroy]
+  before_action :set_user_params, only: %i[show destroy]
   before_action :require_logged_in, only: [:destroy]
   before_action :require_admin, only: [:destroy]
 
@@ -8,8 +8,7 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
-  def show  
-  end
+  def show; end
 
   def destroy
     @user.destroy
@@ -19,15 +18,13 @@ class UsersController < ApplicationController
 
   private
 
-    def set_user_params
-      @user = User.find(params[:id])
-    end
+  def set_user_params
+    @user = User.find(params[:id])
+  end
 
-    def require_logged_in
-      unless signed_in?
-        flash[:alert] = "You must be logged in to do that."
-        redirect_to new_user_session_path        
-      end
-    end
-
+  def require_logged_in
+    return if signed_in?
+    flash[:alert] = "You must be logged in to do that."
+    redirect_to new_user_session_path
+  end
 end

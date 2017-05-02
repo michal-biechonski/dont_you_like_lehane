@@ -9,9 +9,7 @@ class ReadersController < ApplicationController
     @reader.book_id = @book.id
     respond_to do |format|
       if @reader.save
-        unless @fut_reader.nil?
-          @fut_reader.destroy
-        end
+        @fut_reader.destroy unless @fut_reader.nil?
         format.js
         format.html do
           flash[:notice] = "You've read this book!"
@@ -31,7 +29,7 @@ class ReadersController < ApplicationController
   end
 
   def destroy
-    @reader = Reader.where('user_id = ? AND book_id = ?',
+    @reader = Reader.where("user_id = ? AND book_id = ?",
                            current_user.id, @book.id).take
     respond_to do |format|
       if !@reader.nil? && @reader.destroy

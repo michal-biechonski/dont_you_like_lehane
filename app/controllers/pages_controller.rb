@@ -13,6 +13,6 @@ class PagesController < ApplicationController
   private
 
   def set_body_classes
-    @body_classes = 'body__pages'
+    @body_classes = "body__pages"
   end
 end

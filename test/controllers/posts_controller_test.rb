@@ -1,7 +1,6 @@
-require 'test_helper'
+require "test_helper"
 
 class PostsControllerTest < ActionDispatch::IntegrationTest
-
   setup do
     @first = posts(:first_user_post)
     @third = posts(:third_user_post)
@@ -28,20 +27,32 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create post if post is valid" do
     assert_difference("Post.count", 1) do
-      post user_posts_url(@user), params: { post: { title: "Some random title", content: "Some random content " } }
+      post user_posts_url(
+        @user,
+        params: {
+          post: {
+            title: "Some random title",
+            content: "Some random content "
+          }
+        }
+      )
     end
     assert_redirected_to @user
 
     assert_no_difference("Post.count") do
       post user_posts_url(@user), params: { post: { title: "", content: "" } }
     end
-    assert_select "div#error_explanation", "Title can't be blank\nContent can't be blank"
+    assert_select "div#error_explanation",
+                  "Title can't be blank\nContent can't be blank"
   end
 
   test "should not create post if not logged in" do
     sign_out @user
     assert_no_difference("Post.count") do
-      post user_posts_url(@user), params: { post: { title: "Random title", content: "random content" } }
+      post user_posts_url(
+        @user,
+        params: { post: { title: "Random title", content: "random content" } }
+      )
     end
     assert_redirected_to new_user_session_url
   end
@@ -60,21 +71,39 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update post if post is valid" do
-    patch user_post_url(@user, @first), params: { post: { title: "Some changed title", content: "Some changed content" } }
+    patch user_post_url(
+      @user, @first,
+      params: {
+        post: {
+          title: "Some changed title",
+          content: "Some changed content"
+        }
+      }
+    )
     assert_redirected_to user_url(@user)
 
-    patch user_post_url(@user, @first), params: { post: { title: "", content: "" } }
-    assert_select "div#error_explanation", "Title can't be blank\nContent can't be blank"
+    patch user_post_url(
+      @user, @first,
+      params: { post: { title: "", content: "" } }
+    )
+    assert_select "div#error_explanation",
+                  "Title can't be blank\nContent can't be blank"
   end
 
   test "should not update post if not logged in or not user's post" do
-    patch user_post_url(@user, @third), params: { post: { title: "changed title", content: "changed content" } }
+    patch user_post_url(
+      @user, @third,
+      params: { post: { title: "changed title", content: "changed content" } }
+    )
     assert_redirected_to users_url
     follow_redirect!
     assert_select "div#flash_alert", "You can only do this to your own posts!"
 
     sign_out @user
-    patch user_post_url(@user, @first), params: { post: { title: "changed title", content: "changed content" } }
+    patch user_post_url(
+      @user, @first,
+      params: { post: { title: "changed title", content: "changed content" } }
+    )
     assert_redirected_to new_user_session_url
     follow_redirect!
     assert_select "div#flash_alert", "You must be logged in to do that."
@@ -116,6 +145,4 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     follow_redirect!
     assert_select "div#flash_notice", "You've deleted that post."
   end
-
-
 end
