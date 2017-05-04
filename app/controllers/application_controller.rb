@@ -1,4 +1,4 @@
-# APPLICATION CONTROLLER
+# APPLICATION CONTROLER
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
