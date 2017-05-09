@@ -44,7 +44,8 @@ Rails.application.configure do
     enable_starttls_auto: true
   }
 
-  # `config.assets.precompile` and `config.assets.version` have moved to 
+  # `config.assets.precompile` and `config.assets.version`
+  # have moved to
   # config/initializers/assets.rb
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
