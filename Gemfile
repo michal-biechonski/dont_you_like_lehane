@@ -11,10 +11,10 @@ gem 'rails', '~> 5.0.2'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 
-gem 'haml'
-gem 'bootstrap-sass'
-gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.1'
-gem 'bcrypt', '~> 3.1', '>= 3.1.11'
+gem "haml"
+gem "bootstrap-sass"
+gem "font-awesome-rails", "~> 4.7", ">= 4.7.0.1"
+gem "bcrypt", "~> 3.1", ">= 3.1.11"
 gem "paperclip", "~> 5.0.0"
 # gem 'carrierwave', '~> 1.0'
 gem 'mini_magick'
