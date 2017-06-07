@@ -337,13 +337,15 @@ body {
   @include make-sm-column(9);
 }
 
-.books__cover_small, .books__description_small {
+.books__cover_small,
+.books__description_small {
   @media (max-width: $screen-xs-max) {
     text-align: center;
   }
 }
 
-.books__cover, .books__cover_small {
+.books__cover,
+.books__cover_small {
   box-shadow: unset;
   @media (max-width: $screen-md-max) {
     margin-bottom: 1.6em;
@@ -367,7 +369,8 @@ body {
   text-align: center;
 }
 
-.comments__date, .posts__date {
+.comments__date,
+.posts__date {
   font-size: 0.8em;
   font-style: italic;
   text-align: right;
@@ -379,7 +382,8 @@ section {
   @include make-row();
 }
 
-.js-wishlist__add, .js-read__add {
+.js-wishlist__add,
+.js-read__add {
   form {
     display: inline;
   }
@@ -421,11 +425,14 @@ section {
   margin: 10px 0;
 }
 
-.user__content{
+.user__content {
   @include make-md-column(6);
 }
 
-.user__content-details, .user__info, .books__all-details, .posts__all-details {
+.user__content-details,
+.user__info,
+.books__all-details,
+.posts__all-details {
   @include make-well();
   background-color: darken($warm_yellow, 5%);
   @include shadow-color;
@@ -440,7 +447,8 @@ section {
   }
 }
 
-h1, .books__all-details figure {
+h1,
+.books__all-details figure {
   text-align: center;
 }
 
@@ -448,12 +456,9 @@ h1 {
   margin: 1em;
 }
 
-.user h1 {
-  
-}
-
 .posts__all-details {
-  h2, footer {
+  h2,
+  footer {
     text-align: center;
   }
 }
@@ -539,7 +544,8 @@ h1 {
   border: none;
   // @extend .btn;
   @include button-size($padding-base-vertical, $padding-base-horizontal, $font-size-base, $line-height-base, $border-radius-base);
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     text-decoration: none;
   }
 }
@@ -588,10 +594,12 @@ h1 {
   margin-bottom: 0;
   border: none;
   background-color: $rusty_red;
-  .navbar-brand, .nav li a {
+  .navbar-brand,
+  .nav li a {
     background-color: $rusty_red;
     color: white;
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
       color: $navy_blue;
     }
   }
@@ -602,7 +610,10 @@ h1 {
   }
   .navbar-nav {
     .open {
-      a, a:hover, a:focus, .dropdown-menu>li>a {
+      a,
+      a:hover,
+      a:focus,
+      .dropdown-menu>li>a {
         background-color: $rusty_red;
         color: white; 
       }
@@ -615,7 +626,8 @@ h1 {
     .icon-bar {
       background-color: white;      
     }
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
       background-color: darken($rusty_red,10%);
     }
   }
