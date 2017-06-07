@@ -6,8 +6,8 @@ $jumbotron-padding: 75px;
 
 @mixin shadow-color {
 -webkit-box-shadow: 1px 2px 5px 1px rgba(152,75,67,1);
--moz-box-shadow: 1px 2px 5px 1px rgba(152,75,67,1);
-box-shadow: 1px 2px 5px 1px rgba(152,75,67,1);
+   -moz-box-shadow: 1px 2px 5px 1px rgba(152,75,67,1);
+        box-shadow: 1px 2px 5px 1px rgba(152,75,67,1);
 }
 
 // @mixin regular-button($button-bg-color, $button-text-color: white) {
@@ -104,15 +104,15 @@ box-shadow: 1px 2px 5px 1px rgba(152,75,67,1);
 @mixin make-form(){
   display: block;
   width: 100%;
-  height: $input-height-base; // Make inputs at least the height of their button counterpart (base line-height + padding + border)
+  height: $input-height-base;
   padding: $padding-base-vertical $padding-base-horizontal;
   font-size: $font-size-base;
   line-height: $line-height-base;
   color: $input-color;
   background-color: $input-bg;
-  background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+  background-image: none;
   border: 1px solid $input-border;
-  border-radius: $input-border-radius; // Note: This has no effect on <select>s in some browsers, due to the limited stylability of <select>s in CSS.
+  border-radius: $input-border-radius;
   @include box-shadow(inset 0 1px 1px rgba(0,0,0,.075));
   @include transition(border-color ease-in-out .15s, box-shadow ease-in-out .15s);
 
@@ -212,7 +212,10 @@ body {
   }
   .button_confirm {
     background-color: $navy_blue;
-    &:hover, &:active, &:focus, &:disabled {
+    &:hover,
+    &:active,
+    &:focus,
+    &:disabled {
       background-color: darken($navy_blue, 5%);
     }
   }
@@ -227,7 +230,8 @@ body {
     margin-top: 0;
     word-wrap: break-word;
   }
-  div, span {
+  div,
+  span {
     font-size: 2.1em;
   }
 }
@@ -272,7 +276,8 @@ body {
   @extend .navbar-collapse;
 }
 
-.navigation__items, .navigation__status {
+.navigation__items,
+.navigation__status {
   @extend .navbar-nav;
 }
 
@@ -308,12 +313,14 @@ body {
   @include make-md-column(4)
 }
 
-.books__card, .posts__card {
+.books__card,
+.posts__card {
   @include make-md-column(8);
   @include make-md-column-offset(2);
 }
 
-.books__cover, .books__description {
+.books__cover,
+.books__description {
   @include make-xs-column(10);
   @include make-xs-column-offset(1);
   @include make-sm-column(8);
