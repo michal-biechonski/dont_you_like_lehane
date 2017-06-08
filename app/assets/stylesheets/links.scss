@@ -1,0 +1,15 @@
+a {
+  color: $navy_blue;
+  &:hover {
+    text-decoration: none;
+    color: white;
+  }
+  &.books__links:hover,
+  &.books__links:focus {
+    text-decoration: none;
+    color: $navy_blue
+  }
+  .books__all-details:hover{
+    background-color: darken($warm_yellow, 10%);
+  }
+}

@@ -163,9 +163,6 @@ h1 {
   }
 }
 
-
-
-
 .user__content-date {
   font-size: 0.8em;
   font-style: italic;
@@ -175,8 +172,6 @@ h1 {
     margin-top: 0.75em;
   }
 }
-
-
 
 // INDEX USERS PAGE
 
@@ -203,8 +198,6 @@ h1 {
     margin-bottom: 1em;
   }
 }
-
-
 
 .flash__home-outside-box{
   background-color: $gun_metal;
@@ -271,15 +264,6 @@ h1 {
   }
 }
 
-textarea {
-  resize: none;
-}
-
-img {
-  border-radius: 3%;
-  @include shadow-color; 
-}
-
 figure {
   .book {
   }
@@ -288,36 +272,3 @@ figure {
 .clear {
   clear: both;
 }
-
-
-
-a {
-  color: $navy_blue;
-  &:hover {
-    text-decoration: none;
-    color: white;
-  }
-  &.books__links:hover,
-  &.books__links:focus {
-    text-decoration: none;
-    color: $navy_blue
-  }
-  .books__all-details:hover{
-    background-color: darken($warm_yellow, 10%);
-  }
-}
-
-input[type=password] {
-  font-family: "Arial Black";
-}
-
-input[type=email],
-input[type=text],
-input[type=date],
-input[type=password],
-textarea.form__input {
-  font-size: 1.2em;
-}
-
-
-

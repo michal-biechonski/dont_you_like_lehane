@@ -1,5 +1,4 @@
 $grid-float-breakpoint: 1015px;
-
 @import "bootstrap-sprockets";
 @import 'bootstrap-custom';
 @import "font-awesome";
@@ -9,13 +8,16 @@ $grid-float-breakpoint: 1015px;
 @import "mixins";
 @import "layout";
 @import "typography";
-// for now
+// TEMPORARY
 @import "stylesheet";
 
 // COMPONENTS
 @import "forms";
 @import "messages";
 @import "buttons";
+@import "textareas";
+@import "links";
+@import "images";
 
 // MODULES
 @import "navigation";
