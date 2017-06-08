@@ -1,0 +1,60 @@
+.navigation {
+  @extend .navbar;
+}
+
+.navigation_theme_default {
+  @extend .navbar-default;
+}
+
+.navigation_top {
+  @extend .navbar-fixed-top;
+}
+
+.navigation__box {
+  @extend .container-fluid;
+}
+
+.navigation__logo {
+  @extend .navbar-brand;
+}
+
+.navigation__menu {
+  @extend .navbar-header;
+}
+
+.navigation__toggle {
+  @extend .navbar-toggle;
+}
+
+.navigation__toggle-bar {
+  @extend .icon-bar;
+}
+
+.navigation__screen-reader {
+  @extend .sr-only;
+}
+
+.navigation_collapse {
+  @extend .navbar-collapse;
+}
+
+.navigation__items,
+.navigation__status {
+  @extend .navbar-nav;
+}
+
+.navigation__status {
+  @extend .navbar-right;
+}
+
+.navigation__dropdown {
+  @extend .dropdown;
+}
+
+.navigation__dropdown-toggle {
+  @extend .dropdown-toggle;
+}
+
+.navigation__dropdown-menu {
+  @extend .dropdown-menu;
+}

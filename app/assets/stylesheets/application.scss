@@ -9,12 +9,14 @@ $grid-float-breakpoint: 1015px;
 @import "mixins";
 @import "layout";
 @import "typography";
+// for now
 @import "stylesheet";
+
 // COMPONENTS
 @import "forms";
 
 // MODULES
+@import "navigation";
+
+// THEMES
 @import "pages";
-
-
-

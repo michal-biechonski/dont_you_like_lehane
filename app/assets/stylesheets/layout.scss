@@ -1,0 +1,56 @@
+body {
+  background-color: $warm_yellow;
+  padding: 50px 0 0;
+}
+
+.box,
+.flash__box,
+.flash__home-box,
+.books__box,
+.space__box {
+  @include container-fixed();
+  @media (min-width: $screen-sm-min) {
+    width: $container-sm;
+  }
+  @media (min-width: $screen-md-min) {
+    width: $container-md;
+  }
+  @media (min-width: $screen-lg-min) {
+    width: $container-lg;
+  }
+}
+
+.space {
+  @include make-jumbo();
+  margin-bottom: 0;
+  color: white;
+  background-color: $gun_metal;
+  min-height: 93vh;
+  p {
+    margin: 1.2em 0 1.8em;
+  }
+  .button_confirm {
+    background-color: $navy_blue;
+    &:hover,
+    &:active,
+    &:focus,
+    &:disabled {
+      background-color: darken($navy_blue, 5%);
+    }
+  }
+  i {
+    display: block;
+  }
+  text-align: center;
+}
+
+.space__landing {
+  h1 {
+    margin-top: 0;
+    word-wrap: break-word;
+  }
+  div,
+  span {
+    font-size: 2.1em;
+  }
+}
