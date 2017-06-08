@@ -1,65 +1,3 @@
-.navigation {
-  @extend .navbar;
-}
-
-.navigation_theme_default {
-  @extend .navbar-default;
-}
-
-.navigation_top {
-  @extend .navbar-fixed-top;
-}
-
-.navigation__box {
-  @extend .container-fluid;
-}
-
-.navigation__logo {
-  @extend .navbar-brand;
-}
-
-.navigation__menu {
-  @extend .navbar-header;
-}
-
-.navigation__toggle {
-  @extend .navbar-toggle;
-}
-
-.navigation__toggle-bar {
-  @extend .icon-bar;
-}
-
-.navigation__screen-reader {
-  @extend .sr-only;
-}
-
-.navigation_collapse {
-  @extend .navbar-collapse;
-}
-
-.navigation__items,
-.navigation__status {
-  @extend .navbar-nav;
-}
-
-.navigation__status {
-  @extend .navbar-right;
-}
-
-.navigation__dropdown {
-  @extend .dropdown;
-}
-
-.navigation__dropdown-toggle {
-  @extend .dropdown-toggle;
-}
-
-.navigation__dropdown-menu {
-  @extend .dropdown-menu;
-}
-
-
 .space__utilities {
   background-color: $navy_blue;
   h1 {
@@ -225,15 +163,7 @@ h1 {
   }
 }
 
-.message_deny {
-  @include make-alert();
-  @include alert-variant($alert-danger-bg, $alert-danger-border, $alert-danger-text);
-}
 
-.message_confirm {
-  @include make-alert();
-  @include alert-variant($alert-success-bg, $alert-success-border, $alert-success-text);
-}
 
 
 .user__content-date {
@@ -246,35 +176,7 @@ h1 {
   }
 }
 
-.form {
-  @include make-xs-column(8);
-  @include make-xs-column-offset(2);
-  @include make-sm-column(6);
-  @include make-sm-column-offset(3);
-  @include make-lg-column(4);
-  @include make-lg-column-offset(4);
-}
 
-// .form__label {
-//   margin-bottom: 0;
-//   vertical-align: middle;
-//   @media (min-width: $screen-sm-min) {
-//     text-align: right;
-//     margin-bottom: 0;
-//     padding-top: ($padding-base-vertical + 1);
-//   }
-// }
-
-.form__inputs {
-  margin-bottom: $form-group-margin-bottom;
-}
-
-.form__input {
-  // @include make-form();
-  @extend .form-control;
-}
-
-// TODO check this mixin!!!
 
 // INDEX USERS PAGE
 
@@ -302,41 +204,7 @@ h1 {
   }
 }
 
-.button {
-  border: none;
-  // @extend .btn;
-  @include button-size($padding-base-vertical, $padding-base-horizontal, $font-size-base, $line-height-base, $border-radius-base);
-  &:hover,
-  &:focus {
-    text-decoration: none;
-  }
-}
 
-.button_confirm {
-  // @extend .btn-primary;
-  @include button-variant(white, $gun_metal, white);
-}
-
-.button_deny {
-  // @extend .btn-danger;
-  @include button-variant(white, $rusty_red, white);
-}
-
-.button_lg {
-  @include button-size($padding-large-vertical, $padding-large-horizontal, $font-size-large, $line-height-large, $border-radius-large);
-}
-
-.button_sm {
-  @include button-size($padding-small-vertical, $padding-small-horizontal, $font-size-small, $line-height-small, $border-radius-small);
-}
-
-.button_xs {
-  @include button-size($padding-xs-vertical, $padding-xs-horizontal, $font-size-small, $line-height-small, $border-radius-small);
-}
-
-.button_submit {
-  width: 100%;
-}
 
 .flash__home-outside-box{
   background-color: $gun_metal;
@@ -421,13 +289,7 @@ figure {
   clear: both;
 }
 
-input.form__input, textarea.form__input {
-  outline-color: $rusty_red;
-  &:focus {
-    border-color: $rusty_red;
-    box-shadow: none;
-  }
-}
+
 
 a {
   color: $navy_blue;
@@ -435,7 +297,8 @@ a {
     text-decoration: none;
     color: white;
   }
-  &.books__links:hover, &.books__links:focus {
+  &.books__links:hover,
+  &.books__links:focus {
     text-decoration: none;
     color: $navy_blue
   }
@@ -448,16 +311,13 @@ input[type=password] {
   font-family: "Arial Black";
 }
 
-input[type=email], input[type=text], input[type=date], input[type=password], textarea.form__input {
+input[type=email],
+input[type=text],
+input[type=date],
+input[type=password],
+textarea.form__input {
   font-size: 1.2em;
 }
 
-.books__buttons {
-  text-align: center;
-  margin-bottom: 2em;
-  margin-top: 2em;
-  a {
-    margin-top: 0.3em;
-  }
-}
+
 

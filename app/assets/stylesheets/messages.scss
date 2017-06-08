@@ -1,0 +1,9 @@
+.message_deny {
+  @include make-alert();
+  @include alert-variant($alert-danger-bg, $alert-danger-border, $alert-danger-text);
+}
+
+.message_confirm {
+  @include make-alert();
+  @include alert-variant($alert-success-bg, $alert-success-border, $alert-success-text);
+}

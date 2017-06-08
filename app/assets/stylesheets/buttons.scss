@@ -1,0 +1,44 @@
+.button {
+  border: none;
+  // @extend .btn;
+  @include button-size($padding-base-vertical, $padding-base-horizontal, $font-size-base, $line-height-base, $border-radius-base);
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
+}
+
+.button_confirm {
+  // @extend .btn-primary;
+  @include button-variant(white, $gun_metal, white);
+}
+
+.button_deny {
+  // @extend .btn-danger;
+  @include button-variant(white, $rusty_red, white);
+}
+
+.button_lg {
+  @include button-size($padding-large-vertical, $padding-large-horizontal, $font-size-large, $line-height-large, $border-radius-large);
+}
+
+.button_sm {
+  @include button-size($padding-small-vertical, $padding-small-horizontal, $font-size-small, $line-height-small, $border-radius-small);
+}
+
+.button_xs {
+  @include button-size($padding-xs-vertical, $padding-xs-horizontal, $font-size-small, $line-height-small, $border-radius-small);
+}
+
+.button_submit {
+  width: 100%;
+}
+
+.books__buttons {
+  text-align: center;
+  margin-bottom: 2em;
+  margin-top: 2em;
+  a {
+    margin-top: 0.3em;
+  }
+}

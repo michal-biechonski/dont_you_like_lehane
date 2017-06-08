@@ -1,0 +1,44 @@
+.form {
+  @include make-xs-column(8);
+  @include make-xs-column-offset(2);
+  @include make-sm-column(6);
+  @include make-sm-column-offset(3);
+  @include make-lg-column(4);
+  @include make-lg-column-offset(4);
+}
+
+// .form__label {
+//   margin-bottom: 0;
+//   vertical-align: middle;
+//   @media (min-width: $screen-sm-min) {
+//     text-align: right;
+//     margin-bottom: 0;
+//     padding-top: ($padding-base-vertical + 1);
+//   }
+// }
+
+.form__inputs {
+  margin-bottom: $form-group-margin-bottom;
+}
+
+.form__input {
+  // TODO check this mixin!!!
+  // @include make-form();
+  @extend .form-control;
+  &:focus {
+    border-color: $rusty_red;
+    box-shadow: none;
+  }
+}
+
+input[type=password] {
+  font-family: "Arial Black";
+}
+
+input[type=email],
+input[type=text],
+input[type=date],
+input[type=password],
+textarea.form__input {
+  font-size: 1.2em;
+}
