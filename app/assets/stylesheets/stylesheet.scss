@@ -78,16 +78,9 @@
   margin-bottom: 0.5em;
 }
 
-section {
-  @include make-row();
-}
 
-.js-wishlist__add,
-.js-read__add {
-  form {
-    display: inline;
-  }
-}
+
+
 
 // SHOW USER PAGE
 
@@ -168,10 +161,9 @@ h1 {
   font-style: italic;
   text-align: right;
   margin-top: 1.5em;
-  & + section {
-    margin-top: 0.75em;
-  }
 }
+
+
 
 // INDEX USERS PAGE
 

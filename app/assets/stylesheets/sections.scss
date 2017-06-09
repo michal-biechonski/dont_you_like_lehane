@@ -1,0 +1,7 @@
+section {
+  @include make-row();
+}
+
+.user__content-date + section {
+  margin-top: 0.75em;
+}

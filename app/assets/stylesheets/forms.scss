@@ -42,3 +42,10 @@ input[type=password],
 textarea.form__input {
   font-size: 1.2em;
 }
+
+.js-wishlist__add,
+.js-read__add {
+  form {
+    display: inline;
+  }
+}
