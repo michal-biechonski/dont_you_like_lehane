@@ -54,3 +54,34 @@ body {
     font-size: 2.1em;
   }
 }
+
+.space__col {
+  @include make-md-column(4)
+}
+
+.books__cover,
+.books__description {
+  @include make-xs-column(10);
+  @include make-xs-column-offset(1);
+  @include make-sm-column(8);
+  @include make-sm-column-offset(2);
+  @include make-md-column(6);
+  @include make-md-column-offset(0);
+}
+
+.body__pages {
+  .flash__box {
+    display: none;
+  }
+
+  .box {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+    .jumbotron {
+      border-radius: 0;
+    }
+  }
+}

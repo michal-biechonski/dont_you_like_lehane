@@ -11,7 +11,7 @@
   %h1 Discover some of his best work!
   - @books.each do |book|
     %section
-      .books__card
+      .board
         %a.books__links{href:"books/#{book.id}"}
           %section.books__all-details
             %figure= image_tag book.picture.url(:medium), class: "books__cover"

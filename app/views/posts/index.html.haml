@@ -1,11 +1,11 @@
 %h1 All posts
 - @posts.each do |post|
   %section
-    .posts__card
+    .board
       .posts__all-details
         %h2= post.title
         %p= post.content
-        %p.posts__date
+        %p.text__date
           = "Posted by: "
           = link_to(User.find(post.user_id).name, user_path(post.user_id)).to_s + ", " +time_ago_in_words(post.updated_at).to_s + " ago."
         -if user_signed_in? && (current_user.id == post.user_id || current_user.admin?)

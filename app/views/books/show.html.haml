@@ -1,6 +1,6 @@
 %h1= @book.title
 %section
-  %article.books__card
+  %article.board
     .books__all-details
       %figure= image_tag @book.picture.url(:medium), class: "books__cover"
       .books__description
@@ -31,7 +31,7 @@
           %section
             .comments__content
               %p= comment.content
-              %p.comments__date
+              %p.text__date
                 = "Added by" 
                 = link_to(User.find(comment.user_id).name, user_path(User.find(comment.user_id))).to_s + ", #{time_ago_in_words(comment.created_at)} ago"
                 - if user_signed_in? && (comment.user_id == current_user.id || current_user.admin?)

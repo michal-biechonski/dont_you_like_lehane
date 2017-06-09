@@ -5,3 +5,16 @@ section {
 .user__content-date + section {
   margin-top: 0.75em;
 }
+
+.board {
+  @include make-md-column(8);
+  @include make-md-column-offset(2);
+}
+
+.text__date {
+  font-size: 0.8em;
+  font-style: italic;
+  text-align: right;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
