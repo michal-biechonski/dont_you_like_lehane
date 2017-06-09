@@ -13,7 +13,7 @@
         .books__content
           %strong Published at:
           = @book.published_at.strftime("%B, %Y")
-      .clear
+      .cf
       .books__buttons
         -if user_signed_in?
           = link_to "Comment", new_book_comment_path(@book, @comment), class: "button button_confirm"
