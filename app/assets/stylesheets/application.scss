@@ -1,27 +1,30 @@
+// BOOTSTRAP
 $grid-float-breakpoint: 1015px;
 @import "bootstrap-sprockets";
 @import 'bootstrap-custom';
+
+// FONT-AWESOME
 @import "font-awesome";
 
 // BASE
-@import "variables";
-@import "mixins";
-@import "layout";
-@import "typography";
+@import "base/variables";
+@import "base/mixins";
+@import "base/layout";
+@import "base/typography";
 // TEMPORARY
 @import "stylesheet";
 
 // COMPONENTS
-@import "forms";
-@import "messages";
-@import "buttons";
-@import "textareas";
-@import "links";
-@import "images";
-@import "clearfix";
+@import "components/forms";
+@import "components/messages";
+@import "components/buttons";
+@import "components/textareas";
+@import "components/links";
+@import "components/images";
+@import "components/clearfix";
 
 // MODULES
-@import "navigation";
-@import "sections";
+@import "modules/navigation";
+@import "modules/sections";
 
 // THEMES
