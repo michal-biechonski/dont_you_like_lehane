@@ -2,13 +2,16 @@
 class CommentsController < ApplicationController
   before_action :set_user
   before_action :set_book, only: %i[new create destroy]
+  # before_action only: %i[new create destroy] do
+  #   set_book("comment")
+  # end
   before_action :set_comment, only: [:destroy]
   before_action only: [:destroy] do
     same_user(@comment)
   end
 
   def new
-    @comment = @book.comments.new
+    @comment = @book.comments.build
   end
 
   def create

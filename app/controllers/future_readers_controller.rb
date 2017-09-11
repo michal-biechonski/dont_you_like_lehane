@@ -24,9 +24,9 @@ class FutureReadersController < ApplicationController
     end
   end
 
-  def show
-    destroy
-  end
+  # def show
+  #   destroy
+  # end
 
   def destroy
     @future_reader = FutureReader.where("user_id = ? AND book_id = ?",

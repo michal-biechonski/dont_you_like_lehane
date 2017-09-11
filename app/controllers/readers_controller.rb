@@ -24,9 +24,9 @@ class ReadersController < ApplicationController
     end
   end
 
-  def show
-    destroy
-  end
+  # def show
+  #   destroy
+  # end
 
   def destroy
     @reader = Reader.where("user_id = ? AND book_id = ?",

@@ -1,5 +1,11 @@
 # HELPERS FOR BOOKS CONTROLLER
 module BooksHelper
+  # TODO: make set_book universal
+  # def set_book(type)
+  #   value = type == "book" ? :book_id : :id
+  #   @book = Book.find(params[value])
+  # end
+
   def already_read_this?
     read = Reader.where("user_id = ? AND book_id = ?",
                          current_user.id, @book.id)

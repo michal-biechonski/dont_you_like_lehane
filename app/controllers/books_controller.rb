@@ -4,6 +4,9 @@ class BooksController < ApplicationController
   before_action :require_admin, only: %i[new create edit update destroy]
   before_action :set_reader, only: [:show]
   before_action :set_future_reader, only: [:show]
+  # before_action only: %i[show edit update destroy] do
+  #   set_book("book")
+  # end
   before_action :set_book, only: %i[show edit update destroy]
 
   # GET /books
