@@ -401,7 +401,8 @@ DEPENDENCIES
   listen (~> 3.0.5)
   mini_magick
   minitest-reporters
-  paperclip (~> 5.0.0)
+  nokogiri
+  paperclip
   pg
   puma (~> 3.0)
   rails (~> 5.0.2)
@@ -418,4 +419,4 @@ DEPENDENCIES
   will_paginate (~> 3.1.0)
 
 BUNDLED WITH
-   1.14.5
+   1.15.4

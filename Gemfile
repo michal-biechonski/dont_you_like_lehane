@@ -15,7 +15,7 @@ gem "haml"
 gem "bootstrap-sass"
 gem "font-awesome-rails", "~> 4.7", ">= 4.7.0.1"
 gem "bcrypt", "~> 3.1", ">= 3.1.11"
-gem "paperclip", "~> 5.0.0"
+gem "paperclip"
 # gem "carrierwave", "~> 1.0"
 gem "mini_magick"
 gem "fog"
@@ -44,6 +44,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+gem 'nokogiri'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
