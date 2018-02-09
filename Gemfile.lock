@@ -51,7 +51,7 @@ GEM
       will_paginate
     builder (3.2.3)
     byebug (9.0.6)
-    climate_control (0.1.0)
+    climate_control (0.2.0)
     cocaine (0.5.8)
       climate_control (>= 0.0.3, < 1.0)
     coderay (1.1.1)
@@ -234,7 +234,8 @@ GEM
       minitest (>= 3.0)
     haml (4.0.7)
       tilt
-    i18n (0.8.1)
+    i18n (0.9.4)
+      concurrent-ruby (~> 1.0)
     inflecto (0.0.2)
     ipaddress (0.8.3)
     jbuilder (2.6.3)
@@ -259,8 +260,8 @@ GEM
     mime-types-data (3.2016.0521)
     mimemagic (0.3.2)
     mini_magick (4.6.1)
-    mini_portile2 (2.1.0)
-    minitest (5.10.1)
+    mini_portile2 (2.3.0)
+    minitest (5.11.3)
     minitest-reporters (1.1.14)
       ansi
       builder
@@ -269,13 +270,13 @@ GEM
     multi_json (1.12.1)
     nenv (0.3.0)
     nio4r (2.0.0)
-    nokogiri (1.7.0.1)
-      mini_portile2 (~> 2.1.0)
+    nokogiri (1.8.2)
+      mini_portile2 (~> 2.3.0)
     notiffany (0.1.1)
       nenv (~> 0.1)
       shellany (~> 0.0)
     orm_adapter (0.5.0)
-    paperclip (5.0.0)
+    paperclip (5.2.1)
       activemodel (>= 4.2.0)
       activesupport (>= 4.2.0)
       cocaine (~> 0.5.5)
@@ -363,7 +364,7 @@ GEM
     turbolinks (5.0.1)
       turbolinks-source (~> 5)
     turbolinks-source (5.0.0)
-    tzinfo (1.2.2)
+    tzinfo (1.2.5)
       thread_safe (~> 0.1)
     uglifier (3.1.7)
       execjs (>= 0.3.0, < 3)
@@ -401,8 +402,8 @@ DEPENDENCIES
   listen (~> 3.0.5)
   mini_magick
   minitest-reporters
-  nokogiri
-  paperclip
+  nokogiri (~> 1.8, >= 1.8.2)
+  paperclip (~> 5.2, >= 5.2.1)
   pg
   puma (~> 3.0)
   rails (~> 5.0.2)
