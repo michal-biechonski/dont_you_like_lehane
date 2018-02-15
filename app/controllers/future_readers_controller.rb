@@ -5,8 +5,8 @@ class FutureReadersController < ApplicationController
   before_action :set_user, only: %i[create show destroy]
 
   def create
-    @future_reader = current_user.future_readers.build
-    @future_reader.book_id = @book.id
+    @future_reader = current_user.future_readers.build(future_readers_params)
+    # @future_reader.book_id = @book.id
     respond_to do |format|
       if @future_reader.save
         @exist_reader.destroy unless @exist_reader.nil?
@@ -54,6 +54,6 @@ class FutureReadersController < ApplicationController
   end
 
   def future_readers_params
-    params.require(:future_reader).permit(:book_id)
+    params.permit(:book_id)
   end
 end
