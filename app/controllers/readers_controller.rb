@@ -5,8 +5,8 @@ class ReadersController < ApplicationController
   before_action :set_user, only: %i[create show destroy]
 
   def create
-    @reader = current_user.readers.build
-    @reader.book_id = @book.id
+    @reader = current_user.readers.build(readers_params)
+    # @reader.book_id = @book.id
     respond_to do |format|
       if @reader.save
         @fut_reader.destroy unless @fut_reader.nil?
@@ -51,5 +51,9 @@ class ReadersController < ApplicationController
 
   def set_book
     @book = Book.find(params[:book_id])
+  end
+  
+  def readers_params
+    params.permit(:book_id)
   end
 end
