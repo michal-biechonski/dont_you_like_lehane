@@ -18,7 +18,7 @@ lehane_books = [
       them into the midst of a gang war and reveals an act of child abuse.|
        Kenzie struggles with memories of his own past while Gennaro deals|
         with her abusive marriage.",
-    published_at: 1994 #23.years.ago
+    published_at: rand(DateTime.new(1994)..DateTime.new(1995)) #23.years.ago
   },
   {
     title: "Darkness, Take My Hand",
@@ -34,14 +34,14 @@ lehane_books = [
     their own past. In a series of heart-stopping climaxes that grow|
      ever more bloody, ever more terrifying, the two detectives work|
       frantically to capture the killer before they become victims themselves.",
-    published_at: 1996 #21.years.ago
+    published_at: rand(DateTime.new(1996)..DateTime.new(1997))
   },
   {
     title: "Sacred",
     description: "Patrick Kenzie and Angela Gennaro are hired by a dying|
      billionaire to find his daughter, Desiree, after the previous|
       detective working the case, Jay Becker, disappeared.",
-    published_at: 1997 #20.years.ago
+    published_at: rand(DateTime.new(1997)..DateTime.new(1998))
   },
   {
     title: "Gone, Baby, Gone",
@@ -55,7 +55,7 @@ lehane_books = [
     degenerate and neglectful parent. At the time of Amanda's |
     disappearance, Helene had left her alone for several hours while she |
     partied at a local dive bar. ",
-    published_at: 1998 #19.years.ago
+    published_at: rand(DateTime.new(1998)..DateTime.new(1999))
   },
   {
     title: "Prayers for Rain",
@@ -66,7 +66,7 @@ lehane_books = [
     occasional help of his loyal and happily homicidal pal Bubba |
     Rogowski--while Angie has moved uptown to a blue-chip corporate security |
     firm. Enter Karen Nichols, a nice, hard-working sort who's being stalked. ",
-    published_at: 1999 #18.years.ago
+    published_at: rand(DateTime.new(1999)..DateTime.new(2000))
   },
   { 
     title: "Moonlight Mile",
@@ -82,7 +82,7 @@ lehane_books = [
     16-year-old honor student, is once again missing, he vows to find the |
     girl, even if it means confronting the consequences of choices he made |
     that have haunted him for years. ",
-    published_at: 2010
+    published_at: rand(DateTime.new(2010)..DateTime.new(2011))
   },
   {
     title: "Mystic River",
@@ -96,7 +96,7 @@ lehane_books = [
     escape. Boyle, Jimmy Marcus and Sean Devine grow apart as the years pass, |
     but a quarter century later they are thrust back together when Marcus's |
     19-year-old daughter, Katie, is murdered in a local park.",
-    published_at: 2001
+    published_at: rand(DateTime.new(2001)..DateTime.new(2002))
   },
   {
     title: "Shutter Island",
@@ -117,15 +117,37 @@ lehane_books = [
     their path—most notably by the hospital's chief physician, the enigmatic |
     J. Cawley—and pick up hints of illegal brain surgery performed at |
     the hospital.",
-    published_at: 2003
+    published_at: rand(DateTime.new(2003)..DateTime.new(2004))
   },
   {
     title: "The Given Day",
-    description: "",
-    published_at: 
-    
+    published_at: "Lehane combines 20th-century American history, a gripping |
+    story of a family torn by pride and the strictures of the Catholic |
+    Church, and the plot of a multifaceted thriller. Set in Boston during |
+    and after WWI, this engrossing epic brings alive a pivotal period in our |
+    cultural maturation through a pulsing narrative that exposes social |
+    turmoil, political chicanery and racial prejudice, and encompasses the |
+    Spanish flu pandemic, the Boston police strike of 1919 and red-baiting |
+    and anti-union violence. Danny Coughlin, son of police captain Thomas |
+    Coughlin, is a devoted young beat cop in Boston's teeming North End. |
+    Anxious to prove himself worthy of his legendary father, he agrees to go |
+    undercover to infiltrate the Bolsheviks and anarchists who are recruiting |
+    the city's poverty-stricken immigrants.",
+    published_at: rand(DateTime.new(2008)..DateTime.new(2009))
+  },
+  {
+    title: "Live by Night",
+    description: "Bestseller Lehane (The Given Day) chronicles the |
+    Prohibition-era rise of Joe Coughlin, an Irish-American gangster, in this |
+    masterful crime epic. While most hard-working stiffs are earning their |
+    wages by day in 1926 Boston, 19-year-old Joe and his friends live by |
+    night, catering to the demand for prostitution, narcotics, and bootleg |
+    alcohol. When Joe falls for a competing mobster’s gun moll, he sets in |
+    motion a chain of events that land him in prison, with the girl missing |
+    and presumed dead. In the joint, Joe meets aging Mafia don Thomaso |
+    “Maso” Pescatore, who becomes his mentor. ",
+    published_at: rand(DateTime.new(2012)..DateTime.new(2013))
   }
-  
 ]
 
 lehane_books.each do |book|
@@ -143,23 +165,23 @@ end
               password_confirmation: password_confirmation)
 end
 
-Book.first(4).each do |book|
-  10.times do
-    user = User.all.sample
-    content = Faker::Hipster.paragraph(2)
-    @comment = book.comments.build(content: content)
-    @comment.user_id = user.id
-    @comment.save
-  end
-end
+# Book.first(4).each do |book|
+#   10.times do
+#     user = User.all.sample
+#     content = Faker::Hipster.paragraph(2)
+#     @comment = book.comments.build(content: content)
+#     @comment.user_id = user.id
+#     @comment.save
+#   end
+# end
 
-100.times do
-  user = User.all.sample
-  title = Faker::Hipster.sentence
-  content = Faker::Hipster.paragraph(2)
-  @post = user.posts.build(content: content, title: title)
-  @post.save
-end
+# 100.times do
+#   user = User.all.sample
+#   title = Faker::Hipster.sentence
+#   content = Faker::Hipster.paragraph(2)
+#   @post = user.posts.build(content: content, title: title)
+#   @post.save
+# end
 
 # Comment.all.each do |comment|
 #   comment.destroy
