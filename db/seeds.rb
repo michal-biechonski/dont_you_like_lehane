@@ -10,7 +10,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 lehane_books = [
-
   {
     title: "A Drink Before the War",
     description: "Private Investigators Kenzie and Gennaro are tasked to|
@@ -164,6 +163,51 @@ end
               password: password,
               password_confirmation: password_confirmation)
 end
+
+POSTS = 
+  [
+    "Good lord, I was not expecting that! Heck of a good read, in my book! Dennis Lehane's Shutter Island started off well for me and my tastes. Federal Marshals going into an insane asylum/prison on an inescapable island in Massachusetts during post-WWII to find a missing crazy woman, who apparently escaped. Love the setting, the characters, everything!",
+    "Epic Psychological thriller. Great writing, great theme, great pace of story. Psycho-lovers should read it once, they would never be upset or disappointed with it.Book Comprised about the experiment was used by Nazis around II WW with the Human brain. Love it. Enjoyed it alot.",
+    "The Given Day is my first Dennis LaHane book. The story was interesting but I had a hard time keeping up with who-was-who. It did jump around a bit too much. Just when I got interested in one character, he'd switch to someone else. I had to make myself finish the book. Don't think I'll read the others in this series.",
+    "Only three fourths finished, this book and author are spectacular. As much as Follett's Fall of Giants was great and sweeping and insightful, The Given Day is easily twice all that. It nails class struggle with rare perception through its beautifully drawn characters. Even Babe Ruth being included to show a historical angle as well as an unsophisticated view of the powerful events unfolding is clever without being artsy. It's a 10 book",
+    "Drink before the war - Incredibly wordy, even for a character study of three interesting youths who grow into their late 30s. At least a hundred pages could be removed by deleting all mention of one character's marriage and its problems. Drop the needless dream sequences, and the remaining text of 400 pages would be engrossing and compelling -- and a much better read..",
+    "Cataloguing Dennis Lehane as a 'mystery writer' is, to me, sort of like classifying LeBron James as just a basketball player. Yes, Lehane writes books that have a mystery/thriller component to them, but, just as James's ability now defines the game of basketball, Lehane's ability goes far beyond a genre also. I would challenge all readers to undertake any of today's top names in the field (Patterson, Baldacci, Grisham...) and read their top works side by side with Lehane's and I'd wager that a marked literary difference would be not only immediately noticeable, but profound.",
+    "Fans of Dennis Lehane might have been a bit apprehensive upon hearing that his latest book, \"Mystic River,\" would have no traces of detectives Patrick Kenzie and Angie Gennaro. Well, fear not, because Lehane, in his usual phenomenal style, draws us into the world of three childhood friends forever splintered by the events of a summer's day in 1975, when one is abducted by child molesters posing as police officers.",
+    "Decided to give this Leanne series a shot and I'm glad I did. A tad over the top with the noir patter, but I like both Patrick & Angie characters, and I'll read book 2 for sure. Decent story. Characters a bit stereotypical, but par for the course for this type novel.",
+    "Lehane is a master suspense writer with a gift for giving us what we least suspect at the most unexpected moment.",
+    "Lehane is now my favorite author. I love his sense of humor, and he keeps the sex fairly clean and romantic. Not a lot of curse words, but what is there fits the circumstance.",
+    "I have just loaded up on Lehane books, so I won't be running out anytime soon. Thank you Dennis for giving me a much better option than television propaganda.",
+    "Graphic Boston crime story of a private eye and his trusted female assistant. A throwback to the whodunnits of the 50s and 60s",
+    "As a huge Lee Child and Robert Crais fan, I wasn't sure I'd enjoy Kenzie/Genarro, especially with the sometimes mixed reviews. This one is dated and often made me very uncomfortable with the subject matter, but it is very well-written and the character development is exactly what I miss in the Reacher series. Kenzie and Genarro are more like gritty street-fighters, but the small-town neighborhood and childhood-friends background adds a welcome comfort level to the narrative.",
+    "I've read a number of Lehane's novels and I enjoyed them all. This is just escape fiction I read to relax."
+  ]
+
+COMMENTS = {
+  "A Drink Before the War" => 
+    [ "Terrific dialogue, witty and well worth a very late night reading this story. Very sorry to see it end! I hope these characters return again and again.",
+      "Having been a social worker in Boston, working with inner city offenders and gang members I can attest that Mr. Lehane writes a gripping truth which would shock many readers. \"A Drink\" is tough, charming, emotional, outrageous novel which is loaded with truth.",
+      "Dennis Lehane's debut novel featuring the PI team of Patrick Kenzie and Angela Gennaro is a solid, well written thriller about buried secrets and those who like to keep them buried. But in telling the tale, Lehane offers us a view inside the SOUL of his main characters, and their own reactions to the kind of evil and prejudice they uncover.",
+      "I don't usually read murder mysteries but this was chosen for book club. I did enjoy the book. Through all the dark parts there was a lot of light and hope too. Well written book just a little realistic at times.",
+      "Lehane is phenomenal as always. Great characters with realistic flaws and a story that draws you in and doesn't let go.",
+      "I always like a book that can put you right in the moment, with an intelligent, well-paced plot and plenty of down-to-earth, complex characters. Most books I attempt to read always lack at least one of these characteristics, so I was pleasantly surprised to find that this book remained gripping even past the sample pages. I am glad I found another author whose catalog I can raid."
+    ],
+  "Darkness, Take My Hand" => 
+    [
+      "Dennis Lehane has done something here no mystery writer has done in a long, long time. He scared the hell out of me! I enjoyed his first book ("A Drink Before the War") very much, and was looking forward to reading this, his second. I got more than I bargained for in almost every sense of the word.",
+      "Well this is certainly Lehane's most violent and gorey book with much to much detail in torture. That said, i found this book really well written and scary and funny at the same time, Patrick Kenzies One Liners, be it said aloud or only in his head keep a certain level of humor to the book.",
+      "Boy, can Dennis Lehane craft a story! DARKNESS, TAKE MY HAND is the second in the Kenzie/Gennaro series, and it certainly does not disappoint! It is a fast-paced thriller that leaves you sorry that you have to put it down for something as trivial as eating or sleeping. As Patrick and Angie unravel clues, Patrick's past with his violent father and with Angie and Renee, his ex-wife, becomes clearer to the reader. Lehane is the most exciting and hip writer to come along in some time, and I wish him a long career. More Kenzie and Gennaro, Please!",
+      "I found myself reading well after midnight, long after I should have turned the light out, but I found it difficult to leave Patrick and Angie and their incredibly dangerous situation. I tend to prefer cozies, stories which are lighter and not nearly as violent as this, but Lehane hooked me and I couldn't turn away. I've now read the first three in the series, and I will continue.",
+      "Outstanding. A nice spin on a long-term serial killer. I could hear the gunshots, feel the pain from victims and even felt the cold steel and oozing blood from a stiletto. WOW! I read this right aftwer "Mystic River" but I will take the advice of another reviewer and now read the rest of his work in order. My only dilemma will be either read them slowly or quickly. I don't want his work to end."
+    ],
+  "Sacred" => [],
+  "Gone, Baby, Gone" => [],
+  "Prayers for Rain" => [],
+  "Moonlight Mile" => [],
+  "Mystic River" => [],
+  "Shutter Island" => [],
+  "The Given Day" => [],
+  "Live by Night" => []
+}
 
 # Book.first(4).each do |book|
 #   10.times do
