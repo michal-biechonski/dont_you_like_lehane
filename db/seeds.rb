@@ -189,13 +189,13 @@ POSTS.each do |post_content|
   user.posts.create(content: content, title: title)
 end
   
-  100.times do
-  user = User.all.sample
-  title = Faker::Hipster.sentence
-  content = Faker::Hipster.paragraph(2)
-  @post = user.posts.build(content: content, title: title)
-  @post.save
-end
+# 100.times do
+#   user = User.all.sample
+#   title = Faker::Hipster.sentence
+#   content = Faker::Hipster.paragraph(2)
+#   @post = user.posts.build(content: content, title: title)
+#   @post.save
+# end
 
 COMMENTS = {
   "A Drink Before the War" => 
