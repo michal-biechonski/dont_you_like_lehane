@@ -7,7 +7,7 @@ class User < ApplicationRecord
          :rememberable,
          :trackable,
          :validatable,
-         :confirmable,
+        # :confirmable,
          :lockable,
          maximum_attempts: 3
   validates :name, presence: true, length: { minimum: 3 }, allow_nil: false
