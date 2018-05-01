@@ -1,5 +1,6 @@
 # BOOKS MODEL
 class Book < ApplicationRecord
+  # TODO: fix adding books covers => invalid picture 
   has_attached_file :picture,
                     styles: { medium: "300x300>",
                               thumb: "100x100>" },
