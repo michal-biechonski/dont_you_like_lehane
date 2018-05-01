@@ -19,7 +19,7 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id
     if @comment.save
       flash[:notice] = "Comment was successfully added."
-      redirect_to @book
+    redirect_to @book
     else
       render "new"
     end
