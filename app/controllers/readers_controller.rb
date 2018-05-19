@@ -29,8 +29,7 @@ class ReadersController < ApplicationController
   # end
 
   def destroy
-    @reader = Reader.where("user_id = ? AND book_id = ?",
-                           current_user.id, @book.id).take
+    @reader = Reader.book_read_by(@book, current_user)
     respond_to do |format|
       if !@reader.nil? && @reader.destroy
         format.js

@@ -29,9 +29,7 @@ class FutureReadersController < ApplicationController
   # end
 
   def destroy
-    # TODO: refactor futurereader destroy method
-    @future_reader = FutureReader.where("user_id = ? AND book_id = ?",
-                                        current_user.id, @book.id).take
+    @future_reader = FutureReader.book_read_by(@book, current_user)
     respond_to do |format|
       if !@future_reader.nil? && @future_reader.destroy
         format.js
