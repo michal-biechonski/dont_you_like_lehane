@@ -18,5 +18,6 @@ module DontYouLikeLehane
       %r{/\/\/\s*(#{annotation}):?\s*(.*)$/}
     end
     config.action_view.embed_authenticity_token_in_remote_forms = true
+    config.eager_load_paths << Rails.root.join('lib')
   end
 end
