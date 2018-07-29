@@ -46,6 +46,8 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'nokogiri', '~> 1.8', '>= 1.8.2'
 
+gem 'decent_exposure', '~> 3.0', '>= 3.0.2'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
