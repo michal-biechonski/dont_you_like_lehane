@@ -12,21 +12,6 @@ class BooksController < ApplicationController
   # end
   # before_action :set_book, only: %i[show edit update destroy]
 
-  # GET /books
-
-  # GET /books/1
-  # def show
-  #   @comments = @book.comments
-  # end
-
-  # GET /books/new
-  def new
-    @book = Book.new
-  end
-
-  # GET /books/1/edit
-  def edit; end
-
   # POST /books
   def create
     if book.save
