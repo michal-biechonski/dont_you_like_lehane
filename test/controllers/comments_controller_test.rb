@@ -43,10 +43,10 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
         @book, params: { comment: { content: "some random text" } }
       )
     end
-    @comment = assigns(:comment)
+    comment = Comment.last
     assert_redirected_to @book
     assert_difference("Comment.count", -1) do
-      delete book_comment_url(@book, @comment)
+      delete book_comment_url(@book, comment)
     end
     assert_redirected_to @book
   end
