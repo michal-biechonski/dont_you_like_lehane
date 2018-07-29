@@ -44,6 +44,7 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'decent_exposure', '~> 3.0', '>= 3.0.2'
 gem 'nokogiri', '~> 1.8', '>= 1.8.2'
+gem 'pundit', '~> 2.0'
 gem 'rubocop', '~> 0.48.1', require: false
 gem 'rubocop-rspec-focused', '~> 0.1.0', require: false
 gem 'sprockets', '~> 3.7.2'

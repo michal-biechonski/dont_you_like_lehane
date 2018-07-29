@@ -3,8 +3,8 @@ class BooksController < ApplicationController
   expose :books, -> { Book.all }
   expose :book
 
-  before_action :set_user, only: %i[new create edit update destroy]
-  before_action :require_admin, only: %i[new create edit update destroy]
+  before_action :set_user, only: %i[edit update destroy]
+  before_action :require_admin, only: %i[edit update destroy]
   before_action :set_reader, only: [:show]
   before_action :set_future_reader, only: [:show]
   # before_action only: %i[show edit update destroy] do
@@ -12,8 +12,13 @@ class BooksController < ApplicationController
   # end
   # before_action :set_book, only: %i[show edit update destroy]
 
+  def new
+    authorize book
+  end
+
   # POST /books
   def create
+    authorize book
     if book.save
       flash[:notice] = 'Book was successfully created.'
       redirect_to book
