@@ -27,7 +27,7 @@ module BooksHelper
 
   def set_future_reader
     return unless user_signed_in?
-    # set_book
+    book
     @fut_reader = FutureReader.where("user_id = ? AND book_id = ?",
                                      current_user.id, book.id).take
   end
@@ -35,7 +35,7 @@ module BooksHelper
   def reader(type)
     # TODO: instead of 2 set readers methods create 1
     return unless user_signed_in?
-    set_book
+    book
     # class_name = 
     instant_variable_set(:"@#{type}", )
   end
