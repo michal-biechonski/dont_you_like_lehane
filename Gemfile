@@ -1,28 +1,27 @@
-source "https://rubygems.org"
+source 'https://rubygems.org'
 
 git_source(:github) do |repo_name|
-  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
+  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?('/')
   "https://github.com/#{repo_name}.git"
 end
 
-# Bundle edge Rails instead: gem "rails", github: "rails/rails"
-gem "rails", ">= 5.2.0"
+# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'rails', '>= 5.2.0'
 # Use Puma as the app server
-gem "puma", "~> 3.0"
+gem 'puma', '~> 3.0'
 
-gem "haml"
-gem "bootstrap-sass"
-gem "font-awesome-rails", "~> 4.7", ">= 4.7.0.1"
-gem "bcrypt", "~> 3.1", ">= 3.1.11"
+gem 'bcrypt', '~> 3.1', '>= 3.1.11'
+gem 'bootstrap-sass'
+gem 'bootstrap-will_paginate'
+gem 'devise'
+gem 'faker', '~> 1.7', '>= 1.7.3'
+gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.1'
+gem 'haml'
+gem 'mini_magick'
 gem 'paperclip', '~> 5.2', '>= 5.2.1'
-# gem "carrierwave", "~> 1.0"
-gem "mini_magick"
-# gem "fog"
-gem "faker", "~> 1.7", ">= 1.7.3"
-gem "will_paginate", "~> 3.1.0"
-gem "bootstrap-will_paginate"
-gem "devise"
-
+gem 'will_paginate', '~> 3.1.0'
+# gem 'carrierwave', '~> 1.0'
+# gem 'fog'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
@@ -43,10 +42,11 @@ gem 'jbuilder', '~> 2.7'
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-gem 'nokogiri', '~> 1.8', '>= 1.8.2'
 gem 'decent_exposure', '~> 3.0', '>= 3.0.2'
-gem 'rubocop', '~> 0.58.2'
-
+gem 'nokogiri', '~> 1.8', '>= 1.8.2'
+gem 'rubocop', '~> 0.48.1', require: false
+gem 'rubocop-rspec-focused', '~> 0.1.0', require: false
+gem 'sprockets', '~> 3.7.2'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -57,19 +57,19 @@ group :development, :test do
 end
 
 group :development do
-  # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
-  gem 'web-console', '>= 3.3.0'
   gem 'listen', '~> 3.0.5'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
+  gem 'web-console', '>= 3.3.0'
 end
 
 group :test do
-  gem 'rails-controller-testing'
-  gem 'minitest-reporters'
-  gem 'guard'         
+  gem 'guard'
   gem 'guard-minitest'
+  gem 'minitest-reporters'
+  gem 'rails-controller-testing'
 end
 
 group :production do
@@ -78,4 +78,4 @@ group :production do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

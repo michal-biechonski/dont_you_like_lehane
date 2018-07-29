@@ -1,6 +1,6 @@
 # HANDLE ALL BOOKS WRITTEN BY LEHANE
 class BooksController < ApplicationController
-  expose :books, ->{ Book.all }
+  expose :books, -> { Book.all }
   expose :book
 
   before_action :set_user, only: %i[new create edit update destroy]
@@ -8,14 +8,14 @@ class BooksController < ApplicationController
   before_action :set_reader, only: [:show]
   before_action :set_future_reader, only: [:show]
   # before_action only: %i[show edit update destroy] do
-  #   set_book("book")
+  #   set_book('book')
   # end
   # before_action :set_book, only: %i[show edit update destroy]
 
   # POST /books
   def create
     if book.save
-      flash[:notice] = "Book was successfully created."
+      flash[:notice] = 'Book was successfully created.'
       redirect_to book
     else
       render :new
@@ -33,7 +33,7 @@ class BooksController < ApplicationController
 
   def destroy
     book.destroy
-    flash[:notice] = "Book was successfully deleted."
+    flash[:notice] = 'Book was successfully deleted.'
     redirect_to books_url
   end
 
