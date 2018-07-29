@@ -55,13 +55,13 @@ class BooksTest < ActionDispatch::IntegrationTest
         }
       )
     end
-    @book = assigns(:book)
-    assert_redirected_to @book
+    book = Book.last
+    assert_redirected_to book
     follow_redirect!
     assert_select "div#flash_notice", "Book was successfully created."
-    assert_equal @book.title, "some random book title"
-    assert_equal @book.description, "some random book description"
-    assert_equal @book.published_at, "2017-01-01 00:00:00"
+    assert_equal book.title, "some random book title"
+    assert_equal book.description, "some random book description"
+    assert_equal book.published_at, "2017-01-01 00:00:00"
 
     assert_no_difference("Book.count") do
       post(
@@ -77,10 +77,10 @@ class BooksTest < ActionDispatch::IntegrationTest
     end
     assert_select "div#error_explanation", count: 1
 
-    get edit_book_url(@book)
+    get edit_book_url(book)
     assert_template "books/edit"
     patch book_url(
-      @book,
+      book,
       params: {
         book: {
           title: "changed book title",
@@ -89,22 +89,22 @@ class BooksTest < ActionDispatch::IntegrationTest
         }
       }
     )
-    assert_redirected_to @book
+    assert_redirected_to book
     follow_redirect!
     assert_select "div#flash_notice", "Book was successfully updated."
-    @book.reload
-    assert_equal @book.title, "changed book title"
-    assert_equal @book.description, "changed book description"
-    assert_equal @book.published_at, "2000-01-01 00:00:00"
+    book.reload
+    assert_equal book.title, "changed book title"
+    assert_equal book.description, "changed book description"
+    assert_equal book.published_at, "2000-01-01 00:00:00"
 
     patch(
-      book_url(@book),
+      book_url(book),
       params: { book: { title: "", description: "", published_at: "" } }
     )
     assert_select "div#error_explanation", count: 1
 
     assert_difference("Book.count", -1) do
-      delete book_url(@book)
+      delete book_url(book)
     end
     assert_redirected_to books_url
     follow_redirect!
