@@ -55,7 +55,7 @@ class BooksTest < ActionDispatch::IntegrationTest
         }
       )
     end
-    book = assigns(:book)
+    book = Book.last
     assert_redirected_to book
     follow_redirect!
     assert_select "div#flash_notice", "Book was successfully created."
