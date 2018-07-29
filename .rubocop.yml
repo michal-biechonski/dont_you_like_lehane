@@ -1,12 +1,65 @@
-Style/StringLiterals:  
-  EnforcedStyle: double_quotes
-  Enabled: true
-  
+AllCops:
+  Exclude:
+    - bin/*
+    - db/**/*
+    - config/**/*
+    - vendor/**/*
+    - Guardfile
+    - Rakefile
+  TargetRubyVersion: 2.4
+require:
+  - rubocop/rspec/focused
 Documentation:
   Enabled: false
-
-Metrics/ClassLength:
+Lint/HandleExceptions:
   Enabled: false
-
+Lint/AmbiguousBlockAssociation:
+  Enabled: false
+Metrics/AbcSize:
+  Max: 69.57
 Metrics/BlockLength:
+  Exclude:
+    - spec/**/*
+  Max: 300
+Metrics/ClassLength:
+  Exclude:
+    - spec/**/*
+  Max: 300
+Metrics/CyclomaticComplexity:
+  Max: 15
+Metrics/PerceivedComplexity:
+  Max: 15
+Metrics/LineLength:
   Enabled: false
+Metrics/MethodLength:
+  Max: 50
+Metrics/ModuleLength:
+  Max: 300
+  Exclude:
+    - spec/**/*
+RSpec/Focused:
+  Enabled: true
+Style/AccessorMethodName:
+  Enabled: false
+Style/BlockDelimiters:
+  Exclude:
+    - spec/**/*
+Style/DoubleNegation:
+  Enabled: false
+Style/FrozenStringLiteralComment:
+  Enabled: false
+Style/Lambda:
+  Enabled: false
+Style/MethodMissing:
+  Enabled: false
+Style/ModuleFunction:
+  EnforcedStyle: extend_self
+Style/RegexpLiteral:
+  Enabled: false
+Style/StringLiterals:
+  EnforcedStyle: single_quotes
+Style/TrailingCommaInLiteral:
+  EnforcedStyleForMultiline: comma
+  Enabled: true
+Style/VariableNumber:
+  EnforcedStyle: 'snake_case'
