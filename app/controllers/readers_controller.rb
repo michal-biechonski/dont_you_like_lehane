@@ -1,13 +1,14 @@
 # HANDLE USERS WHO READ SPECIFIC BOOKS
 class ReadersController < ApplicationController
-  expose :books, ->{ Book.all }
+  expose :books, -> { Book.all }
   expose :book
 
   before_action :set_book, only: %i[create show destroy]
   before_action :set_future_reader, only: %i[create show destroy]
-  before_action :set_user, only: %i[create show destroy]
+  # before_action :set_user, only: %i[create show destroy]
 
   def create
+    authorize book, policy_class: ReadablePolicy
     @reader = current_user.readers.build(readers_params)
     # @reader.book_id = book.id
     respond_to do |format|
@@ -27,11 +28,13 @@ class ReadersController < ApplicationController
     end
   end
 
-  # def show
+  def show
+    authorize book, policy_class: ReadablePolicy
   #   destroy
-  # end
+  end
 
   def destroy
+    authorize book, policy_class: ReadablePolicy
     @reader = Reader.book_read_by(book, current_user)
     respond_to do |format|
       if !@reader.nil? && @reader.destroy
