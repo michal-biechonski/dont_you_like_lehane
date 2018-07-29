@@ -16,14 +16,14 @@ class PostPolicy
   end
 
   def edit?
-    user.admin? or user.id == post.user_id 
+    user.admin? || user.id == post.user_id
   end
 
   def update?
-    user.admin? or user.id == post.user_id
+    user.admin? || user.id == post.user_id
   end
 
   def destroy?
-    user.admin? or user.id == post.user_id
+    user.admin? || user.id == post.user_id
   end
 end

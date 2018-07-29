@@ -16,6 +16,6 @@ class CommentPolicy
   end
 
   def destroy?
-    user.admin? or user.id == comment.user_id
+    user.admin? || user.id == comment.user_id
   end
 end
