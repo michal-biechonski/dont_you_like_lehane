@@ -1,0 +1,12 @@
+= form_for @form do |f|
+	= hidden_field :user_id, current_user.id
+	%div
+		= f.label :title
+		= f.text_field :title
+	%div
+		= f.label :content
+		= f.text_field :content
+	%div
+		= f.label :length
+		= f.number_field :length
+	= f.submit
