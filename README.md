@@ -1,4 +1,4 @@
-Don't You Like Lehane is a webapp for spirited Dennis Lehane's fans.
+Don't You Like Lehane is a webapp for spirited Dennis Lehane's fans. 
 
 It's run on Ruby 2.4.0 and Rails 5.0.2.
 
